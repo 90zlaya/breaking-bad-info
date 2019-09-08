@@ -7,7 +7,9 @@
     "email": "contact@zlatanstajic.com",
     "url": "https://www.zlatanstajic.com"
   },
-  "keywords": ["vuejs"],
+  "keywords": [
+    "vuejs"
+  ],
   "repository": "https://github.com/90zlaya/vue-js-playground",
   "private": true,
   "scripts": {
