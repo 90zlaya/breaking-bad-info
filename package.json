@@ -1,7 +1,8 @@
 {
-  "name": "vue-js-playground",
+  "name": "vuejs-playground",
   "description": "A Vue.js playground",
   "version": "1.0.0",
+  "private": true,
   "author": {
     "name": "Zlatan Stajic",
     "email": "contact@zlatanstajic.com",
@@ -10,8 +11,15 @@
   "keywords": [
     "vuejs"
   ],
-  "repository": "https://github.com/90zlaya/vue-js-playground",
-  "private": true,
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/90zlaya/vuejs-playground.git"
+  },
+  "homepage": "https://github.com/90zlaya/vuejs-playground#readme",
+  "bugs": {
+    "url": "https://github.com/90zlaya/vuejs-playground/issues"
+  },
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
