@@ -1,6 +1,6 @@
 /* -------------------------------------------------------------------------- */
 
-const appTemplate = `
+const AppTemplate = `
   <div>
     <app-header></app-header>
     <div class="app-content">
@@ -14,6 +14,6 @@ const appTemplate = `
 
 /* -------------------------------------------------------------------------- */
 
-export default appTemplate;
+export default AppTemplate;
 
 /* -------------------------------------------------------------------------- */

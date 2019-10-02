@@ -1,6 +1,6 @@
 /* -------------------------------------------------------------------------- */
 
-const headerTemplate = `
+const HeaderTemplate = `
   <header>
     <h3>{{ title }}</h3>
   </header>
@@ -8,6 +8,6 @@ const headerTemplate = `
 
 /* -------------------------------------------------------------------------- */
 
-export default headerTemplate;
+export default HeaderTemplate;
 
 /* -------------------------------------------------------------------------- */

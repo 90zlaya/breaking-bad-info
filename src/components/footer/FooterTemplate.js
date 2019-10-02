@@ -1,6 +1,6 @@
 /* -------------------------------------------------------------------------- */
 
-const footerTemplate = `
+const FooterTemplate = `
   <footer>
     <h3>{{ title }}</h3>
   </footer>
@@ -8,6 +8,6 @@ const footerTemplate = `
 
 /* -------------------------------------------------------------------------- */
 
-export default footerTemplate;
+export default FooterTemplate;
 
 /* -------------------------------------------------------------------------- */
