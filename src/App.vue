@@ -1,20 +1,13 @@
-<template>
-  <div>
-    <app-header></app-header>
-    <div class="app-content">
-      <h1>Hello World from {{ title }}</h1>
-      <h2 v-if="subtitle">{{ subtitle }}</h2>
-      <button v-if="!subtitle" v-on:click="addSubtitle">Add subtitle</button>
-    </div>
-    <app-footer></app-footer>
-  </div>
-</template>
-
 <script>
-import Header from './components/Header.vue';
-import Footer from './components/Footer.vue';
+import appTemplate from './AppTemplate.js';
+import Header from './components/header/Header.vue';
+import Footer from './components/footer/Footer.vue';
 
-export default {
+const App = {
+
+  /* ------------------------------------------------------------------------ */
+
+  template: appTemplate,
 
   /* ------------------------------------------------------------------------ */
 
@@ -42,6 +35,8 @@ export default {
 
   /* ------------------------------------------------------------------------ */
 }
+
+export default App;
 </script>
 
 <style>

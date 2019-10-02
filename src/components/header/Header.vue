@@ -1,31 +1,33 @@
-<template>
-  <footer>
-    <h3>{{ title }}</h3>
-  </footer>
-</template>
-
 <script>
-export default {
+import headerTemplate from './HeaderTemplate.js';
+
+const Header = {
+
+  /* ------------------------------------------------------------------------ */
+
+  template: headerTemplate,
 
   /* ------------------------------------------------------------------------ */
 
   data() {
     return{
-      title: 'This is footer',
+      title: 'This is header',
     };
   },
 
   /* ------------------------------------------------------------------------ */
 
 }
+
+export default Header;
 </script>
 
 <style scoped>
 /* -------------------------------------------------------------------------- */
 /* --- Elements ------------------------------------------------------------- */
 /* -------------------------------------------------------------------------- */
-footer {
-  background: red;
+header {
+  background: green;
   padding: 10px;
   text-align: center;
 }
