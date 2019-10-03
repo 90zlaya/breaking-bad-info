@@ -1,3 +1,4 @@
+import dictionary from './../i18n/dictionary.js';
 import AppTemplate from './AppTemplate.js';
 import Header from './header/Header.js';
 import Footer from './footer/Footer.js';
@@ -19,16 +20,23 @@ const App = {
 
   data() {
     return {
-      title: 'Vue.js Playground',
+      dictionary: {},
       subtitle: '',
     };
   },
 
   /* ------------------------------------------------------------------------ */
 
+  created() {
+    // Set dictionary
+    this.dictionary = dictionary['en'];
+  },
+
+  /* ------------------------------------------------------------------------ */
+
   methods: {
     addSubtitle() {
-      this.subtitle = 'Example of a subtitle';
+      this.subtitle = this.dictionary.examples.subtitle;
     },
   },
 
