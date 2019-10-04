@@ -2,7 +2,7 @@
 
 const HeaderTemplate = `
   <header>
-    <h3>{{ title }}</h3>
+    <h3>{{ translations.header.title }}</h3>
   </header>
 `;
 

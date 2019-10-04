@@ -2,7 +2,7 @@
 
 const FooterTemplate = `
   <footer>
-    <h3>{{ title }}</h3>
+    <h3>{{ translations.footer.title }}</h3>
   </footer>
 `;
 

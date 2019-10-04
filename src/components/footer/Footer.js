@@ -1,3 +1,4 @@
+import translations from './../../../translations.js';
 import FooterTemplate from './FooterTemplate.js';
 
 const Footer = {
@@ -9,8 +10,8 @@ const Footer = {
   /* ------------------------------------------------------------------------ */
 
   data() {
-    return{
-      title: 'This is footer',
+    return {
+      translations: translations,
     };
   },
 

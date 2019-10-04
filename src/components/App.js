@@ -1,4 +1,4 @@
-import dictionary from './../i18n/dictionary.js';
+import translations from './../../translations.js';
 import AppTemplate from './AppTemplate.js';
 import Header from './header/Header.js';
 import Footer from './footer/Footer.js';
@@ -20,23 +20,20 @@ const App = {
 
   data() {
     return {
-      dictionary: {},
+      translations: translations,
       subtitle: '',
     };
   },
 
   /* ------------------------------------------------------------------------ */
 
-  created() {
-    // Set dictionary
-    this.dictionary = dictionary['en'];
-  },
+  created() {},
 
   /* ------------------------------------------------------------------------ */
 
   methods: {
     addSubtitle() {
-      this.subtitle = this.dictionary.examples.subtitle;
+      this.subtitle = this.translations.subtitle;
     },
   },
 
