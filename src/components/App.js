@@ -1,4 +1,4 @@
-import translations from './../../translations.js';
+import Translations from './../../translations.js';
 import AppTemplate from './AppTemplate.js';
 import Header from './header/Header.js';
 import Footer from './footer/Footer.js';
@@ -20,7 +20,7 @@ const App = {
 
   data() {
     return {
-      translations: translations,
+      translations: Translations,
       subtitle: '',
     };
   },
@@ -28,6 +28,14 @@ const App = {
   /* ------------------------------------------------------------------------ */
 
   created() {},
+
+  /* ------------------------------------------------------------------------ */
+
+  mounted() {},
+
+  /* ------------------------------------------------------------------------ */
+
+  updated() {},
 
   /* ------------------------------------------------------------------------ */
 
