@@ -1,6 +1,7 @@
 import Translations from './../../translations.js';
 import AppTemplate from './AppTemplate.js';
 import Header from './header/Header.js';
+import Content from './content/Content.js';
 import Footer from './footer/Footer.js';
 
 const App = {
@@ -13,6 +14,7 @@ const App = {
 
   components: {
     'app-header': Header,
+    'app-content': Content,
     'app-footer': Footer,
   },
 
@@ -21,7 +23,6 @@ const App = {
   data() {
     return {
       translations: Translations,
-      subtitle: '',
     };
   },
 
@@ -39,11 +40,7 @@ const App = {
 
   /* ------------------------------------------------------------------------ */
 
-  methods: {
-    addSubtitle() {
-      this.subtitle = this.translations.subtitle;
-    },
-  },
+  methods: {},
 
   /* ------------------------------------------------------------------------ */
 }
