@@ -1,15 +1,13 @@
 /* -------------------------------------------------------------------------- */
 
-const AppTemplate = `
-  <div>
-    <app-header></app-header>
-    <app-content></app-content>
-    <app-footer></app-footer>
-  </div>
+const headerTemplate = `
+  <header>
+    <h3>{{ translations.header.title }}</h3>
+  </header>
 `;
 
 /* -------------------------------------------------------------------------- */
 
-export default AppTemplate;
+export default headerTemplate;
 
 /* -------------------------------------------------------------------------- */

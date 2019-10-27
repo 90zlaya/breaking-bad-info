@@ -1,11 +1,11 @@
-import Translations from './../../../translations.js';
-import HeaderTemplate from './HeaderTemplate.js';
+import translations from './../../../translations.js';
+import contentTemplate from './contentTemplate.js';
 
-const Header = {
+const content = {
 
   /* ------------------------------------------------------------------------ */
 
-  template: HeaderTemplate,
+  template: contentTemplate,
 
   /* ------------------------------------------------------------------------ */
 
@@ -19,7 +19,8 @@ const Header = {
 
   data() {
     return {
-      translations: Translations,
+      translations: translations,
+      subtitle: '',
     };
   },
 
@@ -37,10 +38,14 @@ const Header = {
 
   /* ------------------------------------------------------------------------ */
 
-  methods: {},
+  methods: {
+    addSubtitle() {
+      this.subtitle = this.translations.subtitle;
+    },
+  },
 
   /* ------------------------------------------------------------------------ */
 
 }
 
-export default Header;
+export default content;

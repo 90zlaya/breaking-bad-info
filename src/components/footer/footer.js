@@ -1,11 +1,11 @@
-import Translations from './../../../translations.js';
-import ContentTemplate from './ContentTemplate.js';
+import translations from './../../../translations.js';
+import footerTemplate from './footerTemplate.js';
 
-const Content = {
+const footer = {
 
   /* ------------------------------------------------------------------------ */
 
-  template: ContentTemplate,
+  template: footerTemplate,
 
   /* ------------------------------------------------------------------------ */
 
@@ -19,8 +19,7 @@ const Content = {
 
   data() {
     return {
-      translations: Translations,
-      subtitle: '',
+      translations: translations,
     };
   },
 
@@ -38,14 +37,10 @@ const Content = {
 
   /* ------------------------------------------------------------------------ */
 
-  methods: {
-    addSubtitle() {
-      this.subtitle = this.translations.subtitle;
-    },
-  },
+  methods: {},
 
   /* ------------------------------------------------------------------------ */
 
 }
 
-export default Content;
+export default footer;

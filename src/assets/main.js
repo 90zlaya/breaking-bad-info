@@ -1,11 +1,11 @@
-import Vue from 'vue'
-import App from './../components/App.js'
+import vue from 'vue'
+import app from './../components/app.js'
 
 /* -------------------------------------------------------------------------- */
 
-new Vue({
+new vue({
   el: '#app',
-  render: h => h(App),
+  render: h => h(app),
 })
 
 /* -------------------------------------------------------------------------- */

@@ -1,13 +1,15 @@
 /* -------------------------------------------------------------------------- */
 
-const FooterTemplate = `
-  <footer>
-    <h3>{{ translations.footer.title }}</h3>
-  </footer>
+const appTemplate = `
+  <div>
+    <app-header></app-header>
+    <app-content></app-content>
+    <app-footer></app-footer>
+  </div>
 `;
 
 /* -------------------------------------------------------------------------- */
 
-export default FooterTemplate;
+export default appTemplate;
 
 /* -------------------------------------------------------------------------- */

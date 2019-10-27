@@ -1,25 +1,28 @@
-import Translations from './../../../translations.js';
-import FooterTemplate from './FooterTemplate.js';
+import translations from './../../translations.js';
+import appTemplate from './appTemplate.js';
+import header from './header/header.js';
+import content from './content/content.js';
+import footer from './footer/footer.js';
 
-const Footer = {
-
-  /* ------------------------------------------------------------------------ */
-
-  template: FooterTemplate,
-
-  /* ------------------------------------------------------------------------ */
-
-  props: {},
+const app = {
 
   /* ------------------------------------------------------------------------ */
 
-  components: {},
+  template: appTemplate,
+
+  /* ------------------------------------------------------------------------ */
+
+  components: {
+    'app-header': header,
+    'app-content': content,
+    'app-footer': footer,
+  },
 
   /* ------------------------------------------------------------------------ */
 
   data() {
     return {
-      translations: Translations,
+      translations: translations,
     };
   },
 
@@ -40,7 +43,6 @@ const Footer = {
   methods: {},
 
   /* ------------------------------------------------------------------------ */
-
 }
 
-export default Footer;
+export default app;

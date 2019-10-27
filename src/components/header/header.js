@@ -1,28 +1,25 @@
-import Translations from './../../translations.js';
-import AppTemplate from './AppTemplate.js';
-import Header from './header/Header.js';
-import Content from './content/Content.js';
-import Footer from './footer/Footer.js';
+import translations from './../../../translations.js';
+import headerTemplate from './headerTemplate.js';
 
-const App = {
+const header = {
 
   /* ------------------------------------------------------------------------ */
 
-  template: AppTemplate,
+  template: headerTemplate,
 
   /* ------------------------------------------------------------------------ */
 
-  components: {
-    'app-header': Header,
-    'app-content': Content,
-    'app-footer': Footer,
-  },
+  props: {},
+
+  /* ------------------------------------------------------------------------ */
+
+  components: {},
 
   /* ------------------------------------------------------------------------ */
 
   data() {
     return {
-      translations: Translations,
+      translations: translations,
     };
   },
 
@@ -43,6 +40,7 @@ const App = {
   methods: {},
 
   /* ------------------------------------------------------------------------ */
+
 }
 
-export default App;
+export default header;

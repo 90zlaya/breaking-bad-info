@@ -1,6 +1,6 @@
 /* -------------------------------------------------------------------------- */
 
-const ContentTemplate = `
+const contentTemplate = `
   <div>
     <div class="app-content">
       <h1>
@@ -19,6 +19,6 @@ const ContentTemplate = `
 
 /* -------------------------------------------------------------------------- */
 
-export default ContentTemplate;
+export default contentTemplate;
 
 /* -------------------------------------------------------------------------- */

@@ -1,13 +1,13 @@
 /* -------------------------------------------------------------------------- */
 
-const HeaderTemplate = `
-  <header>
-    <h3>{{ translations.header.title }}</h3>
-  </header>
+const footerTemplate = `
+  <footer>
+    <h3>{{ translations.footer.title }}</h3>
+  </footer>
 `;
 
 /* -------------------------------------------------------------------------- */
 
-export default HeaderTemplate;
+export default footerTemplate;
 
 /* -------------------------------------------------------------------------- */
