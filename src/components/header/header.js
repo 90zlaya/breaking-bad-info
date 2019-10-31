@@ -1,4 +1,3 @@
-import translations from './../../../translations.js';
 import headerTemplate from './headerTemplate.js';
 
 const header = {
@@ -18,9 +17,7 @@ const header = {
   /* ------------------------------------------------------------------------ */
 
   data() {
-    return {
-      translations: translations,
-    };
+    return {};
   },
 
   /* ------------------------------------------------------------------------ */

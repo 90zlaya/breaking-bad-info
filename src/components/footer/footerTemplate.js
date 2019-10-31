@@ -2,7 +2,7 @@
 
 const footerTemplate = `
   <footer>
-    <h3>{{ translations.footer.title }}</h3>
+    <h3>{{ $t('footer.title') }}</h3>
   </footer>
 `;
 

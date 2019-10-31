@@ -4,15 +4,13 @@ const contentTemplate = `
   <div>
     <div class="app-content">
       <h1>
-        {{ translations.hello_world }}
-        {{ translations.from }}
-        {{ translations.title }}
+        {{ $t('hello_world_from_title', { title: $t('title') }) }}
       </h1>
       <h2 v-if="subtitle">{{ subtitle }}</h2>
       <button
         v-if="!subtitle"
-        v-on:click="addSubtitle"
-      >{{ translations.add_subtitle }}</button>
+        v-on:click="addSubtitle();"
+      >{{ $t('add_subtitle') }}</button>
     </div>
   </div>
 `;

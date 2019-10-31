@@ -1,4 +1,3 @@
-import translations from './../../../translations.js';
 import contentTemplate from './contentTemplate.js';
 
 const content = {
@@ -19,7 +18,6 @@ const content = {
 
   data() {
     return {
-      translations: translations,
       subtitle: '',
     };
   },
@@ -40,7 +38,7 @@ const content = {
 
   methods: {
     addSubtitle() {
-      this.subtitle = this.translations.subtitle;
+      this.subtitle = this.$t('subtitle');
     },
   },
 

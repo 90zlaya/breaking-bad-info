@@ -1,4 +1,3 @@
-import translations from './../../../translations.js';
 import footerTemplate from './footerTemplate.js';
 
 const footer = {
@@ -18,9 +17,7 @@ const footer = {
   /* ------------------------------------------------------------------------ */
 
   data() {
-    return {
-      translations: translations,
-    };
+    return {};
   },
 
   /* ------------------------------------------------------------------------ */
