@@ -1,15 +1,16 @@
-import vue from 'vue';
+import Vue from 'vue';
+import App from './../components/App.js';
 import i18n from './../i18n/i18n.js';
-import app from './../components/app.js';
 
 /* -------------------------------------------------------------------------- */
 
-vue.use(i18n);
+// Install languages to Vue.js instance
+Vue.use(i18n);
 
-new vue({
+// New Vue.js instance
+new Vue({
   el: '#app',
-  render: h => h(app),
+  render: h => h(App),
 });
-
 
 /* -------------------------------------------------------------------------- */

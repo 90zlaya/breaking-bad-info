@@ -1,4 +1,4 @@
-export default {
+const dictionary = {
   en: {
     hello_world: 'Hello World',
     hello_world_from_title: 'Hello World from {title}',
@@ -13,3 +13,5 @@ export default {
     },
   },
 };
+
+export default dictionary;

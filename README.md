@@ -17,13 +17,13 @@ But have in mind that this image might stay few commits behind.
 
 ``` bash
 # Install dependencies
-$ npm install
+npm install
 
 # Serve with hot reload at localhost:8080
-$ npm run dev
+npm run dev
 
 # Build for production with minification
-$ npm run build
+npm run build
 ```
 
 After installing dependencies and running app, visit [localhost:8080] to enjoy app functionality. For detailed explanation on how things work, consult the [docs for vue-loader].
