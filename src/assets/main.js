@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import App from './../components/App.js';
-import i18n from './../i18n/i18n.js';
+import i18n from './../translations/i18n.js';
 
 /* -------------------------------------------------------------------------- */
 
