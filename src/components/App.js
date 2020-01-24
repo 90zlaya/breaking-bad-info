@@ -6,9 +6,9 @@ const template = `
   </div>
 `;
 
-import Header from './Header.js';
-import Content from './Content.js';
-import Footer from './Footer.js';
+import Header from './import/Header.js';
+import Content from './import/Content.js';
+import Footer from './import/Footer.js';
 
 const App = {
 
