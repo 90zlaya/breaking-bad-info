@@ -1,9 +1,6 @@
 import dictionary from './dictionary.js';
 
 const i18n = {
-
-  /* ------------------------------------------------------------------------ */
-
   // Install language
   install(Vue, options) {
     const t = this.getTranslation(options);
@@ -19,9 +16,6 @@ const i18n = {
         : 'ltr';
     };
   },
-
-  /* ------------------------------------------------------------------------ */
-
   // Get translation line (dynamic translation lines support)
   getTranslationLine(translation, propertyName, propertyParameters) {
     let line = propertyName.split('.').reduce((a, b) => {
@@ -38,9 +32,6 @@ const i18n = {
       return replaced;
     }
   },
-
-  /* ------------------------------------------------------------------------ */
-
   // Get translation from dictionary
   getTranslation(options) {
     const translation =
@@ -50,9 +41,6 @@ const i18n = {
 
     return translation;
   },
-
-  /* ------------------------------------------------------------------------ */
-
 };
 
 export default i18n;
