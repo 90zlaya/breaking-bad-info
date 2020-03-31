@@ -15,6 +15,16 @@ const dictionary = {
       logoImage: 'Logo Image',
       home: 'HOME',
     },
+    footer: {
+      about: {
+        title: 'About App',
+        description: 'We\'re passionate about creating the best mobile apps for personal development',
+      },
+      links: {
+        title: 'Important Links',
+      },
+      socialMedia: 'Social Media',
+    },
   },
 };
 

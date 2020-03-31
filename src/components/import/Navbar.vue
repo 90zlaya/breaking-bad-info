@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar navbar-expand-md navbar-dark navbar-custom fixed-top" style="background-color: #4633af;">
+  <nav class="navbar navbar-expand-md navbar-dark navbar-custom fixed-top">
     <a
       class="navbar-brand logo-image"
       href="index.html"
