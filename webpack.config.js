@@ -6,7 +6,7 @@ var webpack = require('webpack');
 /* -------------------------------------------------------------------------- */
 
 module.exports = {
-  entry: './src/assets/main.js',
+  entry: './src/main.js',
   output: {
     path: path.resolve(__dirname, './dist'),
     publicPath: '/dist/',

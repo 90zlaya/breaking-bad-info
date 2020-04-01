@@ -24,7 +24,10 @@
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <a class="nav-link page-scroll" href="#header">{{ $t('navbar.home') }} <span class="sr-only">(current)</span></a>
+          <a class="nav-link page-scroll" href="#header">
+            {{ $t('navbar.home') }}
+            <span class="sr-only">(current)</span>
+          </a>
         </li>
       </ul>
     </div>

@@ -9,11 +9,11 @@
 </template>
 
 <script>
-  import Preloader from './import/Preloader.vue';
-  import Navbar from './import/Navbar.vue';
-  import Header from './import/Header.vue';
-  import Footer from './import/Footer.vue';
-  import Copyright from './import/Copyright.vue';
+  import Preloader from './components/Preloader.vue';
+  import Navbar from './components/Navbar.vue';
+  import Header from './components/Header.vue';
+  import Footer from './components/Footer.vue';
+  import Copyright from './components/Copyright.vue';
 
   export default {
     components: {

@@ -48,21 +48,23 @@
 </template>
 
 <script>
+  import config from './../../.config.json';
+
   export default {
     data() {
       return {
         links: [
           {
-            title: 'You may visit',
-            href: 'https://www.zlatanstajic.com/',
-            text: 'Developer\'s website',
+            title: this.$t('footer.links.developer.youMayVisit'),
+            text: this.$t('footer.links.developer.developersWebsite'),
+            href: config.urls.developer.url,
             target: '_blank',
             icon: 'fas fa-square',
           },
           {
-            title: 'If you are developer',
+            title: this.$t('footer.links.library.ifYouAreDeveloper'),
+            text: this.$t('footer.links.library.phpLibraryProject'),
             href: 'https://php-library.zlatanstajic.com/',
-            text: 'PHP Library Project',
             target: '_blank',
             icon: 'fas fa-square',
           },
