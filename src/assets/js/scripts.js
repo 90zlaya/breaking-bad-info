@@ -40,7 +40,7 @@
 			}, 600, 'easeInOutExpo');
 			event.preventDefault();
 		});
-    
+
     /* Rotating Text - Morphtext */
   	$("#js-rotating").Morphext({
   		// The [in] animation type. Refer to Animate.css for a list of available animations.
@@ -53,6 +53,35 @@
   			// Called after the entrance animation is executed.
   		}
     });
+
+    /* Counter - CountTo */
+    var a = 0;
+    if ($('#counter').length) { // checking if CountTo section exists in the page, if not it will not run the script and avoid errors
+			var oTop = $('#counter').offset().top - window.innerHeight;
+			if (a == 0 && $(window).scrollTop() > oTop) {
+			$('.counter-value').each(function() {
+				var $this = $(this),
+				countTo = $this.attr('data-count');
+				$({
+				countNum: $this.text()
+				}).animate({
+					countNum: countTo
+				},
+				{
+					duration: 2000,
+					easing: 'swing',
+					step: function() {
+					$this.text(Math.floor(this.countNum));
+					},
+					complete: function() {
+					$this.text(this.countNum);
+					//alert('finished');
+					}
+				});
+			});
+			a = 1;
+			}
+		}
 	});
 
     // closes the responsive menu on menu item click
@@ -194,39 +223,6 @@
 		removalDelay: 300,
 		mainClass: 'my-mfp-slide-bottom'
 	});
-
-
-    /* Counter - CountTo */
-	var a = 0;
-	$(window).scroll(function() {
-		if ($('#counter').length) { // checking if CountTo section exists in the page, if not it will not run the script and avoid errors
-			var oTop = $('#counter').offset().top - window.innerHeight;
-			if (a == 0 && $(window).scrollTop() > oTop) {
-			$('.counter-value').each(function() {
-				var $this = $(this),
-				countTo = $this.attr('data-count');
-				$({
-				countNum: $this.text()
-				}).animate({
-					countNum: countTo
-				},
-				{
-					duration: 2000,
-					easing: 'swing',
-					step: function() {
-					$this.text(Math.floor(this.countNum));
-					},
-					complete: function() {
-					$this.text(this.countNum);
-					//alert('finished');
-					}
-				});
-			});
-			a = 1;
-			}
-		}
-    });
-
 
     /* Move Form Fields Label When User Types */
     // for input and textarea fields

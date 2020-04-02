@@ -8,6 +8,12 @@ const dictionary = {
       title: 'APP FOR',
       rottating: 'FUN, PARTY, TRIVIA',
     },
+    counter: {
+      seasons: 'Seasons',
+      years: 'Years',
+      episodes: 'Episodes',
+      deaths: 'Deaths',
+    },
     footer: {
       about: {
         title: 'About App',
