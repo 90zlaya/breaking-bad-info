@@ -1,5 +1,5 @@
-# vuejs-playground
-> A Vue.js playground
+# breaking-bad-info
+> A simple Vue.js app with Breaking Bad info
 
 ## Description
 
@@ -9,7 +9,7 @@ Idea is to create simple Vue.js project to demonstrate development skills in thi
 
 Currently project looks like this:
 
-![][screenshot-small]
+![][breaking-bad-overview]
 
 But have in mind that this image might stay few commits behind.
 
@@ -30,4 +30,4 @@ After installing dependencies and running app, visit [localhost:8080] to enjoy a
 
 [localhost:8080]: http://localhost:8080
 [docs for vue-loader]: http://vuejs.github.io/vue-loader
-[screenshot-small]: _extras/screenshots/screenshot-small.png
+[breaking-bad-overview]: _extras/gifs/breaking-bad-overview.gif

@@ -4,10 +4,7 @@
       class="navbar-brand logo-image"
       href="index.html"
     >
-      <img
-        v-bind:alt="$t('navbar.logoImage')"
-        src="src/assets/images/logo.png"
-      >
+      <img src="src/assets/images/logo.png" alt="Logo Image"/>
     </a>
     <button
       class="navbar-toggler"
@@ -23,17 +20,41 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <a class="nav-link page-scroll" href="#header">
-            {{ $t('navbar.home') }}
-            <span class="sr-only">(current)</span>
-          </a>
-        </li>
+        <template v-for="item in navigation">
+          <li class="nav-item">
+            <a class="nav-link page-scroll" v-bind:href="item.href">
+              {{ item.title }}
+            </a>
+          </li>
+        </template>
       </ul>
     </div>
   </nav>
 </template>
 
 <script>
-  export default {};
+  export default {
+    data() {
+      return {
+        navigation: [
+          {
+            href: '#header',
+            title: this.$t('navbar.home'),
+          },
+          {
+            href: '#statistics',
+            title: this.$t('navbar.statistics'),
+          },
+          {
+            href: '#synopis',
+            title: this.$t('navbar.synopis'),
+          },
+          {
+            href: '#about',
+            title: this.$t('navbar.about'),
+          },
+        ],
+      };
+    },
+  };
 </script>

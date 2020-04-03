@@ -1,5 +1,5 @@
 <template>
-  <div class="footer">
+  <div id="about" class="footer">
     <div class="container">
       <div class="row">
         <div class="col-md-4">
@@ -14,13 +14,13 @@
             <ul class="list-unstyled li-space-lg">
               <template v-for="link in links">
                 <li class="media">
-                  <i v-bind:class="link.icon"></i>
+                  <i class="fas fa-square"></i>
                   <div class="media-body">
                     {{ link.title }}
                     <a
                       class="turquoise"
                       v-bind:href="link.href"
-                      v-bind:target="link.target"
+                      target="_blank"
                     >{{ link.text }}</a>
                   </div>
                 </li>
@@ -33,10 +33,9 @@
             <h4>{{ $t('footer.socialMedia') }}</h4>
             <template v-for="item in socialMedia">
               <span class="fa-stack">
-                <a v-bind:href="item.href" v-bind:target="item.target">
-                  <template v-for="icon in item.icons">
-                    <i v-bind:class="icon"></i>
-                  </template>
+                <a v-bind:href="item.href" target="_blank">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i v-bind:class="'fab fa-' + item.icon + ' fa-stack-1x'"></i>
                 </a>
               </span>
             </template>
@@ -58,37 +57,29 @@
             title: this.$t('footer.links.developer.youMayVisit'),
             text: this.$t('footer.links.developer.developersWebsite'),
             href: config.urls.developer.url,
-            target: '_blank',
-            icon: 'fas fa-square',
           },
           {
             title: this.$t('footer.links.library.ifYouAreDeveloper'),
             text: this.$t('footer.links.library.phpLibraryProject'),
             href: 'https://php-library.zlatanstajic.com/',
-            target: '_blank',
-            icon: 'fas fa-square',
           },
         ],
         socialMedia: [
           {
             href: 'https://github.com/90zlaya',
-            target: '_blank',
-            icons: ['fas fa-circle fa-stack-2x', 'fab fa-github fa-stack-1x'],
+            icon: 'github',
           },
           {
             href: 'https://www.linkedin.com/in/90zlaya',
-            target: '_blank',
-            icons: ['fas fa-circle fa-stack-2x', 'fab fa-linkedin-in fa-stack-1x'],
+            icon: 'linkedin-in',
           },
           {
             href: 'https://www.youtube.com/90zlaya',
-            target: '_blank',
-            icons: ['fas fa-circle fa-stack-2x', 'fab fa-youtube fa-stack-1x'],
+            icon: 'youtube',
           },
           {
             href: 'https://instagram.com/90zlaya',
-            target: '_blank',
-            icons: ['fas fa-circle fa-stack-2x', 'fab fa-instagram fa-stack-1x'],
+            icon: 'instagram',
           },
         ],
       };

@@ -7,7 +7,7 @@
             {{ $t('copyright.text') }} © {{ year }} |
             <a
               v-bind:href="copyright.link.href"
-              v-bind:target="copyright.link.target"
+              target="_blank"
             >{{ copyright.link.title }}</a>
           </p>
         </div>
@@ -25,7 +25,6 @@
         year: '2020',
         copyright: {
           link: {
-            target: '_blank',
             href: config.urls.developer.url,
             title: config.urls.developer.title,
           },

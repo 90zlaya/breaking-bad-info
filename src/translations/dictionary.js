@@ -1,18 +1,24 @@
 const dictionary = {
   en: {
     navbar: {
-      logoImage: 'Logo Image',
       home: 'HOME',
+      statistics: 'STATISTICS',
+      synopis: 'SYNOPIS',
+      about: 'ABOUT',
     },
     header: {
       title: 'APP FOR',
-      rottating: 'FUN, PARTY, TRIVIA',
+      rottating: 'INFO, FUN, TRIVIA',
     },
     counter: {
       seasons: 'Seasons',
       years: 'Years',
       episodes: 'Episodes',
       deaths: 'Deaths',
+    },
+    video: {
+      synopis: 'Synopis',
+      seriesSynopis: 'Breaking Bad is the story of Walter White, a struggling high school chemistry teacher who is diagnosed with inoperable lung cancer. He turns to a life of crime, producing and selling methamphetamine with a former student Jesse Pinkman, with the aim of securing his family\'s financial future before he dies.',
     },
     footer: {
       about: {

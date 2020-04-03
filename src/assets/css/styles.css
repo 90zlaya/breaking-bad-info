@@ -18,7 +18,7 @@ Table Of Contents:
 Colors:
 
 - Text, navbar links - white #f1f1f8
-- Buttons, bullets, icons - turquoise #00c9db
+- Buttons, bullets, icons - turquoise #cfd200
 - Navbar - navy #262431
 - Backgrounds - dark denim #262431
 - Backgrounds - denim #2f2c3d
@@ -103,7 +103,7 @@ a:hover {
 }
 
 a.turquoise {
-	color: #00c9db;
+	color: #cfd200;
 }
 
 a.white {
@@ -121,9 +121,9 @@ a.white {
 .btn-solid-reg {
 	display: inline-block;
 	padding: 1.1875rem 2.125rem 1.1875rem 2.125rem;
-	border: 0.125rem solid #00c9db;
+	border: 0.125rem solid #cfd200;
 	border-radius: 2rem;
-	background-color: #00c9db;
+	background-color: #cfd200;
 	color: #fff;
 	font: 700 0.75rem/0 "Montserrat", sans-serif;
 	text-decoration: none;
@@ -132,16 +132,16 @@ a.white {
 
 .btn-solid-reg:hover {
 	background-color: transparent;
-	color: #00c9db;
+	color: #cfd200;
 	text-decoration: none;
 }
 
 .btn-solid-lg {
 	display: inline-block;
 	padding: 1.375rem 2.625rem 1.375rem 2.625rem;
-	border: 0.125rem solid #00c9db;
+	border: 0.125rem solid #cfd200;
 	border-radius: 2rem;
-	background-color: #00c9db;
+	background-color: #cfd200;
 	color: #fff;
 	font: 700 0.75rem/0 "Montserrat", sans-serif;
 	text-decoration: none;
@@ -150,7 +150,7 @@ a.white {
 
 .btn-solid-lg:hover {
 	background-color: transparent;
-	color: #00c9db;
+	color: #cfd200;
 	text-decoration: none;
 }
 
@@ -168,17 +168,17 @@ a.white {
 .btn-outline-reg {
 	display: inline-block;
 	padding: 1.1875rem 2.125rem 1.1875rem 2.125rem;
-	border: 0.125rem solid #00c9db;
+	border: 0.125rem solid #cfd200;
 	border-radius: 2rem;
 	background-color: transparent;
-	color: #00c9db;
+	color: #cfd200;
 	font: 700 0.75rem/0 "Montserrat", sans-serif;
 	text-decoration: none;
 	transition: all 0.2s;
 }
 
 .btn-outline-reg:hover {
-	background-color: #00c9db;
+	background-color: #cfd200;
 	color: #fff;
 	text-decoration: none;
 }
@@ -186,17 +186,17 @@ a.white {
 .btn-outline-lg {
 	display: inline-block;
 	padding: 1.375rem 2.625rem 1.375rem 2.625rem;
-	border: 0.125rem solid #00c9db;
+	border: 0.125rem solid #cfd200;
 	border-radius: 2rem;
 	background-color: transparent;
-	color: #00c9db;
+	color: #cfd200;
 	font: 700 0.75rem/0 "Montserrat", sans-serif;
 	text-decoration: none;
 	transition: all 0.2s;
 }
 
 .btn-outline-lg:hover {
-	background-color: #00c9db;
+	background-color: #cfd200;
 	color: #fff;
 	text-decoration: none;
 }
@@ -204,17 +204,17 @@ a.white {
 .btn-outline-sm {
 	display: inline-block;
 	padding: 1rem 1.625rem 0.875rem 1.625rem;
-	border: 0.125rem solid #00c9db;
+	border: 0.125rem solid #cfd200;
 	border-radius: 2rem;
 	background-color: transparent;
-	color: #00c9db;
+	color: #cfd200;
 	font: 700 0.625rem/0 "Montserrat", sans-serif;
 	text-decoration: none;
 	transition: all 0.2s;
 }
 
 .btn-outline-sm:hover {
-	background-color: #00c9db;
+	background-color: #cfd200;
 	color: #fff;
 	text-decoration: none;
 }
@@ -362,9 +362,9 @@ input[type='checkbox'] {
 	display: inline-block;
 	width: 100%;
 	height: 3.125rem;
-	border: 1px solid #00c9db;
+	border: 1px solid #cfd200;
 	border-radius: 1.5rem;
-	background-color: #00c9db;
+	background-color: #cfd200;
 	color: #fff;
 	font: 700 0.75rem/1.75rem "Montserrat", sans-serif;
 	cursor: pointer;
@@ -373,7 +373,7 @@ input[type='checkbox'] {
 
 .form-control-submit-button:hover {
 	background-color: transparent;
-	color: #00c9db;
+	color: #cfd200;
 }
 
 /* Form Success And Error Message Formatting */
@@ -658,7 +658,7 @@ input[type='checkbox'] {
 
 .navbar-custom .nav-item .nav-link:hover,
 .navbar-custom .nav-item .nav-link.active {
-	color: #00c9db;
+	color: #cfd200;
 }
 
 /* Dropdown Menu */
@@ -703,7 +703,7 @@ input[type='checkbox'] {
 }
 
 .navbar-custom .dropdown-item:hover .item-text {
-	color: #00c9db;
+	color: #cfd200;
 }
 
 .navbar-custom .dropdown-items-divide-hr {
@@ -881,9 +881,9 @@ input[type='checkbox'] {
 
 .tabs .nav-link.active,
 .tabs .nav-link:hover {
-	border-bottom: 0.1875rem solid #00c9db;
+	border-bottom: 0.1875rem solid #cfd200;
 	background-color: transparent;
-	color: #00c9db;
+	color: #cfd200;
 }
 
 .tabs .nav-link .fas {
@@ -913,7 +913,7 @@ input[type='checkbox'] {
 	width: 3.5rem;
 	height: 3.5rem;
 	border-radius: 50%;
-	background-color: #00c9db;
+	background-color: #cfd200;
 	text-align: center;
 	vertical-align: top;
 }
@@ -994,7 +994,7 @@ input[type='checkbox'] {
 .basic-1 {
 	padding-top: 6.375rem;
 	padding-bottom: 6.875rem;
-	background: url('../images/video-background.jpg') center center no-repeat;
+  background: linear-gradient(to bottom left, rgba(72, 72, 212, 0), rgba(0, 0, 0, 0.75)), url('../images/video-background.jpg') center center no-repeat;
 	background-size: cover;
 }
 
@@ -1009,7 +1009,7 @@ input[type='checkbox'] {
 }
 
 .basic-1 .image-container img {
-	border-radius: 0.375rem;
+	border-radius: 0.425rem;
 }
 
 .basic-1 .video-wrapper {
@@ -1043,7 +1043,7 @@ input[type='checkbox'] {
 	width: 4.75rem;
 	height: 4.75rem;
 	border-radius: 50%;
-	background: #4eaaff;
+	background: #cfd200;
 	animation: pulse-border 1500ms ease-out infinite;
 	-webkit-transform: translateX(-50%) translateY(-50%);
 	-ms-transform: translateX(-50%) translateY(-50%);
@@ -1060,7 +1060,7 @@ input[type='checkbox'] {
 	width: 4.375rem;
 	height: 4.375rem;
 	border-radius: 50%;
-	background: #4eaaff;
+	background: #cfd200;
 	transition: all 200ms;
 	-webkit-transform: translateX(-50%) translateY(-50%);
 	-ms-transform: translateX(-50%) translateY(-50%);
@@ -1168,7 +1168,7 @@ input[type='checkbox'] {
 	margin-bottom: 1.125rem;
 	margin-left: 0;
 	border: 0;
-	background-color: #00c9db;
+	background-color: #cfd200;
 	text-align: left;
 }
 
@@ -1189,7 +1189,7 @@ input[type='checkbox'] {
 .lightbox-basic table .icon-cell {
 	width: 2rem;
 	padding-right: 0.25rem;
-	color: #00c9db;
+	color: #cfd200;
 	text-align: center;
 }
 
@@ -1198,7 +1198,7 @@ input[type='checkbox'] {
 	width: auto;
 	height: auto;
 	margin-left: 0.375rem;
-	color: #00c9db;
+	color: #cfd200;
 	opacity: 1;
 }
 
@@ -1315,7 +1315,7 @@ input[type='checkbox'] {
 
 .counter #counter .counter-info {
 	margin-bottom: 0;
-	color: #00c9db;
+	color: #cfd200;
 	font: 400 0.875rem/1.25rem "Open Sans", sans-serif;
 	vertical-align: middle;
 }
@@ -1347,7 +1347,7 @@ input[type='checkbox'] {
 .form .list-unstyled .fab {
 	margin-right: 0.5rem;
 	font-size: 0.875rem;
-	color: #00c9db;
+	color: #cfd200;
 }
 
 .form .list-unstyled .fa-phone {
@@ -1372,7 +1372,7 @@ input[type='checkbox'] {
 }
 
 .footer .list-unstyled .fas {
-	color: #00c9db;
+	color: #cfd200;
 	font-size: 0.5rem;
 	line-height: 1.375rem;
 }
@@ -1402,7 +1402,7 @@ input[type='checkbox'] {
 }
 
 .footer .fa-stack:hover .fa-stack-2x {
-    color: #00c9db;
+    color: #cfd200;
 }
 
 
@@ -1434,7 +1434,7 @@ a.back-to-top {
 	width: 2.625rem;
 	height: 2.625rem;
 	border-radius: 1.875rem;
-	background: #00c9db url("../images/up-arrow.png") no-repeat center 47%;
+	background: #cfd200 url("../images/up-arrow.png") no-repeat center 47%;
 	background-size: 1.125rem 1.125rem;
 	text-indent: -9999px;
 }
@@ -1488,7 +1488,7 @@ a:hover.back-to-top {
 }
 
 .ex-basic-2 .list-unstyled .fas {
-	color: #00c9db;
+	color: #cfd200;
 	font-size: 0.5rem;
 	line-height: 1.375rem;
 }
@@ -1560,7 +1560,7 @@ a:hover.back-to-top {
 
 	.navbar-custom .nav-item .nav-link:hover,
 	.navbar-custom .nav-item .nav-link.active {
-		color: #00c9db;
+		color: #cfd200;
 	}
 
 	.navbar-custom.top-nav-collapse {
@@ -1579,7 +1579,7 @@ a:hover.back-to-top {
 
 	.navbar-custom.top-nav-collapse .nav-item .nav-link:hover,
 	.navbar-custom.top-nav-collapse .nav-item .nav-link.active {
-		color: #00c9db;
+		color: #cfd200;
 	}
 
 	.navbar-custom .dropdown-menu {
@@ -1744,7 +1744,7 @@ a:hover.back-to-top {
 	}
 
 	.navbar-custom .fa-stack-2x {
-		color: #00c9db;
+		color: #cfd200;
 		transition: all 0.2s ease;
 	}
 
@@ -1758,7 +1758,7 @@ a:hover.back-to-top {
 	}
 
 	.navbar-custom .fa-stack:hover .fa-stack-1x {
-		color: #00c9db;
+		color: #cfd200;
 	}
 	/* end of navigation */
 
@@ -1941,13 +1941,6 @@ a:hover.back-to-top {
         padding: 0.5rem 5rem 0.5rem 5rem;
 	}
 	/* end of navigation */
-
-
-	/* General Styles */
-	.p-heading {
-		width: 44%;
-	}
-	/* end of general styles */
 
 
 	/* Header */
