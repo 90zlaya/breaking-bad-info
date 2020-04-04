@@ -1,10 +1,10 @@
 <template>
-  <div id="synopis" class="basic-1">
+  <div id="synopsis" class="basic-1">
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          <h2>{{ $t('video.synopis') }}</h2>
-          <div class="p-heading p-large">{{ $t('video.seriesSynopis') }}</div>
+          <h2>{{ $t('video.synopsis') }}</h2>
+          <div class="p-heading p-large">{{ $t('video.seriesSynopsis') }}</div>
         </div>
       </div>
       <div class="row">

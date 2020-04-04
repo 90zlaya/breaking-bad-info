@@ -46,8 +46,8 @@
             title: this.$t('navbar.statistics'),
           },
           {
-            href: '#synopis',
-            title: this.$t('navbar.synopis'),
+            href: '#synopsis',
+            title: this.$t('navbar.synopsis'),
           },
           {
             href: '#about',
