@@ -54,36 +54,6 @@
   		}
     });
 
-    /* Counter - CountTo */
-    var a = 0;
-    if ($('#counter').length) { // checking if CountTo section exists in the page, if not it will not run the script and avoid errors
-			var oTop = $('#counter').offset().top - window.innerHeight;
-			if (a == 0 && $(window).scrollTop() > oTop) {
-			$('.counter-value').each(function() {
-				var $this = $(this),
-				countTo = $this.attr('data-count');
-				$({
-				countNum: $this.text()
-				}).animate({
-					countNum: countTo
-				},
-				{
-					duration: 2000,
-					easing: 'swing',
-					step: function() {
-					$this.text(Math.floor(this.countNum));
-					},
-					complete: function() {
-					$this.text(this.countNum);
-					//alert('finished');
-					}
-				});
-			});
-			a = 1;
-			}
-		}
-
-
     /* Video Lightbox - Magnific Popup */
     $('.popup-youtube, .popup-vimeo').magnificPopup({
         disableOn: 700,
@@ -115,28 +85,20 @@
             }
         }
     });
-	});
-
-    // closes the responsive menu on menu item click
-    $(".navbar-nav li a").on("click", function(event) {
-    if (!$(this).parent().hasClass('dropdown'))
-        $(".navbar-collapse").collapse('hide');
-    });
-
 
     /* Card Slider - Swiper */
-	var cardSlider = new Swiper('.card-slider', {
-		autoplay: {
+    var cardSlider = new Swiper('.card-slider', {
+    autoplay: {
             delay: 4000,
             disableOnInteraction: false
-		},
-        loop: true,
-        navigation: {
-			nextEl: '.swiper-button-next',
-			prevEl: '.swiper-button-prev'
-		},
-		slidesPerView: 3,
-		spaceBetween: 20,
+    },
+    loop: true,
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev'
+    },
+    slidesPerView: 3,
+    spaceBetween: 20,
         breakpoints: {
             // when window is <= 992px
             992: {
@@ -149,47 +111,44 @@
         }
     });
 
+	});
 
-    /* Image Slider - Swiper */
-    var imageSlider = new Swiper('.image-slider', {
-        autoplay: {
-            delay: 2000,
-            disableOnInteraction: false
-		},
-        loop: false,
-        navigation: {
-			nextEl: '.swiper-button-next',
-			prevEl: '.swiper-button-prev',
-		},
-        spaceBetween: 30,
-        slidesPerView: 5,
-		breakpoints: {
-            // when window is <= 380px
-            380: {
-                slidesPerView: 1,
-                spaceBetween: 10
-            },
-            // when window is <= 516px
-            516: {
-                slidesPerView: 2,
-                spaceBetween: 10
-            },
-            // when window is <= 768px
-            768: {
-                slidesPerView: 3,
-                spaceBetween: 20
-            },
-            // when window is <= 992px
-            992: {
-                slidesPerView: 4,
-                spaceBetween: 30
-            },
-            // when window is <= 1200px
-            1200: {
-                slidesPerView: 5,
-                spaceBetween: 30
-            },
-        }
+    // closes the responsive menu on menu item click
+    $(".navbar-nav li a").on("click", function(event) {
+    if (!$(this).parent().hasClass('dropdown'))
+        $(".navbar-collapse").collapse('hide');
+    });
+
+
+    /* Counter - CountTo */
+  	var a = 0;
+  	$(window).scroll(function() {
+  		if ($('#counter').length) { // checking if CountTo section exists in the page, if not it will not run the script and avoid errors
+  			var oTop = $('#counter').offset().top - window.innerHeight;
+  			if (a == 0 && $(window).scrollTop() > oTop) {
+  			$('.counter-value').each(function() {
+  				var $this = $(this),
+  				countTo = $this.attr('data-count');
+  				$({
+  				countNum: $this.text()
+  				}).animate({
+  					countNum: countTo
+  				},
+  				{
+  					duration: 2000,
+  					easing: 'swing',
+  					step: function() {
+  					$this.text(Math.floor(this.countNum));
+  					},
+  					complete: function() {
+  					$this.text(this.countNum);
+  					//alert('finished');
+  					}
+  				});
+  			});
+  			a = 1;
+  			}
+  		}
     });
 
 

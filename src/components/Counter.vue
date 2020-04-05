@@ -1,5 +1,5 @@
 <template>
-  <div id="statistics" class="counter">
+  <div id="statistics" class="counter" style="background-color:#2f2c3d;">
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
@@ -35,7 +35,7 @@
             info: this.$t('counter.episodes'),
           },
           {
-            data: '274',
+            data: '271',
             info: this.$t('counter.deaths'),
           },
         ],

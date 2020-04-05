@@ -2,13 +2,14 @@ const dictionary = {
   en: {
     navbar: {
       home: 'HOME',
+      quotes: 'QUOTES',
       statistics: 'STATISTICS',
       synopsis: 'SYNOPSIS',
       about: 'ABOUT',
     },
     header: {
       title: 'APP FOR',
-      rottating: 'INFO, FUN, TRIVIA',
+      rottating: 'INFO, FUN',
     },
     counter: {
       seasons: 'Seasons',

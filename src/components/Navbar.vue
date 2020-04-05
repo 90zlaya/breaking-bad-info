@@ -42,6 +42,10 @@
             title: this.$t('navbar.home'),
           },
           {
+            href: '#quotes',
+            title: this.$t('navbar.quotes'),
+          },
+          {
             href: '#statistics',
             title: this.$t('navbar.statistics'),
           },
