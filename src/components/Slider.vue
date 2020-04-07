@@ -9,7 +9,8 @@
                 <template v-for="(item, index) in slides">
                   <div class="swiper-slide">
                     <div class="card">
-                      <img class="card-image" src="src/data/images/user.png" alt="alternative">
+                      <img v-if="item.image === ''" class="card-image" src="src/data/images/user.png" alt="alternative">
+                      <img v-else class="card-image" v-bind:src="item.image" alt="alternative">
                       <div class="card-body">
                         <p class="testimonial-text">{{ item.quote }}</p>
                         <p class="testimonial-author">{{ item.author }}</p>
@@ -34,11 +35,41 @@
   export default {
     data() {
       return {
-        slides: quotes,
+        slides: [],
       };
     },
     created () {
-      // Do something here
+      this.slides = this.shiftQuotes(quotes);
+    },
+    methods: {
+      shiftQuotes(quotes) {
+        let firstArray = [];
+        let secondArray = [];
+
+        quotes.forEach((item) => {
+          let randomQuoteId = Math.floor(Math.random() * (item.quote_id * 2));
+
+          // Append image to the author
+          let rootFolder = 'src/data/images/characters/';
+          switch (item.author) {
+            case 'Walter White': item.image = rootFolder + 'walter-white.jpg'; break;
+            default: item.image = '';
+          }
+
+          if (randomQuoteId > item.quote_id) {
+            firstArray.push(item);
+          } else {
+            secondArray.push(item);
+          }
+        });
+
+        let randomFirstArrayIndex = Math.floor(Math.random() * firstArray.length);
+        let firstArraySlice = firstArray.slice(randomFirstArrayIndex);
+        let randomSecondArrayIndex = Math.floor(Math.random() * firstArray.length);
+        let secondArraySlice = firstArray.slice(randomFirstArrayIndex);
+
+        return firstArraySlice.concat(secondArraySlice);
+      },
     },
   };
 </script>
