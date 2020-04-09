@@ -1,0 +1,34 @@
+[
+  {
+    "name": "Walter White",
+    "hasImage": "true"
+  },
+  {
+    "name": "Skyler White",
+    "hasImage": "true"
+  },
+  {
+    "name": "Jesse Pinkman",
+    "hasImage": "true"
+  },
+  {
+    "name": "Saul Goodman",
+    "hasImage": "true"
+  },
+  {
+    "name": "Hank Schrader",
+    "hasImage": "true"
+  },
+  {
+    "name": "Mike Ehrmantraut",
+    "hasImage": "true"
+  },
+  {
+    "name": "Gus Fring",
+    "hasImage": "true"
+  },
+  {
+    "name": "Hector Salamanca",
+    "hasImage": "true"
+  }
+]

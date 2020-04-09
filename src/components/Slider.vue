@@ -6,14 +6,17 @@
           <div class="slider-container">
             <div class="swiper-container card-slider">
               <div class="swiper-wrapper">
-                <template v-for="(item, index) in slides">
+                <template v-for="slide in slides">
                   <div class="swiper-slide">
                     <div class="card">
-                      <img v-if="item.image === ''" class="card-image" src="src/data/images/user.png" alt="alternative">
-                      <img v-else class="card-image" v-bind:src="item.image" alt="alternative">
+                      <img
+                        class="card-image"
+                        v-bind:src="slide.image"
+                        v-bind:alt="$t('slider.imageOfQuoteAuthor')"
+                      >
                       <div class="card-body">
-                        <p class="testimonial-text">{{ item.quote }}</p>
-                        <p class="testimonial-author">{{ item.author }}</p>
+                        <p class="testimonial-text">{{ slide.quote }}</p>
+                        <p class="testimonial-author">{{ slide.author }}</p>
                       </div>
                     </div>
                   </div>
@@ -30,7 +33,9 @@
 </template>
 
 <script>
+  import config from './../../.config.json';
   import quotes from './../data/json/quotes.json';
+  import characters from './../data/json/characters.json';
 
   export default {
     data() {
@@ -49,12 +54,8 @@
         quotes.forEach((item) => {
           let randomQuoteId = Math.floor(Math.random() * (item.quote_id * 2));
 
-          // Append image to the author
-          let rootFolder = 'src/data/images/characters/';
-          switch (item.author) {
-            case 'Walter White': item.image = rootFolder + 'walter-white.jpg'; break;
-            default: item.image = '';
-          }
+          // Construct image path for quote author
+          item.image = this.constructCharacterImagePath(item.author);
 
           if (randomQuoteId > item.quote_id) {
             firstArray.push(item);
@@ -67,8 +68,31 @@
         let firstArraySlice = firstArray.slice(randomFirstArrayIndex);
         let randomSecondArrayIndex = Math.floor(Math.random() * firstArray.length);
         let secondArraySlice = firstArray.slice(randomFirstArrayIndex);
+        let shiftedQuotes = firstArraySlice.concat(secondArraySlice);
 
-        return firstArraySlice.concat(secondArraySlice);
+        return shiftedQuotes;
+      },
+      constructCharacterImagePath(characterName) {
+        let imagePath = '';
+        let characterNameInLowerCase = characterName.toLowerCase();
+        let imageName = characterNameInLowerCase.replace(' ', '-');
+        let [characterDetails] = characters.filter((character) => {
+          return character.name === characterName;
+        });
+
+        imagePath += config.images.root;
+        imagePath += config.images.characters;
+
+        if (characterDetails !== undefined && characterDetails.hasImage == 'true') {
+          imagePath += imageName;
+        } else {
+          imagePath += config.images.defaultCharacter;
+        }
+
+        imagePath += '.';
+        imagePath += config.images.defaultExtension;
+
+        return imagePath;
       },
     },
   };

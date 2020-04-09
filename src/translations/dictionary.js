@@ -11,6 +11,9 @@ const dictionary = {
       title: 'APP FOR',
       rottating: 'INFO, FUN',
     },
+    slider: {
+      imageOfQuoteAuthor: 'Image of quote author',
+    },
     counter: {
       seasons: 'Seasons',
       years: 'Years',
