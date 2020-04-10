@@ -1,10 +1,4 @@
 {
-  "urls": {
-    "developer": {
-      "url": "https://www.zlatanstajic.com/",
-      "title": "Zlatan Stajić"
-    }
-  },
   "images": {
     "root": "src/data/images/",
     "characters": "characters/",

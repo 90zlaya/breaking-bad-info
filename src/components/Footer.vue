@@ -47,7 +47,7 @@
 </template>
 
 <script>
-  import config from './../../.config.json';
+  import urls from './../data/json/urls.json';
 
   export default {
     data() {
@@ -56,12 +56,12 @@
           {
             title: this.$t('footer.links.developer.youMayVisit'),
             text: this.$t('footer.links.developer.developersWebsite'),
-            href: config.urls.developer.url,
+            href: urls.developer.url,
           },
           {
             title: this.$t('footer.links.library.ifYouAreDeveloper'),
             text: this.$t('footer.links.library.phpLibraryProject'),
-            href: 'https://php-library.zlatanstajic.com/',
+            href: urls.phpLibrary.url,
           },
         ],
         socialMedia: [

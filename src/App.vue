@@ -1,13 +1,13 @@
 <template>
   <div>
-    <App-Preloader></App-Preloader>
-    <App-Navbar></App-Navbar>
-    <App-Header></App-Header>
-    <App-Slider></App-Slider>
-    <App-Counter></App-Counter>
-    <App-Video></App-Video>
-    <App-Footer></App-Footer>
-    <App-Copyright></App-Copyright>
+    <App-Preloader/>
+    <App-Navbar/>
+    <App-Header/>
+    <App-Slider/>
+    <App-Counter/>
+    <App-Video/>
+    <App-Footer/>
+    <App-Copyright/>
   </div>
 </template>
 

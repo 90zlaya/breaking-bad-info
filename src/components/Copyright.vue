@@ -17,7 +17,7 @@
 </template>
 
 <script>
-  import config from './../../.config.json';
+  import urls from './../data/json/urls.json';
 
   export default {
     data() {
@@ -25,8 +25,8 @@
         year: '2020',
         copyright: {
           link: {
-            href: config.urls.developer.url,
-            title: config.urls.developer.title,
+            href: urls.developer.url,
+            title: urls.developer.title,
           },
         },
       };
