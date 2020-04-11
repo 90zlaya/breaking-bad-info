@@ -30,4 +30,4 @@ After installing dependencies and running app, visit [localhost:8080] to enjoy a
 
 [localhost:8080]: http://localhost:8080
 [docs for vue-loader]: http://vuejs.github.io/vue-loader
-[breaking-bad-overview]: _extras/gifs/breaking-bad-overview.gif
+[breaking-bad-overview]: _extras/gifs/breaking-bad-overview.gif?clear_cache=1

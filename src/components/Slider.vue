@@ -34,8 +34,8 @@
 
 <script>
   import config from './../../.config.json';
-  import quotes from './../data/json/quotes.json';
-  import characters from './../data/json/characters.json';
+  import quotes from './../data/quotes.json';
+  import characters from './../data/characters.json';
 
   export default {
     data() {

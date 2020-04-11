@@ -17,7 +17,7 @@
 </template>
 
 <script>
-  import urls from './../data/json/urls.json';
+  import urls from './../data/urls.json';
 
   export default {
     data() {

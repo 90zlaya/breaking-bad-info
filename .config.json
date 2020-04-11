@@ -1,6 +1,6 @@
 {
   "images": {
-    "root": "src/data/images/",
+    "root": "src/assets/images/",
     "characters": "characters/",
     "defaultCharacter": "character",
     "defaultExtension": "jpg"
