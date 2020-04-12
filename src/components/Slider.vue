@@ -5,25 +5,28 @@
         <div class="col-lg-12">
           <div class="slider-container">
             <div class="swiper-container card-slider">
-              <div class="swiper-wrapper">
-                <template v-for="slide in slides">
-                  <div class="swiper-slide">
-                    <div class="card">
-                      <img
-                        class="card-image"
-                        v-bind:src="slide.image"
-                        v-bind:alt="$t('slider.imageOfQuoteAuthor')"
-                      >
-                      <div class="card-body">
-                        <p class="testimonial-text">{{ slide.quote }}</p>
-                        <p class="testimonial-author">{{ slide.author }}</p>
+              <template v-if="slides.length == configuredNumberOfSlides">
+                <div class="swiper-wrapper">
+                  <template v-for="slide in slides">
+                    <div class="swiper-slide">
+                      <div class="card">
+                        <img
+                          class="card-image"
+                          v-bind:src="slide.image"
+                          v-bind:alt="$t('slider.imageOfQuoteAuthor')"
+                        >
+                        <div class="card-body">
+                          <p class="testimonial-text">{{ slide.quote }}</p>
+                          <p class="testimonial-author">{{ slide.author }}</p>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </template>
-              </div>
-              <div class="swiper-button-next"></div>
-              <div class="swiper-button-prev"></div>
+                  </template>
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+              </template>
+              <App-Loader v-else/>
             </div>
           </div>
         </div>
@@ -34,43 +37,61 @@
 
 <script>
   import config from './../../.config.json';
-  import quotes from './../data/quotes.json';
+  import apiMap from './../data/apiMap.json';
+  import localStorrageMap from './../data/localStorrageMap.json';
   import characters from './../data/characters.json';
+  import Loader from './Loader.vue';
 
   export default {
+    components: {
+      'App-Loader': Loader,
+    },
     data() {
       return {
         slides: [],
+        configuredNumberOfSlides: config.settings.slider.numberOfSlides,
       };
     },
     created () {
-      this.slides = this.shiftQuotes(quotes);
+      //localStorage.removeItem(localStorrageMap.slider.quotes);
+      let localQuotes = localStorage.getItem(localStorrageMap.slider.quotes);
+
+      if (localQuotes === undefined || localQuotes === null) {
+        // Fetch quotes from API
+        this.fetchQuotes();
+
+        // NOTE: fetchQuotes makes promise, any code here is ineffective
+      } else {
+        // Create slides from quotes retrieved from local storage
+        this.slides = this.createSlides(JSON.parse(localQuotes));
+      }
     },
     methods: {
-      shiftQuotes(quotes) {
-        let firstArray = [];
-        let secondArray = [];
+      createSlides(quotes) {
+        let slides = [];
+        let previousAuthor = '';
 
-        quotes.forEach((item) => {
-          let randomQuoteId = Math.floor(Math.random() * (item.quote_id * 2));
+        while (slides.length < config.settings.slider.numberOfSlides){
+          let randomNumber = Math.floor(Math.random() * quotes.length) + 1;
 
-          // Construct image path for quote author
-          item.image = this.constructCharacterImagePath(item.author);
+          if (slides.indexOf(randomNumber) === -1 && quotes[randomNumber] !== undefined) {
+            // Do not repeat quote authors
+            if (quotes[randomNumber]['author'] !== previousAuthor) {
+              // Remember current quote author for next query
+              previousAuthor = quotes[randomNumber]['author'];
 
-          if (randomQuoteId > item.quote_id) {
-            firstArray.push(item);
-          } else {
-            secondArray.push(item);
+              // Construct image path for quote author
+              quotes[randomNumber]['image'] = this.constructCharacterImagePath(
+                quotes[randomNumber]['author']
+              );
+
+              // Add quotes object to the slides array
+              slides.push(quotes[randomNumber]);
+            }
           }
-        });
+        }
 
-        let randomFirstArrayIndex = Math.floor(Math.random() * firstArray.length);
-        let firstArraySlice = firstArray.slice(randomFirstArrayIndex);
-        let randomSecondArrayIndex = Math.floor(Math.random() * firstArray.length);
-        let secondArraySlice = firstArray.slice(randomFirstArrayIndex);
-        let shiftedQuotes = firstArraySlice.concat(secondArraySlice);
-
-        return shiftedQuotes;
+        return slides;
       },
       constructCharacterImagePath(characterName) {
         let imagePath = '';
@@ -93,6 +114,19 @@
         imagePath += config.images.defaultExtension;
 
         return imagePath;
+      },
+      fetchQuotes() {
+        fetch(apiMap.baseUrl + apiMap.endpoints.quotes).then((response) => {
+          return response.json();
+        }).then((remoteQuotes) => {
+          // Create slides from quotes retrieved from API
+          this.slides = this.createSlides(remoteQuotes);
+
+          // Save to local storrage
+          localStorage.setItem(localStorrageMap.slider.quotes, JSON.stringify(remoteQuotes));
+        }).catch((error) => {
+          console.error('Fetching quotes failed', error);
+        });
       },
     },
   };

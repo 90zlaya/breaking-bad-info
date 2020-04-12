@@ -3,6 +3,12 @@
     "root": "src/assets/images/",
     "characters": "characters/",
     "defaultCharacter": "character",
-    "defaultExtension": "jpg"
+    "defaultExtension": "jpg",
+    "loaderImage": "loader.gif"
+  },
+  "settings": {
+    "slider": {
+      "numberOfSlides": "9"
+    }
   }
 }

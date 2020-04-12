@@ -1,5 +1,5 @@
 # breaking-bad-info
-> A simple Vue.js app with Breaking Bad info
+> Simple Vue.js app with Breaking Bad info
 
 ## Description
 
