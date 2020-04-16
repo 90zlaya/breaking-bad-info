@@ -3,6 +3,7 @@ const dictionary = {
     navbar: {
       home: 'HOME',
       quotes: 'QUOTES',
+      characters: 'CHARACTERS',
       statistics: 'STATISTICS',
       synopsis: 'SYNOPSIS',
       about: 'ABOUT',

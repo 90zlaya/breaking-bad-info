@@ -4,6 +4,7 @@
     <App-Navbar/>
     <App-Header/>
     <App-Slider/>
+    <App-Characters/>
     <App-Counter/>
     <App-Video/>
     <App-Footer/>
@@ -16,6 +17,7 @@
   import Navbar from './components/Navbar.vue';
   import Header from './components/Header.vue';
   import Slider from './components/Slider.vue';
+  import Characters from './components/Characters.vue';
   import Counter from './components/Counter.vue';
   import Video from './components/Video.vue';
   import Footer from './components/Footer.vue';
@@ -27,6 +29,7 @@
       'App-Navbar': Navbar,
       'App-Header': Header,
       'App-Slider': Slider,
+      'App-Characters': Characters,
       'App-Counter': Counter,
       'App-Video': Video,
       'App-Footer': Footer,
