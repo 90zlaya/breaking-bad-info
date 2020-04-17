@@ -38,7 +38,7 @@
 <script>
   import config from './../../.config.json';
   import apiMap from './../data/apiMap.json';
-  import localStorrageMap from './../data/localStorrageMap.json';
+  import localStorageMap from './../data/localStorageMap.json';
   import characters from './../data/characters.json';
   import Loader from './Loader.vue';
 
@@ -52,9 +52,8 @@
         configuredNumberOfSlides: config.settings.slider.numberOfSlides,
       };
     },
-    created () {
-      //localStorage.removeItem(localStorrageMap.slider.quotes);
-      let localQuotes = localStorage.getItem(localStorrageMap.slider.quotes);
+    created() {
+      let localQuotes = localStorage.getItem(localStorageMap.slider.quotes);
 
       if (localQuotes === undefined || localQuotes === null) {
         // Fetch quotes from API
@@ -122,8 +121,8 @@
           // Create slides from quotes retrieved from API
           this.slides = this.createSlides(remoteQuotes);
 
-          // Save to local storrage
-          localStorage.setItem(localStorrageMap.slider.quotes, JSON.stringify(remoteQuotes));
+          // Save to local storage
+          localStorage.setItem(localStorageMap.slider.quotes, JSON.stringify(remoteQuotes));
         }).catch((error) => {
           console.error('Fetching quotes failed', error);
         });

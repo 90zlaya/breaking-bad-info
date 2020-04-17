@@ -149,6 +149,7 @@ a.white {
 	font: 700 0.75rem/0 "Montserrat", sans-serif;
 	text-decoration: none;
 	transition: all 0.2s;
+  cursor: pointer;
 }
 
 .btn-solid-lg:hover {

@@ -9,6 +9,9 @@
   "settings": {
     "slider": {
       "numberOfSlides": "9"
+    },
+    "characters": {
+      "numberOfCharacters": "3"
     }
   }
 }

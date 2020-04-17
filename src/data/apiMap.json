@@ -1,6 +1,7 @@
 {
   "baseUrl": "https://www.breakingbadapi.com/api",
   "endpoints": {
-    "quotes": "/quotes?series=Breaking+Bad"
+    "quotes": "/quotes?series=Breaking+Bad",
+    "characters": "/characters?category=Breaking+Bad"
   }
 }

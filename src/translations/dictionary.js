@@ -15,6 +15,11 @@ const dictionary = {
     slider: {
       imageOfQuoteAuthor: 'Image of quote author',
     },
+    characters: {
+      loadMore: {
+        loadMore: 'Load More',
+      },
+    },
     counter: {
       seasons: 'Seasons',
       years: 'Years',
