@@ -24,7 +24,6 @@
     },
     methods: {
       loadMore() {
-        console.log('Clicked on Load More button, emmiting event');
         this.$emit('loadMoreCharacters')
       },
     },

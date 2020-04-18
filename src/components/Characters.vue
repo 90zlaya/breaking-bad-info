@@ -1,11 +1,15 @@
 <template>
   <div id="characters" class="basic-1">
-    <Characters-Search/>
+    <Characters-Search
+      @showSearchResults="showSearchResults"
+      @showOriginalView="featuredCharacters"
+    />
     <Characters-Grid
       :showLoader="showLoader.grid"
       :characters="characters.grid"
     />
     <Characters-LoadMore
+      v-if="toShowLoadMoreButton"
       :showLoader="showLoader.loadMore"
       @loadMoreCharacters="loadMoreCharacters"
     />
@@ -37,6 +41,7 @@
           grid: true,
           loadMore: false,
         },
+        toShowLoadMoreButton: false,
         configuredNumberOfCharacters: config.settings.characters.numberOfCharacters,
       };
     },
@@ -53,7 +58,7 @@
         this.characters.all = JSON.parse(localCharacters);
 
         // Create featured list of characters
-        this.characters.grid = this.featuredCharacters(this.characters.all);
+        this.featuredCharacters();
 
         // Stop grid loader
         this.showLoader.grid = false;
@@ -68,7 +73,7 @@
           this.characters.all = remoteCharacters;
 
           // Create featured list of characters
-          this.characters.grid = this.featuredCharacters(this.characters.all);
+          this.featuredCharacters();
 
           // Stop grid loader
           this.showLoader.grid = false;
@@ -79,8 +84,12 @@
           console.error('Fetching characters failed', error);
         });
       },
-      featuredCharacters(characters) {
-        return characters.slice(0, parseInt(this.configuredNumberOfCharacters));
+      featuredCharacters() {
+        // Able to load more characters at the start
+        this.toShowLoadMoreButton = true;
+
+        // Add to grid featured characters from list of all characters
+        this.characters.grid = this.characters.all.slice(0, parseInt(this.configuredNumberOfCharacters));
       },
       loadMoreCharacters() {
         let gridCharactersLength = parseInt(this.characters.grid.length);
@@ -89,9 +98,15 @@
 
         // Concat to the loaded characters array
         this.characters.grid = this.characters.grid.concat(loadedCharacters);
+      },
+      showSearchResults(searchTerm) {
+        // Not able to load more during search operation
+        this.toShowLoadMoreButton = false;
 
-        console.log('Chracters in grid', this.characters.grid);
-        alert('Displays more characters in grid');
+        // Find resutlt for search term
+        this.characters.grid = this.characters.all.filter((character) => {
+          return character.name.toLowerCase().includes(searchTerm.toLowerCase());
+        });
       },
     },
   };

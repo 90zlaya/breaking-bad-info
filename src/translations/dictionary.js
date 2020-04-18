@@ -16,6 +16,9 @@ const dictionary = {
       imageOfQuoteAuthor: 'Image of quote author',
     },
     characters: {
+      search: {
+        searchCharacter: 'Search character by name',
+      },
       loadMore: {
         loadMore: 'Load More',
       },

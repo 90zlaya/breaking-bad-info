@@ -1,6 +1,9 @@
 <template>
   <div class="container">
     <Grid-Loader v-if="showLoader"/>
+    <ul v-else v-for="character in characters">
+      <li>{{ character.name }}</li>
+    </ul>
   </div>
 </template>
 
@@ -14,15 +17,6 @@
     props: {
       showLoader: Boolean,
       characters: Array,
-    },
-    created() {
-      console.log('Characters in Grid.vue created()', this.characters);
-    },
-    mounted() {
-      console.log('Characters in Grid.vue mounted()', this.characters);
-    },
-    updated() {
-      console.log('Characters in Grid.vue updated()', this.characters);
     },
   };
 </script>
