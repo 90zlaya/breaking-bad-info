@@ -1,7 +1,6 @@
 <template>
   <div class="container">
-    <LoadMore-Loader v-if="showLoader"/>
-    <div class="row">
+    <div class="row p-2">
       <div class="col-12 d-flex justify-content-center">
         <a class="btn-solid-lg" v-on:click="loadMore();">
           <i class="fas fa-spinner"></i>&nbsp;

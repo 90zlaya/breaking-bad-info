@@ -1,5 +1,5 @@
 <template>
-  <img v-bind:src="loaderImagePath" width="15%"/>
+  <img v-bind:src="loaderImagePath" class="loader"/>
 </template>
 
 <script>

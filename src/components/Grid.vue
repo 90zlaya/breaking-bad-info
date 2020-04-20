@@ -1,9 +1,17 @@
 <template>
   <div class="container">
-    <Grid-Loader v-if="showLoader"/>
-    <ul v-else v-for="character in characters">
-      <li>{{ character.name }}</li>
-    </ul>
+    <div v-if="showLoader" class="row">
+      <div class="col-12">
+        <Grid-Loader />
+      </div>
+    </div>
+    <div v-else class="row">
+      <div class="col-12">
+        <ul v-for="character in characters">
+          <li>{{ character.name }}</li>
+        </ul>
+      </div>
+    </div>
   </div>
 </template>
 

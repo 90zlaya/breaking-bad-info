@@ -1,16 +1,16 @@
 <template>
   <div id="characters" class="basic-1">
     <Characters-Search
+      v-if="toShow.gridLoader === false"
       @showSearchResults="showSearchResults"
       @showOriginalView="featuredCharacters"
     />
     <Characters-Grid
-      :showLoader="showLoader.grid"
+      :showLoader="toShow.gridLoader"
       :characters="characters.grid"
     />
     <Characters-LoadMore
-      v-if="toShowLoadMoreButton"
-      :showLoader="showLoader.loadMore"
+      v-if="toShow.loadMoreButton"
       @loadMoreCharacters="loadMoreCharacters"
     />
   </div>
@@ -37,11 +37,10 @@
           all: [],
           grid: [],
         },
-        showLoader: {
-          grid: true,
-          loadMore: false,
+        toShow: {
+          gridLoader: true,
+          loadMoreButton: false,
         },
-        toShowLoadMoreButton: false,
         configuredNumberOfCharacters: config.settings.characters.numberOfCharacters,
       };
     },
@@ -61,7 +60,7 @@
         this.featuredCharacters();
 
         // Stop grid loader
-        this.showLoader.grid = false;
+        this.toShow.gridLoader = false;
       }
     },
     methods: {
@@ -76,7 +75,7 @@
           this.featuredCharacters();
 
           // Stop grid loader
-          this.showLoader.grid = false;
+          this.toShow.gridLoader = false;
 
           // Save to local storage
           localStorage.setItem(localStorageMap.characters.characters, JSON.stringify(remoteCharacters));
@@ -86,7 +85,7 @@
       },
       featuredCharacters() {
         // Able to load more characters at the start
-        this.toShowLoadMoreButton = true;
+        this.toShow.loadMoreButton = true;
 
         // Add to grid featured characters from list of all characters
         this.characters.grid = this.characters.all.slice(0, parseInt(this.configuredNumberOfCharacters));
@@ -101,7 +100,7 @@
       },
       showSearchResults(searchTerm) {
         // Not able to load more during search operation
-        this.toShowLoadMoreButton = false;
+        this.toShow.loadMoreButton = false;
 
         // Find resutlt for search term
         this.characters.grid = this.characters.all.filter((character) => {

@@ -5,7 +5,8 @@
         <div class="col-lg-12">
           <div class="slider-container">
             <div class="swiper-container card-slider">
-              <template v-if="slides.length == configuredNumberOfSlides">
+              <App-Loader v-if="showSliderLoader"/>
+              <template v-else>
                 <div class="swiper-wrapper">
                   <template v-for="slide in slides">
                     <div class="swiper-slide">
@@ -26,7 +27,6 @@
                 <div class="swiper-button-next"></div>
                 <div class="swiper-button-prev"></div>
               </template>
-              <App-Loader v-else/>
             </div>
           </div>
         </div>
@@ -49,6 +49,7 @@
     data() {
       return {
         slides: [],
+        showSliderLoader: true,
         configuredNumberOfSlides: config.settings.slider.numberOfSlides,
       };
     },
@@ -63,6 +64,13 @@
       } else {
         // Create slides from quotes retrieved from local storage
         this.slides = this.createSlides(JSON.parse(localQuotes));
+        this.showSliderLoader = false;
+      }
+    },
+    updated() {
+      if (this.showSliderLoader === false) {
+        // Run card slider function from scripts.js
+        cardSlider();
       }
     },
     methods: {
@@ -123,6 +131,9 @@
 
           // Save to local storage
           localStorage.setItem(localStorageMap.slider.quotes, JSON.stringify(remoteQuotes));
+
+          // Stop loader
+          this.showSliderLoader = false;
         }).catch((error) => {
           console.error('Fetching quotes failed', error);
         });
