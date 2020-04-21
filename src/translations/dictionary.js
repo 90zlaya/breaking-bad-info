@@ -19,6 +19,9 @@ const dictionary = {
       search: {
         searchCharacter: 'Search character by name',
       },
+      grid: {
+        imageOfCharacterName: 'Image of {characterName}',
+      },
       loadMore: {
         loadMore: 'Load More',
       },

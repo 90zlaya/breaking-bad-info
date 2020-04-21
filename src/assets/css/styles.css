@@ -2093,8 +2093,7 @@ a:hover.back-to-top {
 }
 /* end of min-width width 1200px */
 
-/* Additional styles */
-
+/* Loader */
 .loader {
   margin-left: auto;
   margin-right: auto;
@@ -2103,6 +2102,24 @@ a:hover.back-to-top {
 }
 
 .loader:has(> div) {
-  width:100%;
-  height:100%;
+  width: 100%;
+  height: 100%;
+}
+
+/* Works */
+.works .work-item {
+	text-align: center;
+}
+
+.works .work-item img {
+  width: 23rem;
+  height: 23rem;
+  object-fit: cover;
+}
+
+.works .work-item .org {
+	display: block;
+	font-size: 13px;
+	font-style: italic;
+	text-transform: uppercase;
 }

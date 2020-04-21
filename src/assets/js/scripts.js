@@ -34,9 +34,10 @@
   // Page scrolling feature - requires jQuery Easing plugin
   $(document).on('click', 'a.page-scroll', function(event) {
     var $anchor = $(this);
-    var offsetFromTop = $($anchor.attr('href')).offset().top;
+    var hrefOfAnchor = $anchor.attr('href');
+    var offsetFromTop = $(hrefOfAnchor).offset().top;
     // No offset for first section of the page
-    if ($anchor.attr('href') === '#header') {
+    if (hrefOfAnchor === 'body' || hrefOfAnchor === '#header') {
       offsetFromTop = 0;
     }
     $('html, body').stop().animate({
