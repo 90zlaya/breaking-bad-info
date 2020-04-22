@@ -12,18 +12,10 @@
 </template>
 
 <script>
-  import Loader from './Loader.vue';
-
   export default {
-    components: {
-      'LoadMore-Loader': Loader,
-    },
-    props: {
-      showLoader: Boolean,
-    },
     methods: {
       loadMore() {
-        this.$emit('loadMoreCharacters')
+        this.$emit('loadMoreCharacters');
       },
     },
   };

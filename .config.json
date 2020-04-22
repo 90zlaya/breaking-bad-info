@@ -6,12 +6,10 @@
     "defaultExtension": "jpg",
     "loaderImage": "loader.gif"
   },
-  "settings": {
-    "slider": {
-      "numberOfSlides": "9"
-    },
-    "characters": {
-      "numberOfCharacters": "3"
-    }
+  "slider": {
+    "numberOfSlides": 9
+  },
+  "characters": {
+    "numberOfCharacters": 3
   }
 }

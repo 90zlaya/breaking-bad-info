@@ -23,19 +23,19 @@
       return {
         counter: [
           {
-            data: '5',
+            data: 5,
             info: this.$t('counter.seasons'),
           },
           {
-            data: '6',
+            data: 6,
             info: this.$t('counter.years'),
           },
           {
-            data: '62',
+            data: 62,
             info: this.$t('counter.episodes'),
           },
           {
-            data: '271',
+            data: 271,
             info: this.$t('counter.deaths'),
           },
         ],

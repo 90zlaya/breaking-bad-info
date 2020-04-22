@@ -12,11 +12,15 @@
           <div class="image-container">
             <div class="video-wrapper">
               <a
-                v-bind:href="videoUrl"
+                href="https://www.youtube.com/watch?v=ceqOTZnhgY8"
                 class="popup-youtube"
                 data-effect="fadeIn"
               >
-                <img class="img-fluid" v-bind:src="imageUrl" alt="Video Frame Image"/>
+                <img
+                  class="img-fluid"
+                  src="src/assets/images/video-frame.jpg"
+                  alt="Video Frame Image"
+                />
                 <span class="video-play-button">
                     <span></span>
                 </span>
@@ -30,12 +34,5 @@
 </template>
 
 <script>
-  export default {
-    data() {
-      return {
-        imageUrl: 'src/assets/images/video-frame.jpg',
-        videoUrl: 'https://www.youtube.com/watch?v=ceqOTZnhgY8',
-      };
-    },
-  };
+  export default {};
 </script>

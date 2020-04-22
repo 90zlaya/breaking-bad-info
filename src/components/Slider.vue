@@ -5,7 +5,7 @@
         <div class="col-lg-12">
           <div class="slider-container">
             <div class="swiper-container card-slider">
-              <App-Loader v-if="showSliderLoader"/>
+              <Loader v-if="showSliderLoader"/>
               <template v-else>
                 <div class="swiper-wrapper">
                   <template v-for="slide in slides">
@@ -39,18 +39,18 @@
   import config from './../../.config.json';
   import apiMap from './../data/apiMap.json';
   import localStorageMap from './../data/localStorageMap.json';
-  import characters from './../data/characters.json';
+  import quotedAuthors from './../data/quotedAuthors.json';
   import Loader from './Loader.vue';
 
   export default {
     components: {
-      'App-Loader': Loader,
+      Loader,
     },
     data() {
       return {
         slides: [],
         showSliderLoader: true,
-        configuredNumberOfSlides: config.settings.slider.numberOfSlides,
+        numberOfSlides: config.slider.numberOfSlides,
       };
     },
     created() {
@@ -78,18 +78,18 @@
         let slides = [];
         let previousAuthor = '';
 
-        while (slides.length < config.settings.slider.numberOfSlides){
+        while (slides.length < this.numberOfSlides){
           let randomNumber = Math.floor(Math.random() * quotes.length) + 1;
 
           if (slides.indexOf(randomNumber) === -1 && quotes[randomNumber] !== undefined) {
             // Do not repeat quote authors
-            if (quotes[randomNumber]['author'] !== previousAuthor) {
+            if (quotes[randomNumber].author !== previousAuthor) {
               // Remember current quote author for next query
-              previousAuthor = quotes[randomNumber]['author'];
+              previousAuthor = quotes[randomNumber].author;
 
               // Construct image path for quote author
-              quotes[randomNumber]['image'] = this.constructCharacterImagePath(
-                quotes[randomNumber]['author']
+              quotes[randomNumber].image = this.constructCharacterImagePath(
+                quotes[randomNumber].author
               );
 
               // Add quotes object to the slides array
@@ -104,21 +104,21 @@
         let imagePath = '';
         let characterNameInLowerCase = characterName.toLowerCase();
         let imageName = characterNameInLowerCase.replace(' ', '-');
-        let [characterDetails] = characters.filter((character) => {
-          return character.name === characterName;
+        let [characterDetails] = quotedAuthors.filter((author) => {
+          return author === characterName;
         });
+        let {
+          root,
+          characters,
+          defaultCharacter,
+          defaultExtension
+        } = config.images;
 
-        imagePath += config.images.root;
-        imagePath += config.images.characters;
-
-        if (characterDetails !== undefined && characterDetails.hasImage == 'true') {
-          imagePath += imageName;
-        } else {
-          imagePath += config.images.defaultCharacter;
-        }
-
+        imagePath += root;
+        imagePath += characters;
+        imagePath += characterDetails ? imageName : defaultCharacter;
         imagePath += '.';
-        imagePath += config.images.defaultExtension;
+        imagePath += defaultExtension;
 
         return imagePath;
       },

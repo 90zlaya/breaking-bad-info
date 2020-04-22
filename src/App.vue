@@ -1,14 +1,14 @@
 <template>
-  <div>
-    <App-Preloader/>
-    <App-Navbar/>
-    <App-Header/>
-    <App-Slider/>
-    <App-Characters/>
-    <App-Counter/>
-    <App-Video/>
-    <App-Footer/>
-    <App-Copyright/>
+  <div id="app">
+    <Preloader/>
+    <Navbar/>
+    <Header/>
+    <Slider/>
+    <Characters/>
+    <Counter/>
+    <Synopsis/>
+    <Footer/>
+    <Copyright/>
   </div>
 </template>
 
@@ -19,21 +19,21 @@
   import Slider from './components/Slider.vue';
   import Characters from './components/Characters.vue';
   import Counter from './components/Counter.vue';
-  import Video from './components/Video.vue';
+  import Synopsis from './components/Synopsis.vue';
   import Footer from './components/Footer.vue';
   import Copyright from './components/Copyright.vue';
 
   export default {
     components: {
-      'App-Preloader': Preloader,
-      'App-Navbar': Navbar,
-      'App-Header': Header,
-      'App-Slider': Slider,
-      'App-Characters': Characters,
-      'App-Counter': Counter,
-      'App-Video': Video,
-      'App-Footer': Footer,
-      'App-Copyright': Copyright,
+      Preloader,
+      Navbar,
+      Header,
+      Slider,
+      Characters,
+      Counter,
+      Synopsis,
+      Footer,
+      Copyright,
     },
   };
 </script>

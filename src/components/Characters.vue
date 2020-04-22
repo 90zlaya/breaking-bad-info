@@ -41,7 +41,7 @@
           gridLoader: true,
           loadMoreButton: false,
         },
-        configuredNumberOfCharacters: config.settings.characters.numberOfCharacters,
+        numberOfCharacters: config.characters.numberOfCharacters,
       };
     },
     created () {
@@ -88,11 +88,11 @@
         this.toShow.loadMoreButton = true;
 
         // Add to grid featured characters from list of all characters
-        this.characters.grid = this.characters.all.slice(0, parseInt(this.configuredNumberOfCharacters));
+        this.characters.grid = this.characters.all.slice(0, this.numberOfCharacters);
       },
       loadMoreCharacters() {
-        let gridCharactersLength = parseInt(this.characters.grid.length);
-        let ending = gridCharactersLength + parseInt(this.configuredNumberOfCharacters);
+        let gridCharactersLength = this.characters.grid.length;
+        let ending = gridCharactersLength + this.numberOfCharacters;
         let loadedCharacters = this.characters.all.slice(gridCharactersLength, ending);
 
         // Concat to the loaded characters array
