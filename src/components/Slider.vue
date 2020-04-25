@@ -37,9 +37,12 @@
 
 <script>
   import config from './../../.config.json';
-  import apiMap from './../data/apiMap.json';
-  import localStorageMap from './../data/localStorageMap.json';
-  import quotedAuthors from './../data/quotedAuthors.json';
+  import {
+    apiMap,
+    localStorageMap,
+    quotedAuthors,
+  } from './../data/info.js';
+
   import Loader from './Loader.vue';
 
   export default {

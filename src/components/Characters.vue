@@ -1,15 +1,15 @@
 <template>
   <div id="characters" class="basic-1">
-    <Characters-Search
-      v-if="toShow.gridLoader === false"
+    <Search
+      v-if="toShow.loader === false"
       @showSearchResults="showSearchResults"
       @showOriginalView="featuredCharacters"
     />
-    <Characters-Grid
-      :showLoader="toShow.gridLoader"
+    <Grid
+      :showLoader="toShow.loader"
       :characters="characters.grid"
     />
-    <Characters-LoadMore
+    <LoadMore
       v-if="toShow.loadMoreButton"
       @loadMoreCharacters="loadMoreCharacters"
     />
@@ -18,8 +18,10 @@
 
 <script>
   import config from './../../.config.json';
-  import apiMap from './../data/apiMap.json';
-  import localStorageMap from './../data/localStorageMap.json';
+  import {
+    apiMap,
+    localStorageMap,
+  } from './../data/info.js';
 
   import Search from './Search.vue';
   import Grid from './Grid.vue';
@@ -27,9 +29,9 @@
 
   export default {
     components: {
-      'Characters-Search': Search,
-      'Characters-Grid': Grid,
-      'Characters-LoadMore': LoadMore,
+      Search,
+      Grid,
+      LoadMore,
     },
     data() {
       return {
@@ -38,7 +40,7 @@
           grid: [],
         },
         toShow: {
-          gridLoader: true,
+          loader: true,
           loadMoreButton: false,
         },
         numberOfCharacters: config.characters.numberOfCharacters,
@@ -60,7 +62,7 @@
         this.featuredCharacters();
 
         // Stop grid loader
-        this.toShow.gridLoader = false;
+        this.toShow.loader = false;
       }
     },
     methods: {
@@ -75,7 +77,7 @@
           this.featuredCharacters();
 
           // Stop grid loader
-          this.toShow.gridLoader = false;
+          this.toShow.loader = false;
 
           // Save to local storage
           localStorage.setItem(localStorageMap.characters.characters, JSON.stringify(remoteCharacters));

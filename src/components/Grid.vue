@@ -2,7 +2,7 @@
   <div class="container works">
     <div v-if="showLoader" class="row">
       <div class="col-12">
-        <Grid-Loader />
+        <Loader/>
       </div>
     </div>
     <div v-else class="row">
@@ -27,7 +27,7 @@
 
   export default {
     components: {
-      'Grid-Loader': Loader,
+      Loader,
     },
     props: {
       showLoader: Boolean,
