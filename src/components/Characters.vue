@@ -21,7 +21,7 @@
   import {
     apiMap,
     localStorageMap,
-  } from './../data/info.js';
+  } from './../data.js';
 
   import Search from './Search.vue';
   import Grid from './Grid.vue';

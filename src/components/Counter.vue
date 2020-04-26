@@ -1,5 +1,5 @@
 <template>
-  <div id="statistics" class="counter" style="background-color:#2f2c3d;">
+  <div id="statistics" class="counter">
     <div class="container">
       <div class="row">
         <div class="col-lg-12">

@@ -19,7 +19,7 @@
 <script>
   import {
     urls,
-  } from './../data/info.js';
+  } from './../data.js';
 
   export default {
     data() {

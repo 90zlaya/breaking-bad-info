@@ -49,7 +49,7 @@
 <script>
   import {
     urls,
-  } from './../data/info.js';
+  } from './../data.js';
 
   export default {
     data() {
@@ -68,19 +68,19 @@
         ],
         socialMedia: [
           {
-            href: 'https://github.com/90zlaya',
+            href: urls.social.github,
             icon: 'github',
           },
           {
-            href: 'https://www.linkedin.com/in/90zlaya',
+            href: urls.social.linkedIn,
             icon: 'linkedin-in',
           },
           {
-            href: 'https://www.youtube.com/90zlaya',
+            href: urls.social.youtube,
             icon: 'youtube',
           },
           {
-            href: 'https://instagram.com/90zlaya',
+            href: urls.social.instagram,
             icon: 'instagram',
           },
         ],

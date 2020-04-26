@@ -7,8 +7,13 @@
 
   export default {
     data() {
+      let {
+        root,
+        loaderImage
+      } = config.images;
+
       return {
-        loaderImagePath: config.images.root + config.images.loaderImage,
+        loaderImagePath: root + loaderImage,
       };
     },
   };

@@ -5,7 +5,7 @@
         <div class="col-lg-12">
           <div class="slider-container">
             <div class="swiper-container card-slider">
-              <Loader v-if="showSliderLoader"/>
+              <Loader v-if="showLoader"/>
               <template v-else>
                 <div class="swiper-wrapper">
                   <template v-for="slide in slides">
@@ -41,7 +41,7 @@
     apiMap,
     localStorageMap,
     quotedAuthors,
-  } from './../data/info.js';
+  } from './../data.js';
 
   import Loader from './Loader.vue';
 
@@ -52,7 +52,7 @@
     data() {
       return {
         slides: [],
-        showSliderLoader: true,
+        showLoader: true,
         numberOfSlides: config.slider.numberOfSlides,
       };
     },
@@ -67,11 +67,11 @@
       } else {
         // Create slides from quotes retrieved from local storage
         this.slides = this.createSlides(JSON.parse(localQuotes));
-        this.showSliderLoader = false;
+        this.showLoader = false;
       }
     },
     updated() {
-      if (this.showSliderLoader === false) {
+      if (this.showLoader === false) {
         // Run card slider function from scripts.js
         cardSlider();
       }
@@ -136,7 +136,7 @@
           localStorage.setItem(localStorageMap.slider.quotes, JSON.stringify(remoteQuotes));
 
           // Stop loader
-          this.showSliderLoader = false;
+          this.showLoader = false;
         }).catch((error) => {
           console.error('Fetching quotes failed', error);
         });

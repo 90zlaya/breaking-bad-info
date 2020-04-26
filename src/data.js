@@ -35,4 +35,10 @@ export let urls = {
     url: "https://php-library.zlatanstajic.com/",
     title: "PHP Library",
   },
+  social: {
+    github: "https://github.com/90zlaya",
+    linkedIn: "https://www.linkedin.com/in/90zlaya",
+    youtube: "https://www.youtube.com/90zlaya",
+    instagram: "https://instagram.com/90zlaya",
+  },
 };

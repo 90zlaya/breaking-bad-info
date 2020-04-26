@@ -22,7 +22,7 @@
                   alt="Video Frame Image"
                 />
                 <span class="video-play-button">
-                    <span></span>
+                  <span></span>
                 </span>
               </a>
             </div>
@@ -32,7 +32,3 @@
     </div>
   </div>
 </template>
-
-<script>
-  export default {};
-</script>

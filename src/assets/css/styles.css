@@ -1301,6 +1301,7 @@ input[type='checkbox'] {
 	padding-bottom: 5.375rem;
 	background-color: #262431;
 	text-align: center;
+  background-color: #2f2c3d;
 }
 
 .counter #counter .cell {
