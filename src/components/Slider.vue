@@ -9,7 +9,7 @@
               <Loader v-if="showLoader"/>
               <template v-else>
                 <div class="swiper-wrapper">
-                  <template v-for="slide in slides">
+                  <template v-for="(slide) in slides">
                     <div class="swiper-slide">
                       <div class="card">
                         <img

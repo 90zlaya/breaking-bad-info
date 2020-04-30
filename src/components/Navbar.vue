@@ -4,23 +4,23 @@
       class="navbar-brand logo-image"
       href="index.html"
     >
-      <img src="src/assets/images/logo.png" alt="Logo Image"/>
+      <img src="src/assets/images/logo.png" v-bind:alt="$t('navbar.logoImage')"/>
     </a>
     <button
       class="navbar-toggler"
       type="button"
       data-toggle="collapse"
-      data-target="#navbarsExampleDefault"
-      aria-controls="navbarsExampleDefault"
+      data-target="#navbarsMenu"
+      aria-controls="navbarsMenu"
       aria-expanded="false"
       aria-label="Toggle navigation"
     >
       <span class="navbar-toggler-awesome fas fa-bars"></span>
       <span class="navbar-toggler-awesome fas fa-times"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+    <div class="collapse navbar-collapse" id="navbarsMenu">
       <ul class="navbar-nav ml-auto">
-        <template v-for="item in navigation">
+        <template v-for="(item) in navigation">
           <li class="nav-item">
             <a class="nav-link page-scroll" v-bind:href="item.href">
               {{ item.title }}

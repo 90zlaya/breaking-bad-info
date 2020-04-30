@@ -12,7 +12,7 @@
           <div class="footer-col middle">
             <h4>{{ $t('footer.links.title') }}</h4>
             <ul class="list-unstyled li-space-lg">
-              <template v-for="link in links">
+              <template v-for="(link) in links">
                 <li class="media">
                   <i class="fas fa-square"></i>
                   <div class="media-body">
@@ -31,11 +31,11 @@
         <div class="col-md-4">
           <div class="footer-col last">
             <h4>{{ $t('footer.socialMedia') }}</h4>
-            <template v-for="item in socialMedia">
+            <template v-for="(social) in socialMedia">
               <span class="fa-stack">
-                <a v-bind:href="item.href" target="_blank">
+                <a v-bind:href="social.href" target="_blank">
                   <i class="fas fa-circle fa-stack-2x"></i>
-                  <i v-bind:class="'fab fa-' + item.icon + ' fa-stack-1x'"></i>
+                  <i v-bind:class="'fab fa-' + social.icon + ' fa-stack-1x'"></i>
                 </a>
               </span>
             </template>
