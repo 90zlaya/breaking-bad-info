@@ -1,3 +1,5 @@
+/* -------------------------------------------------------------------------- */
+
 export let apiMap = {
   baseUrl: "https://www.breakingbadapi.com/api",
   endpoints: {
@@ -5,6 +7,8 @@ export let apiMap = {
     character: "/characters?category=Breaking+Bad",
   },
 };
+
+/* -------------------------------------------------------------------------- */
 
 export let localStorageMap = {
   slider: {
@@ -14,6 +18,8 @@ export let localStorageMap = {
     characters: "breakingBadInfoApp_characters",
   },
 };
+
+/* -------------------------------------------------------------------------- */
 
 export let quotedAuthors = [
   "Walter White",
@@ -25,6 +31,8 @@ export let quotedAuthors = [
   "Gus Fring",
   "Hector Salamanca",
 ];
+
+/* -------------------------------------------------------------------------- */
 
 export let urls = {
   developer: {
@@ -42,3 +50,5 @@ export let urls = {
     instagram: "https://instagram.com/90zlaya",
   },
 };
+
+/* -------------------------------------------------------------------------- */

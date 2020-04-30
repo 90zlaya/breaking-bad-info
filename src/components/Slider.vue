@@ -1,6 +1,7 @@
 <template>
   <div id="quotes" class="slider-1">
-    <div class="container">
+    <ErrorHandler v-if="errorMessage !== ''" :message="errorMessage"/>
+    <div v-else class="container">
       <div class="row">
         <div class="col-lg-12">
           <div class="slider-container">
@@ -44,14 +45,17 @@
   } from './../data.js';
 
   import Loader from './Loader.vue';
+  import ErrorHandler from './ErrorHandler.vue';
 
   export default {
     components: {
       Loader,
+      ErrorHandler,
     },
     data() {
       return {
         slides: [],
+        errorMessage: '',
         showLoader: true,
         numberOfSlides: config.slider.numberOfSlides,
       };
@@ -139,6 +143,7 @@
           this.showLoader = false;
         }).catch((error) => {
           console.error('Fetching quotes failed', error);
+          this.errorMessage = this.$t('slider.errors.fetchingQuotes');
         });
       },
     },

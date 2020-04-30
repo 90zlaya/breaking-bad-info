@@ -1,18 +1,21 @@
 <template>
   <div id="characters" class="basic-1">
-    <Search
-      v-if="toShow.loader === false"
-      @showSearchResults="showSearchResults"
-      @showOriginalView="featuredCharacters"
-    />
-    <Grid
-      :showLoader="toShow.loader"
-      :characters="characters.grid"
-    />
-    <LoadMore
-      v-if="toShow.loadMoreButton"
-      @loadMoreCharacters="loadMoreCharacters"
-    />
+    <ErrorHandler v-if="errorMessage !== ''" :message="errorMessage"/>
+    <template v-else>
+      <Search
+        v-if="toShow.loader === false"
+        @showSearchResults="showSearchResults"
+        @showOriginalView="featuredCharacters"
+      />
+      <Grid
+        :showLoader="toShow.loader"
+        :characters="characters.grid"
+      />
+      <LoadMore
+        v-if="toShow.loadMoreButton"
+        @loadMoreCharacters="loadMoreCharacters"
+      />
+    </template>
   </div>
 </template>
 
@@ -26,12 +29,14 @@
   import Search from './Search.vue';
   import Grid from './Grid.vue';
   import LoadMore from './LoadMore.vue';
+  import ErrorHandler from './ErrorHandler.vue';
 
   export default {
     components: {
       Search,
       Grid,
       LoadMore,
+      ErrorHandler,
     },
     data() {
       return {
@@ -43,6 +48,7 @@
           loader: true,
           loadMoreButton: false,
         },
+        errorMessage: '',
         numberOfCharacters: config.characters.numberOfCharacters,
       };
     },
@@ -83,6 +89,7 @@
           localStorage.setItem(localStorageMap.characters.characters, JSON.stringify(remoteCharacters));
         }).catch((error) => {
           console.error('Fetching characters failed', error);
+          this.errorMessage = this.$t('characters.errors.fetchingCharacters');
         });
       },
       featuredCharacters() {
