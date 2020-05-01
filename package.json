@@ -1,6 +1,6 @@
 {
   "name": "breaking-bad-info",
-  "description": "A simple Vue.js app with Breaking Bad info",
+  "description": "Simple Vue.js app with Breaking Bad info",
   "version": "1.0.0",
   "private": true,
   "author": {

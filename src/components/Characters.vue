@@ -1,6 +1,6 @@
 <template>
   <div id="characters" class="basic-1">
-    <ErrorHandler v-if="errorMessage !== ''" :message="errorMessage"/>
+    <Alerter v-if="errorMessage !== ''" :purpose="'danger'" :message="errorMessage"/>
     <template v-else>
       <Search
         v-if="toShow.loader === false"
@@ -24,19 +24,19 @@
   import {
     apiMap,
     localStorageMap,
-  } from './../data.js';
+  } from './../mixins/data.js';
 
   import Search from './Search.vue';
   import Grid from './Grid.vue';
   import LoadMore from './LoadMore.vue';
-  import ErrorHandler from './ErrorHandler.vue';
+  import Alerter from './Alerter.vue';
 
   export default {
     components: {
       Search,
       Grid,
       LoadMore,
-      ErrorHandler,
+      Alerter,
     },
     data() {
       return {
@@ -106,6 +106,11 @@
 
         // Concat to the loaded characters array
         this.characters.grid = this.characters.grid.concat(loadedCharacters);
+
+        // Hide Load More button when there are no characters for loading
+        if (this.characters.grid.length === this.characters.all.length) {
+          this.toShow.loadMoreButton = false;
+        }
       },
       showSearchResults(searchTerm) {
         // Not able to load more during search operation

@@ -19,7 +19,7 @@
 <script>
   import {
     urls,
-  } from './../data.js';
+  } from './../mixins/data.js';
 
   export default {
     data() {

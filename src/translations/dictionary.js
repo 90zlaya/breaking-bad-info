@@ -22,6 +22,7 @@ const dictionary = {
     characters: {
       search: {
         searchCharacter: "Search character by name",
+        noSearchResults: "There are no results for this search. Try different name.",
       },
       grid: {
         imageOfCharacterName: "Image of {characterName}",

@@ -4,7 +4,7 @@ export let apiMap = {
   baseUrl: "https://www.breakingbadapi.com/api",
   endpoints: {
     quotes: "/quotes?series=Breaking+Bad",
-    character: "/characters?category=Breaking+Bad",
+    characters: "/characters?category=Breaking+Bad",
   },
 };
 
@@ -12,10 +12,10 @@ export let apiMap = {
 
 export let localStorageMap = {
   slider: {
-    quotes: "breakingBadInfoApp_quotes",
+    quotes: "BreakingBadInfoApp:Quotes",
   },
   characters: {
-    characters: "breakingBadInfoApp_characters",
+    characters: "BreakingBadInfoApp:Characters",
   },
 };
 

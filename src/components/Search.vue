@@ -11,6 +11,12 @@
             class="form-control"
             id="search-term-input"
           >
+          <div v-if="searchTerm !== ''" class="icon-container">
+            <i
+             class="fas fa-times clear-search"
+             v-on:click="clearSearch();"
+            ></i>
+          </div>
         </div>
       </form>
     </div>
@@ -31,6 +37,10 @@
         } else {
           this.$emit('showSearchResults', this.searchTerm);
         }
+      },
+      clearSearch() {
+        this.searchTerm = '';
+        this.$emit('showOriginalView');
       },
     },
   };

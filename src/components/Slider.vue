@@ -1,6 +1,6 @@
 <template>
   <div id="quotes" class="slider-1">
-    <ErrorHandler v-if="errorMessage !== ''" :message="errorMessage"/>
+    <Alerter v-if="errorMessage !== ''" :purpose="'danger'" :message="errorMessage"/>
     <div v-else class="container">
       <div class="row">
         <div class="col-lg-12">
@@ -42,15 +42,15 @@
     apiMap,
     localStorageMap,
     quotedAuthors,
-  } from './../data.js';
+  } from './../mixins/data.js';
 
   import Loader from './Loader.vue';
-  import ErrorHandler from './ErrorHandler.vue';
+  import Alerter from './Alerter.vue';
 
   export default {
     components: {
       Loader,
-      ErrorHandler,
+      Alerter,
     },
     data() {
       return {
@@ -81,6 +81,23 @@
       }
     },
     methods: {
+      fetchQuotes() {
+        fetch(apiMap.baseUrl + apiMap.endpoints.quotes).then((response) => {
+          return response.json();
+        }).then((remoteQuotes) => {
+          // Create slides from quotes retrieved from API
+          this.slides = this.createSlides(remoteQuotes);
+
+          // Save to local storage
+          localStorage.setItem(localStorageMap.slider.quotes, JSON.stringify(remoteQuotes));
+
+          // Stop loader
+          this.showLoader = false;
+        }).catch((error) => {
+          console.error('Fetching quotes failed', error);
+          this.errorMessage = this.$t('slider.errors.fetchingQuotes');
+        });
+      },
       createSlides(quotes) {
         let slides = [];
         let previousAuthor = '';
@@ -128,23 +145,6 @@
         imagePath += defaultExtension;
 
         return imagePath;
-      },
-      fetchQuotes() {
-        fetch(apiMap.baseUrl + apiMap.endpoints.quotes).then((response) => {
-          return response.json();
-        }).then((remoteQuotes) => {
-          // Create slides from quotes retrieved from API
-          this.slides = this.createSlides(remoteQuotes);
-
-          // Save to local storage
-          localStorage.setItem(localStorageMap.slider.quotes, JSON.stringify(remoteQuotes));
-
-          // Stop loader
-          this.showLoader = false;
-        }).catch((error) => {
-          console.error('Fetching quotes failed', error);
-          this.errorMessage = this.$t('slider.errors.fetchingQuotes');
-        });
       },
     },
   };

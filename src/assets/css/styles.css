@@ -1522,15 +1522,71 @@ a:hover.back-to-top {
 	padding: 1.625rem 1.5rem 0.75rem 2rem;
 	background-color: #f9fafc;
 }
+/*****************************/
+/*     20. Custom            */
+/*****************************/
+/* Loader */
+.loader {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width: 15%;
+}
 
+.loader:has(> div) {
+  width: 100%;
+  height: 100%;
+}
+
+/* Works */
+.works .work-item {
+	text-align: center;
+}
+
+.works .work-item img {
+  width: 14rem;
+  height: 14rem;
+  object-fit: cover;
+  color: black;
+  text-align: center;
+}
+
+.works .work-item .org {
+	display: block;
+	font-size: 13px;
+	font-style: italic;
+	text-transform: uppercase;
+  padding-bottom: 1rem;
+}
+
+.icon-container {
+  position: absolute;
+  right: 10px;
+  top: calc(50% - 10px);
+}
+
+.clear-search {
+  color: black;
+  cursor: pointer;
+  padding: 0.25rem;
+}
 
 /*****************************/
-/*     20. Media Queries     */
+/*     21. Media Queries     */
 /*****************************/
 /* Max-width width 767px */
 @media (max-width: 767px) {
+
   .header .header-content {
     margin-top: 3.8rem;
+  }
+
+  .works .work-item img {
+    width: 24rem;
+    height: 24rem;
+    object-fit: cover;
+    color: black;
+    text-align: center;
   }
 }
 
@@ -2093,34 +2149,3 @@ a:hover.back-to-top {
 	/* end of extra pages */
 }
 /* end of min-width width 1200px */
-
-/* Loader */
-.loader {
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
-  width: 15%;
-}
-
-.loader:has(> div) {
-  width: 100%;
-  height: 100%;
-}
-
-/* Works */
-.works .work-item {
-	text-align: center;
-}
-
-.works .work-item img {
-  width: 23rem;
-  height: 23rem;
-  object-fit: cover;
-}
-
-.works .work-item .org {
-	display: block;
-	font-size: 13px;
-	font-style: italic;
-	text-transform: uppercase;
-}
