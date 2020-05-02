@@ -1,8 +1,9 @@
 <template>
   <Alerter
-    v-if="characters.length === 0"
+    v-if="characters.length === 0 && showLoader === false"
     :purpose="'info'"
-    :message="$t('characters.search.noSearchResults')"/>
+    :message="$t('characters.search.noSearchResults')"
+  />
   <div v-else class="container works">
     <div v-if="showLoader" class="row">
       <div class="col-12">
@@ -11,7 +12,7 @@
     </div>
     <div v-else class="row">
       <template v-for="(character) in characters">
-        <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
 					<div class="work-item">
             <img
               v-bind:src="character.img"

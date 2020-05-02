@@ -56,7 +56,7 @@ const dictionary = {
           developersWebsite: "Developer's website",
         },
         library: {
-          ifYouAreDeveloper: "If you are developer",
+          ifYouAreDeveloper: "If you are a developer",
           phpLibraryProject: "PHP Library Project",
         },
       },

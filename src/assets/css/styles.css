@@ -1544,10 +1544,10 @@ a:hover.back-to-top {
 }
 
 .works .work-item img {
-  width: 14rem;
-  height: 14rem;
+  width: 17rem;
+  height: 17rem;
   object-fit: cover;
-  color: black;
+  color: #495057;
   text-align: center;
 }
 
@@ -1566,7 +1566,7 @@ a:hover.back-to-top {
 }
 
 .clear-search {
-  color: black;
+  color: #495057;
   cursor: pointer;
   padding: 0.25rem;
 }
@@ -1585,7 +1585,7 @@ a:hover.back-to-top {
     width: 24rem;
     height: 24rem;
     object-fit: cover;
-    color: black;
+    color: #495057;
     text-align: center;
   }
 }
