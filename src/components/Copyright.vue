@@ -35,3 +35,17 @@
     },
   };
 </script>
+
+<style scoped>
+  .copyright {
+  	padding-top: 1rem;
+  	padding-bottom: 0.5rem;
+  	background-color: #262431;
+  	text-align: center;
+  }
+
+  .copyright .p-small {
+  	color: #f1f1f8;
+  	opacity: 0.6;
+  }
+</style>

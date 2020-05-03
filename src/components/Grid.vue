@@ -43,3 +43,35 @@
     },
   };
 </script>
+
+<style scoped>
+  .works .work-item {
+  	text-align: center;
+  }
+
+  .works .work-item img {
+    width: 17rem;
+    height: 17rem;
+    object-fit: cover;
+    color: #495057;
+    text-align: center;
+  }
+
+  .works .work-item .org {
+  	display: block;
+  	font-size: 13px;
+  	font-style: italic;
+  	text-transform: uppercase;
+    padding-bottom: 1rem;
+  }
+
+  @media (max-width: 767px) {
+    .works .work-item img {
+      width: 24rem;
+      height: 24rem;
+      object-fit: cover;
+      color: #495057;
+      text-align: center;
+    }
+  }
+</style>

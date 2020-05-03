@@ -1,9 +1,10 @@
 @charset "utf-8";
-
-/* Template: Juno - Multipurpose Landing Page Pack
-   Author: InovatikThemes
-   Created: Mar 2019
-   Description: Master CSS file
+/*
+  Template: Juno - Multipurpose Landing Page Pack
+  Author: InovatikThemes
+  Created: Mar 2019
+  Updated: May 2020 by 90zlaya
+  Description: Master CSS file
 */
 
 /*****************************************
@@ -567,62 +568,7 @@ input[type='checkbox'] {
 /*************************/
 /*     02. Preloader     */
 /*************************/
-.spinner-wrapper {
-	position: fixed;
-	z-index: 999999;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
-	background: #2f2c3d;
-}
-
-.spinner {
-	position: absolute;
-	top: 50%; /* centers the loading animation vertically one the screen */
-	left: 50%; /* centers the loading animation horizontally one the screen */
-	width: 3.75rem;
-	height: 1.25rem;
-	margin: -0.625rem 0 0 -1.875rem; /* is width and height divided by two */
-	text-align: center;
-}
-
-.spinner > div {
-	display: inline-block;
-	width: 1rem;
-	height: 1rem;
-	border-radius: 100%;
-	background-color: #fff;
-	-webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
-	animation: sk-bouncedelay 1.4s infinite ease-in-out both;
-}
-
-.spinner .bounce1 {
-	-webkit-animation-delay: -0.32s;
-	animation-delay: -0.32s;
-}
-
-.spinner .bounce2 {
-	-webkit-animation-delay: -0.16s;
-	animation-delay: -0.16s;
-}
-
-@-webkit-keyframes sk-bouncedelay {
-	0%, 80%, 100% { -webkit-transform: scale(0); }
-	40% { -webkit-transform: scale(1.0); }
-}
-
-@keyframes sk-bouncedelay {
-	0%, 80%, 100% {
-		-webkit-transform: scale(0);
-		-ms-transform: scale(0);
-		transform: scale(0);
-	} 40% {
-		-webkit-transform: scale(1.0);
-		-ms-transform: scale(1.0);
-		transform: scale(1.0);
-	}
-}
+/* In Preloader.vue      */
 
 
 /**************************/
@@ -751,99 +697,16 @@ input[type='checkbox'] {
 /*********************/
 /*    04. Header     */
 /*********************/
+/* In Header.vue     */
 .header {
 	background: linear-gradient(to bottom right, rgba(72, 72, 212, 0), rgba(0, 0, 0, 0.75)), url('../images/header-background.jpg') center center no-repeat;
 	background-size: cover;
 }
 
-.header .header-content {
-	padding-top: 8.5rem;
-	padding-bottom: 7rem;
-	text-align: center;
-}
-
-.header .text-container {
-	margin-bottom: 3rem;
-}
-
-.header h1 {
-	margin-bottom: 1rem;
-}
-
-.header #js-rotating {
-  color: #cfd200;
-}
-
-.header .p-large {
-	margin-bottom: 2rem;
-}
-
-.header .btn-solid-lg {
-	margin-right: 0.5rem;
-	margin-bottom: 1.25rem;
-}
-
-
 /****************************/
 /*     05. Testimonials     */
 /****************************/
-.slider-1 {
-	padding-top: 6.875rem;
-	padding-bottom: 6.375rem;
-	background-color: #262431;
-}
-
-.slider-1 .slider-container {
-	position: relative;
-}
-
-.slider-1 .swiper-container {
-	position: static;
-	width: 90%;
-	text-align: center;
-}
-
-.slider-1 .swiper-button-prev:focus,
-.slider-1 .swiper-button-next:focus {
-	/* even if you can't see it chrome you can see it on mobile device */
-	outline: none;
-}
-
-.slider-1 .swiper-button-prev {
-	left: -0.5rem;
-	background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2028%2044'%3E%3Cpath%20d%3D'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z'%20fill%3D'%23f1f1f8'%2F%3E%3C%2Fsvg%3E");
-	background-size: 1.125rem 1.75rem;
-}
-
-.slider-1 .swiper-button-next {
-	right: -0.5rem;
-	background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2028%2044'%3E%3Cpath%20d%3D'M27%2C22L27%2C22L5%2C44l-2.1-2.1L22.8%2C22L2.9%2C2.1L5%2C0L27%2C22L27%2C22z'%20fill%3D'%23f1f1f8'%2F%3E%3C%2Fsvg%3E");
-	background-size: 1.125rem 1.75rem;
-}
-
-.slider-1 .card {
-	position: relative;
-	border: none;
-	background-color: transparent;
-}
-
-.slider-1 .card-image {
-	width: 6rem;
-	height: 6rem;
-	margin-right: auto;
-	margin-bottom: 0.25rem;
-	margin-left: auto;
-	border-radius: 50%;
-}
-
-.slider-1 .card-body {
-	padding-bottom: 0;
-}
-
-.slider-1 .testimonial-author {
-	margin-bottom: 0;
-}
-
+/* In Slider.vue     */
 
 /************************/
 /*     05. Features     */
@@ -1223,45 +1086,7 @@ input[type='checkbox'] {
 /***************************/
 /*     12. Screenshots     */
 /***************************/
-.slider-2 {
-	padding-top: 6.875rem;
-	padding-bottom: 6.875rem;
-	background-color: #2f2c3d;
-}
-
-.slider-2 .slider-container {
-	position: relative;
-}
-
-.slider-2 .swiper-container {
-	position: static;
-	width: 90%;
-	text-align: center;
-}
-
-.slider-2 .swiper-button-prev,
-.slider-2 .swiper-button-next {
-	top: 50%;
-	width: 1.125rem;
-}
-
-.slider-2 .swiper-button-prev:focus,
-.slider-2 .swiper-button-next:focus {
-	/* even if you can't see it chrome you can see it on mobile device */
-	outline: none;
-}
-
-.slider-2 .swiper-button-prev {
-	left: -0.5rem;
-	background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2028%2044'%3E%3Cpath%20d%3D'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z'%20fill%3D'%23ffffff'%2F%3E%3C%2Fsvg%3E");
-	background-size: 1.125rem 1.75rem;
-}
-
-.slider-2 .swiper-button-next {
-	right: -0.5rem;
-	background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2028%2044'%3E%3Cpath%20d%3D'M27%2C22L27%2C22L5%2C44l-2.1-2.1L22.8%2C22L2.9%2C2.1L5%2C0L27%2C22L27%2C22z'%20fill%3D'%23ffffff'%2F%3E%3C%2Fsvg%3E");
-	background-size: 1.125rem 1.75rem;
-}
+/* Removed                 */
 
 
 /************************/
@@ -1414,18 +1239,7 @@ input[type='checkbox'] {
 /*************************/
 /*     17. Copyright     */
 /*************************/
-.copyright {
-	padding-top: 1rem;
-	padding-bottom: 0.5rem;
-	background-color: #262431;
-	text-align: center;
-}
-
-.copyright .p-small {
-	color: #f1f1f8;
-	opacity: 0.6;
-}
-
+/* In Copyright.vue      */
 
 /**********************************/
 /*     18. Back To Top Button     */
@@ -1522,74 +1336,11 @@ a:hover.back-to-top {
 	padding: 1.625rem 1.5rem 0.75rem 2rem;
 	background-color: #f9fafc;
 }
-/*****************************/
-/*     20. Custom            */
-/*****************************/
-/* Loader */
-.loader {
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
-  width: 15%;
-}
 
-.loader:has(> div) {
-  width: 100%;
-  height: 100%;
-}
-
-/* Works */
-.works .work-item {
-	text-align: center;
-}
-
-.works .work-item img {
-  width: 17rem;
-  height: 17rem;
-  object-fit: cover;
-  color: #495057;
-  text-align: center;
-}
-
-.works .work-item .org {
-	display: block;
-	font-size: 13px;
-	font-style: italic;
-	text-transform: uppercase;
-  padding-bottom: 1rem;
-}
-
-.icon-container {
-  position: absolute;
-  right: 10px;
-  top: calc(50% - 10px);
-}
-
-.clear-search {
-  color: #495057;
-  cursor: pointer;
-  padding: 0.25rem;
-}
 
 /*****************************/
 /*     21. Media Queries     */
 /*****************************/
-/* Max-width width 767px */
-@media (max-width: 767px) {
-
-  .header .header-content {
-    margin-top: 3.8rem;
-  }
-
-  .works .work-item img {
-    width: 24rem;
-    height: 24rem;
-    object-fit: cover;
-    color: #495057;
-    text-align: center;
-  }
-}
-
 /* Min-width width 768px */
 @media (min-width: 768px) {
 
@@ -1664,29 +1415,6 @@ a:hover.back-to-top {
 	}
 	/* end of navigation */
 
-
-	/* Header */
-	.header .header-content {
-		padding-top: 11rem;
-	}
-	/* end of header */
-
-
-	/* Testimonials */
-	.slider-1 .swiper-button-prev {
-		left: 1rem;
-		width: 1.375rem;
-		background-size: 1.375rem 2.125rem;
-	}
-
-	.slider-1 .swiper-button-next {
-		right: 1rem;
-		width: 1.375rem;
-		background-size: 1.375rem 2.125rem;
-	}
-	/* end of testimonials */
-
-
 	/* Features */
 	.tabs .card .card-icon {
 		width: 4.5rem;
@@ -1748,20 +1476,6 @@ a:hover.back-to-top {
 		padding: 3rem 3rem;
 	}
 	/* end of details lightboxes */
-
-
-	/* Screenshots */
-	.slider-2 .swiper-button-prev {
-		width: 1.375rem;
-		background-size: 1.375rem 2.125rem;
-	}
-
-	.slider-2 .swiper-button-next {
-		width: 1.375rem;
-		background-size: 1.375rem 2.125rem;
-	}
-	/* end of screenshots */
-
 
 	/* Contact */
 	.form .list-unstyled li {
@@ -1836,20 +1550,6 @@ a:hover.back-to-top {
 		width: 65%;
 	}
 	/* end of general styles */
-
-
-	/* Header */
-	.header .header-content {
-		padding-top: 13rem;
-		padding-bottom: 10rem;
-		text-align: left;
-	}
-
-	.header .text-container {
-		margin-top: 6.5rem;
-	}
-	/* end of header */
-
 
 	/* Features */
 	.tabs .card-body {
@@ -1940,13 +1640,6 @@ a:hover.back-to-top {
 	/* end of details lightboxes */
 
 
-	/* Screenshots */
-	.slider-2 .swiper-container {
-		width: 92%;
-	}
-	/* end of screenshots */
-
-
 	/* Download */
 	.basic-4 {
 		padding-top: 6.75rem;
@@ -2009,19 +1702,6 @@ a:hover.back-to-top {
         padding: 0.5rem 5rem 0.5rem 5rem;
 	}
 	/* end of navigation */
-
-
-	/* Header */
-	.header .text-container {
-		margin-top: 7.5rem;
-		margin-left: 2.5rem;
-	}
-
-	.header .image-container {
-		margin-left: 3rem;
-	}
-	/* end of header */
-
 
 	/* Features */
 	.tabs {
