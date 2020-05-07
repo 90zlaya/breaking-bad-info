@@ -2,7 +2,7 @@
   Template: Juno - Multipurpose Landing Page Pack
   Author: InovatikThemes
   Created: Mar 2019
-  Updated: Apr 2020 by 90zlaya
+  Updated: May 2020 by 90zlaya
   Description: Custom JS file
 */
 
@@ -69,7 +69,7 @@
   		}
     });
 
-    // Video Lightbox - Magnific Popup
+    // Video - Magnific Popup
     $('.popup-youtube, .popup-vimeo').magnificPopup({
         disableOn: 700,
         type: 'iframe',

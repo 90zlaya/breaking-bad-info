@@ -9,8 +9,7 @@
             v-on:keyup="initiateSearch();"
             type="text"
             class="form-control"
-            id="search-term-input"
-          >
+          />
           <div v-if="searchTerm !== ''" class="icon-container">
             <i
              class="fas fa-times clear-search"
@@ -45,3 +44,17 @@
     },
   };
 </script>
+
+<style scoped>
+  .icon-container {
+    position: absolute;
+    right: 10px;
+    top: calc(50% - 10px);
+  }
+
+  .clear-search {
+    color: #495057;
+    cursor: pointer;
+    padding: 0.25rem;
+  }
+</style>
