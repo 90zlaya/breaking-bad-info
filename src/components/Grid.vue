@@ -21,7 +21,11 @@
               class="img-thumbnail"
             />
             <div class="grid-overlay">
-              <div class="grid-hover-text">{{ character.name }}</div>
+              <!--<div class="grid-hover-text">{{ character.name }}</div>-->
+              <router-link
+                class="grid-hover-text"
+                to="/character"
+              >{{ character.name }}</router-link>
             </div>
           </div>
         </div>

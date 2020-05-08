@@ -2,7 +2,7 @@
   <nav class="navbar navbar-expand-md navbar-dark navbar-custom fixed-top">
     <a
       class="navbar-brand logo-image"
-      href="index.html"
+      href="/"
     >
       <img src="src/assets/images/logo.png" v-bind:alt="$t('navbar.logoImage')"/>
     </a>
