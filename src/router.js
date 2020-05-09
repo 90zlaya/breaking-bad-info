@@ -8,16 +8,19 @@ Vue.use(Router);
 
 // New Router instance
 export default new Router({
+  mode: 'history',
   routes: [
     {
       path: '/',
       name: 'home',
       component: Home,
+      props: true,
     },
     {
-      path: '/character',
+      path: '/character/:characterName',
       name: 'character',
       component: Character,
+      props: true,
     },
   ],
 });

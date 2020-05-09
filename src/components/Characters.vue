@@ -76,6 +76,15 @@
         fetch(apiMap.baseUrl + apiMap.endpoints.characters).then((response) => {
           return response.json();
         }).then((remoteCharacters) => {
+          let characte = remoteCharacters;
+
+          // TODO: Separate to function and improve
+          remoteCharacters.forEach((character, id) => {
+            let characterNameInLowerCase = character.name.toLowerCase();
+            let characterNameWithDash = characterNameInLowerCase.replace(' ', '-');
+            remoteCharacters[id].pageName = characterNameWithDash;
+          });
+
           // Save all characters retrieved from API
           this.characters.all = remoteCharacters;
 

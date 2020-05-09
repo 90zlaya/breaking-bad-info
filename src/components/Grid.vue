@@ -21,10 +21,9 @@
               class="img-thumbnail"
             />
             <div class="grid-overlay">
-              <!--<div class="grid-hover-text">{{ character.name }}</div>-->
               <router-link
                 class="grid-hover-text"
-                to="/character"
+                :to="{ name: 'character', params: { character: character, characterName: character.pageName } }"
               >{{ character.name }}</router-link>
             </div>
           </div>
