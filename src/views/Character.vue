@@ -1,6 +1,6 @@
 <template>
   <div id="view-home">
-    <h2>Character template</h2>
+    <h1>Character template</h1>
     <p>This character is {{ character.name }} and is portrayed by {{ character.portrayed }}</p>
     <a @click="goBack">go back</a>
     <router-link :to="{ name: 'home' }">Home</router-link>
@@ -12,10 +12,6 @@
     props: {
       character: {
         type: Object,
-        required: true,
-      },
-      characterName: {
-        type: String,
         required: true,
       },
     },

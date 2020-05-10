@@ -76,17 +76,8 @@
         fetch(apiMap.baseUrl + apiMap.endpoints.characters).then((response) => {
           return response.json();
         }).then((remoteCharacters) => {
-          let characte = remoteCharacters;
-
-          // TODO: Separate to function and improve
-          remoteCharacters.forEach((character, id) => {
-            let characterNameInLowerCase = character.name.toLowerCase();
-            let characterNameWithDash = characterNameInLowerCase.replace(' ', '-');
-            remoteCharacters[id].pageName = characterNameWithDash;
-          });
-
           // Save all characters retrieved from API
-          this.characters.all = remoteCharacters;
+          this.characters.all = this.addPageNameItem(remoteCharacters);
 
           // Create featured list of characters
           this.featuredCharacters();
@@ -129,6 +120,20 @@
         this.characters.grid = this.characters.all.filter((character) => {
           return character.name.toLowerCase().includes(searchTerm.toLowerCase());
         });
+      },
+      addPageNameItem(charactersList) {
+        charactersList.forEach((character, id) => {
+          let characterNameInLowerCase = character.name.toLowerCase();
+          let pageName = characterNameInLowerCase.replace(' ', '-');
+
+          // Clear what's left
+          pageName = pageName.replace(' ', '-');
+          pageName = pageName.replace('.', '');
+
+          charactersList[id].pageName = pageName;
+        });
+
+        return charactersList;
       },
     },
   };

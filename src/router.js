@@ -9,6 +9,11 @@ Vue.use(Router);
 // New Router instance
 export default new Router({
   mode: 'history',
+  scrollBehavior (to, from, savedPosition) {
+    console.log('To', to);
+    console.log('From', from);
+    console.log('savedPosition', savedPosition);
+  },
   routes: [
     {
       path: '/',
@@ -17,7 +22,7 @@ export default new Router({
       props: true,
     },
     {
-      path: '/character/:characterName',
+      path: '/character/:pageName',
       name: 'character',
       component: Character,
       props: true,
