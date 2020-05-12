@@ -2,16 +2,16 @@
   <div id="characters" class="basic-1">
     <Alerter v-if="errorMessage !== ''" :purpose="'danger'" :message="errorMessage"/>
     <template v-else>
-      <Search
+      <CharactersSearch
         v-if="toShow.loader === false"
         @showSearchResults="showSearchResults"
         @showOriginalView="featuredCharacters"
       />
-      <Grid
+      <CharactersGrid
         :showLoader="toShow.loader"
         :characters="characters.grid"
       />
-      <LoadMore
+      <CharactersLoadMore
         v-if="toShow.loadMoreButton"
         @loadMoreCharacters="loadMoreCharacters"
       />
@@ -26,16 +26,16 @@
     localStorageMap,
   } from './../mixins/data.js';
 
-  import Search from './Search.vue';
-  import Grid from './Grid.vue';
-  import LoadMore from './LoadMore.vue';
+  import CharactersSearch from './CharactersSearch.vue';
+  import CharactersGrid from './CharactersGrid.vue';
+  import CharactersLoadMore from './CharactersLoadMore.vue';
   import Alerter from './Alerter.vue';
 
   export default {
     components: {
-      Search,
-      Grid,
-      LoadMore,
+      CharactersSearch,
+      CharactersGrid,
+      CharactersLoadMore,
       Alerter,
     },
     data() {

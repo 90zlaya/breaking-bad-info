@@ -1,39 +1,39 @@
 <template>
   <div id="view-home">
-    <Preloader/>
-    <Navbar/>
-    <Header/>
-    <Slider/>
+    <ThePreloader/>
+    <TheNavbar/>
+    <TheHeader/>
+    <TheSlider/>
     <Characters/>
-    <Counter/>
-    <Synopsis/>
-    <Footer/>
-    <Copyright/>
+    <TheCounter/>
+    <TheSynopsis/>
+    <TheFooter/>
+    <TheCopyright/>
   </div>
 </template>
 
 <script>
-  import Preloader from '../components/Preloader.vue';
-  import Navbar from '../components/Navbar.vue';
-  import Header from '../components/Header.vue';
-  import Slider from '../components/Slider.vue';
+  import ThePreloader from '../components/ThePreloader.vue';
+  import TheNavbar from '../components/TheNavbar.vue';
+  import TheHeader from '../components/TheHeader.vue';
+  import TheSlider from '../components/TheSlider.vue';
   import Characters from '../components/Characters.vue';
-  import Counter from '../components/Counter.vue';
-  import Synopsis from '../components/Synopsis.vue';
-  import Footer from '../components/Footer.vue';
-  import Copyright from '../components/Copyright.vue';
+  import TheCounter from '../components/TheCounter.vue';
+  import TheSynopsis from '../components/TheSynopsis.vue';
+  import TheFooter from '../components/TheFooter.vue';
+  import TheCopyright from '../components/TheCopyright.vue';
 
   export default {
     components: {
-      Preloader,
-      Navbar,
-      Header,
-      Slider,
+      ThePreloader,
+      TheNavbar,
+      TheHeader,
+      TheSlider,
       Characters,
-      Counter,
-      Synopsis,
-      Footer,
-      Copyright,
+      TheCounter,
+      TheSynopsis,
+      TheFooter,
+      TheCopyright,
     },
   };
 </script>

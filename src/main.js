@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import i18n from './translations/i18n.js';
+import router from './router/index.js';
 import App from './App.vue';
-import router from './router.js';
 
 // Install languages to Vue.js instance
 Vue.use(i18n, {
