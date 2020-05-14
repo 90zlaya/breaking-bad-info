@@ -4,7 +4,7 @@
       class="navbar-brand logo-image"
       href="/"
     >
-      <img src="src/assets/images/logo.png" v-bind:alt="$t('navbar.logoImage')"/>
+      <img src="src/assets/images/logo.png" v-bind:alt="$t('navbar.logoImage')" />
     </a>
     <button
       class="navbar-toggler"

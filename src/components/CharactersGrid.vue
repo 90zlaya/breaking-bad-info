@@ -1,13 +1,13 @@
 <template>
-  <Alerter
+  <TheAlerter
     v-if="characters.length === 0 && showLoader === false"
     :purpose="'info'"
     :message="$t('characters.search.noSearchResults')"
-  />
+   />
   <div v-else class="container grid">
     <div v-if="showLoader" class="row">
       <div class="col-12">
-        <Loader/>
+        <TheLoader />
       </div>
     </div>
     <div v-else class="row">
@@ -19,7 +19,7 @@
               v-bind:alt="$t('characters.grid.imageOfCharacterName', {characterName: character.name})"
               v-bind:id="'char-id_' + character.char_id"
               class="img-thumbnail"
-            />
+             />
             <div
               v-on:mouseover="savePosition(character);"
               v-bind:id="'overlay-for-character_' + character.char_id"
@@ -38,13 +38,13 @@
 </template>
 
 <script>
-  import Loader from './Loader.vue';
-  import Alerter from './Alerter.vue';
+  import TheLoader from './TheLoader.vue';
+  import TheAlerter from './TheAlerter.vue';
 
   export default {
     components: {
-      Loader,
-      Alerter,
+      TheLoader,
+      TheAlerter,
     },
     props: {
       showLoader: Boolean,

@@ -1,20 +1,20 @@
 <template>
   <div id="characters" class="basic-1">
-    <Alerter v-if="errorMessage !== ''" :purpose="'danger'" :message="errorMessage"/>
+    <TheAlerter v-if="errorMessage !== ''" :purpose="'danger'" :message="errorMessage" />
     <template v-else>
       <CharactersSearch
         v-if="toShow.loader === false"
         @showSearchResults="showSearchResults"
         @showOriginalView="featuredCharacters"
-      />
+       />
       <CharactersGrid
         :showLoader="toShow.loader"
         :characters="characters.grid"
-      />
+       />
       <CharactersLoadMore
         v-if="toShow.loadMoreButton"
         @loadMoreCharacters="loadMoreCharacters"
-      />
+       />
     </template>
   </div>
 </template>
@@ -29,14 +29,14 @@
   import CharactersSearch from './CharactersSearch.vue';
   import CharactersGrid from './CharactersGrid.vue';
   import CharactersLoadMore from './CharactersLoadMore.vue';
-  import Alerter from './Alerter.vue';
+  import TheAlerter from './TheAlerter.vue';
 
   export default {
     components: {
       CharactersSearch,
       CharactersGrid,
       CharactersLoadMore,
-      Alerter,
+      TheAlerter,
     },
     data() {
       return {

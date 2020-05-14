@@ -1,12 +1,12 @@
 <template>
   <div id="quotes" class="slider-1">
-    <Alerter v-if="errorMessage !== ''" :purpose="'danger'" :message="errorMessage"/>
+    <TheAlerter v-if="errorMessage !== ''" :purpose="'danger'" :message="errorMessage" />
     <div v-else class="container">
       <div class="row">
         <div class="col-lg-12">
           <div class="slider-container">
             <div class="swiper-container card-slider">
-              <Loader v-if="showLoader"/>
+              <TheLoader v-if="showLoader" />
               <template v-else>
                 <div class="swiper-wrapper">
                   <template v-for="slide in slides">
@@ -44,13 +44,13 @@
     quotedAuthors,
   } from './../mixins/data.js';
 
-  import Loader from './Loader.vue';
-  import Alerter from './Alerter.vue';
+  import TheLoader from './TheLoader.vue';
+  import TheAlerter from './TheAlerter.vue';
 
   export default {
     components: {
-      Loader,
-      Alerter,
+      TheLoader,
+      TheAlerter,
     },
     data() {
       return {
