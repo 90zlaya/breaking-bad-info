@@ -1,20 +1,20 @@
 <template>
   <div id="characters" class="basic-1">
-    <Alerter v-if="errorMessage !== ''" :purpose="'danger'" :message="errorMessage"/>
+    <TheAlerter v-if="errorMessage !== ''" :purpose="'danger'" :message="errorMessage" />
     <template v-else>
-      <Search
+      <CharactersSearch
         v-if="toShow.loader === false"
         @showSearchResults="showSearchResults"
         @showOriginalView="featuredCharacters"
-      />
-      <Grid
+       />
+      <CharactersGrid
         :showLoader="toShow.loader"
         :characters="characters.grid"
-      />
-      <LoadMore
+       />
+      <CharactersLoadMore
         v-if="toShow.loadMoreButton"
         @loadMoreCharacters="loadMoreCharacters"
-      />
+       />
     </template>
   </div>
 </template>
@@ -26,17 +26,17 @@
     localStorageMap,
   } from './../mixins/data.js';
 
-  import Search from './Search.vue';
-  import Grid from './Grid.vue';
-  import LoadMore from './LoadMore.vue';
-  import Alerter from './Alerter.vue';
+  import CharactersSearch from './CharactersSearch.vue';
+  import CharactersGrid from './CharactersGrid.vue';
+  import CharactersLoadMore from './CharactersLoadMore.vue';
+  import TheAlerter from './TheAlerter.vue';
 
   export default {
     components: {
-      Search,
-      Grid,
-      LoadMore,
-      Alerter,
+      CharactersSearch,
+      CharactersGrid,
+      CharactersLoadMore,
+      TheAlerter,
     },
     data() {
       return {
@@ -53,7 +53,7 @@
       };
     },
     created () {
-      let localCharacters = localStorage.getItem(localStorageMap.characters.characters);
+      const localCharacters = localStorage.getItem(localStorageMap.characters.characters);
 
       if (localCharacters === undefined || localCharacters === null) {
         // Fetch characters from API
@@ -77,7 +77,7 @@
           return response.json();
         }).then((remoteCharacters) => {
           // Save all characters retrieved from API
-          this.characters.all = remoteCharacters;
+          this.characters.all = this.addPageNameItem(remoteCharacters);
 
           // Create featured list of characters
           this.featuredCharacters();
@@ -100,9 +100,9 @@
         this.characters.grid = this.characters.all.slice(0, this.numberOfCharacters);
       },
       loadMoreCharacters() {
-        let gridCharactersLength = this.characters.grid.length;
-        let ending = gridCharactersLength + this.numberOfCharacters;
-        let loadedCharacters = this.characters.all.slice(gridCharactersLength, ending);
+        const gridCharactersLength = this.characters.grid.length;
+        const ending = gridCharactersLength + this.numberOfCharacters;
+        const loadedCharacters = this.characters.all.slice(gridCharactersLength, ending);
 
         // Concat to the loaded characters array
         this.characters.grid = this.characters.grid.concat(loadedCharacters);
@@ -120,6 +120,20 @@
         this.characters.grid = this.characters.all.filter((character) => {
           return character.name.toLowerCase().includes(searchTerm.toLowerCase());
         });
+      },
+      addPageNameItem(charactersList) {
+        charactersList.forEach((character, id) => {
+          const characterNameInLowerCase = character.name.toLowerCase();
+          let pageName = characterNameInLowerCase.replace(' ', '-');
+
+          // Clear what's left
+          pageName = pageName.replace(' ', '-');
+          pageName = pageName.replace('.', '');
+
+          charactersList[id].pageName = pageName;
+        });
+
+        return charactersList;
       },
     },
   };

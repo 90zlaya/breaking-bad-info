@@ -20,7 +20,7 @@
                   class="img-fluid"
                   src="src/assets/images/video-frame.jpg"
                   alt="Video Frame Image"
-                />
+                 />
                 <span class="video-play-button">
                   <span></span>
                 </span>

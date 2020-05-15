@@ -2,9 +2,9 @@
   <nav class="navbar navbar-expand-md navbar-dark navbar-custom fixed-top">
     <a
       class="navbar-brand logo-image"
-      href="index.html"
+      href="/"
     >
-      <img src="src/assets/images/logo.png" v-bind:alt="$t('navbar.logoImage')"/>
+      <img src="src/assets/images/logo.png" v-bind:alt="$t('navbar.logoImage')" />
     </a>
     <button
       class="navbar-toggler"
@@ -20,10 +20,10 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarsMenu">
       <ul class="navbar-nav ml-auto">
-        <template v-for="(item) in navigation">
+        <template v-for="navigation in navigations">
           <li class="nav-item">
-            <a class="nav-link page-scroll" v-bind:href="item.href">
-              {{ item.title }}
+            <a class="nav-link page-scroll" v-bind:href="navigation.href">
+              {{ navigation.title }}
             </a>
           </li>
         </template>
@@ -36,7 +36,7 @@
   export default {
     data() {
       return {
-        navigation: [
+        navigations: [
           {
             href: '#header',
             title: this.$t('navbar.home'),

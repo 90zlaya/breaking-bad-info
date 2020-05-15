@@ -1,5 +1,5 @@
 <template>
-  <img v-bind:src="loaderImagePath" class="loader"/>
+  <img v-bind:src="loaderImagePath" class="loader" />
 </template>
 
 <script>
@@ -7,7 +7,7 @@
 
   export default {
     data() {
-      let {
+      const {
         root,
         loaderImage
       } = config.images;

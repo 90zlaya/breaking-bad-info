@@ -18,16 +18,16 @@ const i18n = {
   },
   // Get translation line (dynamic translation lines support)
   getTranslationLine(translation, propertyName, propertyParameters) {
-    let line = propertyName.split('.').reduce((a, b) => {
+    const line = propertyName.split('.').reduce((a, b) => {
       return a[b];
     }, translation);
 
     if (propertyParameters === undefined) {
       return line;
     } else {
-      let key = Object.keys(propertyParameters);
-      let value = Object.values(propertyParameters);
-      let replaced = line.replace(`{${ key }}`, value);
+      const key = Object.keys(propertyParameters);
+      const value = Object.values(propertyParameters);
+      const replaced = line.replace(`{${ key }}`, value);
 
       return replaced;
     }

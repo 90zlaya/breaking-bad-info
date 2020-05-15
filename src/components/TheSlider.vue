@@ -1,15 +1,15 @@
 <template>
   <div id="quotes" class="slider-1">
-    <Alerter v-if="errorMessage !== ''" :purpose="'danger'" :message="errorMessage"/>
+    <TheAlerter v-if="errorMessage !== ''" :purpose="'danger'" :message="errorMessage" />
     <div v-else class="container">
       <div class="row">
         <div class="col-lg-12">
           <div class="slider-container">
             <div class="swiper-container card-slider">
-              <Loader v-if="showLoader"/>
+              <TheLoader v-if="showLoader" />
               <template v-else>
                 <div class="swiper-wrapper">
-                  <template v-for="(slide) in slides">
+                  <template v-for="slide in slides">
                     <div class="swiper-slide">
                       <div class="card">
                         <img
@@ -44,13 +44,13 @@
     quotedAuthors,
   } from './../mixins/data.js';
 
-  import Loader from './Loader.vue';
-  import Alerter from './Alerter.vue';
+  import TheLoader from './TheLoader.vue';
+  import TheAlerter from './TheAlerter.vue';
 
   export default {
     components: {
-      Loader,
-      Alerter,
+      TheLoader,
+      TheAlerter,
     },
     data() {
       return {
@@ -61,7 +61,7 @@
       };
     },
     created() {
-      let localQuotes = localStorage.getItem(localStorageMap.slider.quotes);
+      const localQuotes = localStorage.getItem(localStorageMap.slider.quotes);
 
       if (localQuotes === undefined || localQuotes === null) {
         // Fetch quotes from API
@@ -103,7 +103,7 @@
         let previousAuthor = '';
 
         while (slides.length < this.numberOfSlides){
-          let randomNumber = Math.floor(Math.random() * quotes.length) + 1;
+          const randomNumber = Math.floor(Math.random() * quotes.length) + 1;
 
           if (slides.indexOf(randomNumber) === -1 && quotes[randomNumber] !== undefined) {
             // Do not repeat quote authors
@@ -126,12 +126,12 @@
       },
       constructCharacterImagePath(characterName) {
         let imagePath = '';
-        let characterNameInLowerCase = characterName.toLowerCase();
-        let imageName = characterNameInLowerCase.replace(' ', '-');
-        let [characterDetails] = quotedAuthors.filter((author) => {
+        const characterNameInLowerCase = characterName.toLowerCase();
+        const imageName = characterNameInLowerCase.replace(' ', '-');
+        const [characterDetails] = quotedAuthors.filter((author) => {
           return author === characterName;
         });
-        let {
+        const {
           root,
           characters,
           defaultCharacter,

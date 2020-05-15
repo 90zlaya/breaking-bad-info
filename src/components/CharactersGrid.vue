@@ -1,17 +1,17 @@
 <template>
-  <Alerter
+  <TheAlerter
     v-if="characters.length === 0 && showLoader === false"
     :purpose="'info'"
     :message="$t('characters.search.noSearchResults')"
-  />
+   />
   <div v-else class="container grid">
     <div v-if="showLoader" class="row">
       <div class="col-12">
-        <Loader/>
+        <TheLoader />
       </div>
     </div>
     <div v-else class="row">
-      <template v-for="(character) in characters">
+      <template v-for="character in characters">
         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
 					<div class="grid-item">
             <img
@@ -19,9 +19,16 @@
               v-bind:alt="$t('characters.grid.imageOfCharacterName', {characterName: character.name})"
               v-bind:id="'char-id_' + character.char_id"
               class="img-thumbnail"
-            />
-            <div class="grid-overlay">
-              <div class="grid-hover-text">{{ character.name }}</div>
+             />
+            <div
+              v-on:mouseover="savePosition(character);"
+              v-bind:id="'overlay-for-character_' + character.char_id"
+              class="grid-overlay"
+            >
+              <router-link
+                :to="{ name: 'character', params: { character: character, pageName: character.pageName } }"
+                class="grid-hover-text"
+              >{{ character.name }}</router-link>
             </div>
           </div>
         </div>
@@ -31,17 +38,31 @@
 </template>
 
 <script>
-  import Loader from './Loader.vue';
-  import Alerter from './Alerter.vue';
+  import TheLoader from './TheLoader.vue';
+  import TheAlerter from './TheAlerter.vue';
 
   export default {
     components: {
-      Loader,
-      Alerter,
+      TheLoader,
+      TheAlerter,
     },
     props: {
       showLoader: Boolean,
       characters: Array,
+    },
+    methods: {
+      savePosition(character) {
+        console.log('Saving position', character.name);
+
+        const overlayItem = document.querySelector('#overlay-for-character_' + character.char_id);
+        const rect = overlayItem.getBoundingClientRect();
+
+        console.log('Position', rect.top);
+
+        const bodyRectTop = document.body.getBoundingClientRect().top;
+
+        console.log('Body offset from top', Math.abs(bodyRectTop));
+      },
     },
   };
 </script>

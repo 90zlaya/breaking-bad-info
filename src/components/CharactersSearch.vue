@@ -9,7 +9,7 @@
             v-on:keyup="initiateSearch();"
             type="text"
             class="form-control"
-          />
+           />
           <div v-if="searchTerm !== ''" class="icon-container">
             <i
              class="fas fa-times clear-search"

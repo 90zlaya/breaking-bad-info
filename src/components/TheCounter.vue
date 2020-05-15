@@ -4,10 +4,13 @@
       <div class="row">
         <div class="col-lg-12">
           <div id="counter">
-            <template v-for="(item) in counter">
+            <template v-for="count in counter">
               <div class="cell">
-                <div class="counter-value number-count" v-bind:data-count="item.data">1</div>
-                <p class="counter-info">{{ item.info }}</p>
+                <div
+                  v-bind:data-count="count.value"
+                  class="counter-value number-count"
+                >1</div>
+                <p class="counter-info">{{ count.info }}</p>
               </div>
             </template>
           </div>
@@ -23,19 +26,19 @@
       return {
         counter: [
           {
-            data: 5,
+            value: 5,
             info: this.$t('counter.seasons'),
           },
           {
-            data: 6,
+            value: 6,
             info: this.$t('counter.years'),
           },
           {
-            data: 62,
+            value: 62,
             info: this.$t('counter.episodes'),
           },
           {
-            data: 271,
+            value: 271,
             info: this.$t('counter.deaths'),
           },
         ],
