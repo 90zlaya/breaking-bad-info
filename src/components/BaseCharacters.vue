@@ -53,7 +53,7 @@
       };
     },
     created () {
-      let localCharacters = localStorage.getItem(localStorageMap.characters.characters);
+      const localCharacters = localStorage.getItem(localStorageMap.characters.characters);
 
       if (localCharacters === undefined || localCharacters === null) {
         // Fetch characters from API
@@ -100,9 +100,9 @@
         this.characters.grid = this.characters.all.slice(0, this.numberOfCharacters);
       },
       loadMoreCharacters() {
-        let gridCharactersLength = this.characters.grid.length;
-        let ending = gridCharactersLength + this.numberOfCharacters;
-        let loadedCharacters = this.characters.all.slice(gridCharactersLength, ending);
+        const gridCharactersLength = this.characters.grid.length;
+        const ending = gridCharactersLength + this.numberOfCharacters;
+        const loadedCharacters = this.characters.all.slice(gridCharactersLength, ending);
 
         // Concat to the loaded characters array
         this.characters.grid = this.characters.grid.concat(loadedCharacters);
@@ -123,7 +123,7 @@
       },
       addPageNameItem(charactersList) {
         charactersList.forEach((character, id) => {
-          let characterNameInLowerCase = character.name.toLowerCase();
+          const characterNameInLowerCase = character.name.toLowerCase();
           let pageName = characterNameInLowerCase.replace(' ', '-');
 
           // Clear what's left

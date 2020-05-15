@@ -61,7 +61,7 @@
       };
     },
     created() {
-      let localQuotes = localStorage.getItem(localStorageMap.slider.quotes);
+      const localQuotes = localStorage.getItem(localStorageMap.slider.quotes);
 
       if (localQuotes === undefined || localQuotes === null) {
         // Fetch quotes from API
@@ -103,7 +103,7 @@
         let previousAuthor = '';
 
         while (slides.length < this.numberOfSlides){
-          let randomNumber = Math.floor(Math.random() * quotes.length) + 1;
+          const randomNumber = Math.floor(Math.random() * quotes.length) + 1;
 
           if (slides.indexOf(randomNumber) === -1 && quotes[randomNumber] !== undefined) {
             // Do not repeat quote authors
@@ -126,12 +126,12 @@
       },
       constructCharacterImagePath(characterName) {
         let imagePath = '';
-        let characterNameInLowerCase = characterName.toLowerCase();
-        let imageName = characterNameInLowerCase.replace(' ', '-');
-        let [characterDetails] = quotedAuthors.filter((author) => {
+        const characterNameInLowerCase = characterName.toLowerCase();
+        const imageName = characterNameInLowerCase.replace(' ', '-');
+        const [characterDetails] = quotedAuthors.filter((author) => {
           return author === characterName;
         });
-        let {
+        const {
           root,
           characters,
           defaultCharacter,

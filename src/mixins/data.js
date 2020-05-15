@@ -1,4 +1,4 @@
-export let apiMap = {
+export const apiMap = {
   baseUrl: "https://www.breakingbadapi.com/api",
   endpoints: {
     quotes: "/quotes?series=Breaking+Bad",
@@ -6,7 +6,7 @@ export let apiMap = {
   },
 };
 
-export let localStorageMap = {
+export const localStorageMap = {
   slider: {
     quotes: "BreakingBadInfoApp:Quotes",
   },
@@ -15,7 +15,7 @@ export let localStorageMap = {
   },
 };
 
-export let quotedAuthors = [
+export const quotedAuthors = [
   "Walter White",
   "Skyler White",
   "Jesse Pinkman",
@@ -26,7 +26,7 @@ export let quotedAuthors = [
   "Hector Salamanca",
 ];
 
-export let urls = {
+export const urls = {
   developer: {
     url: "https://www.zlatanstajic.com/",
     title: "Zlatan Stajić",

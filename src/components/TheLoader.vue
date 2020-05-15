@@ -7,7 +7,7 @@
 
   export default {
     data() {
-      let {
+      const {
         root,
         loaderImage
       } = config.images;
