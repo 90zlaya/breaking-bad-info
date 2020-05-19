@@ -15,19 +15,22 @@ But have in mind that this image might stay few commits behind.
 
 ## Build setup
 
-``` bash
+```bash
 # Install dependencies
 npm install
 
-# Serve with hot reload at localhost:8080
-npm run dev
+# Compiles and hot-reloads for development
+npm run serve
 
-# Build for production with minification
+# Compiles and minifies for production
 npm run build
+
+# Lints and fixes files
+npm run lint
 ```
 
-After installing dependencies and running app, visit [localhost:8080] to enjoy app functionality. For detailed explanation on how things work, consult the [docs for vue-loader].
+After installing dependencies and running app, visit [localhost:8080] to enjoy app functionality. For detailed explanation on how things work, consult [configuration reference]
 
 [localhost:8080]: http://localhost:8080
-[docs for vue-loader]: http://vuejs.github.io/vue-loader
+[configuration reference]: https://cli.vuejs.org/config/
 [breaking-bad-overview]: _extras/gifs/breaking-bad-overview.gif?clear_cache=1

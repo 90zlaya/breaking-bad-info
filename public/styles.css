@@ -236,7 +236,7 @@ a.white {
     to bottom right,
     rgba(72, 72, 212, 0),
     rgba(0, 0, 0, 0.75)),
-    url('../images/header-background.jpg'
+    url('../img/header-background.jpg'
   ) center center no-repeat;
 	background-size: cover;
 }
@@ -251,7 +251,7 @@ a.white {
     to bottom left,
     rgba(72, 72, 212, 0),
     rgba(0, 0, 0, 0.75)),
-    url('../images/video-background.jpg'
+    url('../img/video-background.jpg'
   ) center center no-repeat;
 	background-size: cover;
 }
@@ -268,7 +268,7 @@ a.back-to-top {
 	width: 2.625rem;
 	height: 2.625rem;
 	border-radius: 1.875rem;
-	background: #cfd200 url("../images/up-arrow.png") no-repeat center 47%;
+	background: #cfd200 url("../img/up-arrow.png") no-repeat center 47%;
 	background-size: 1.125rem 1.125rem;
 	text-indent: -9999px;
 }
