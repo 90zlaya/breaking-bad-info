@@ -12,7 +12,7 @@
     </div>
     <div v-else class="row">
       <template v-for="character in characters">
-        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6" :key="character.char_id">
 					<div class="grid-item">
             <img
               v-bind:src="character.img"
@@ -69,7 +69,7 @@
 
 <style scoped>
   .grid .grid-item {
-  	text-align: center;
+    text-align: center;
     position: relative;
     margin-bottom: 1rem;
   }

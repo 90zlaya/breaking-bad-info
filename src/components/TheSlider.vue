@@ -10,7 +10,7 @@
               <template v-else>
                 <div class="swiper-wrapper">
                   <template v-for="slide in slides">
-                    <div class="swiper-slide">
+                    <div class="swiper-slide" :key="slide.quote_id">
                       <div class="card">
                         <img
                           class="card-image"
@@ -43,6 +43,10 @@
     localStorageMap,
     quotedAuthors,
   } from './../mixins/data.js';
+  // TODO: Enable to fix eslint error
+  /*import {
+    cardSlider,
+  } from './../mixins/functions.js';*/
 
   import TheLoader from './TheLoader.vue';
   import TheAlerter from './TheAlerter.vue';
@@ -77,7 +81,8 @@
     updated() {
       if (this.showLoader === false) {
         // Run card slider function from scripts.js
-        cardSlider();
+        //cardSlider();
+        // TODO: Update this piece of code blocked by eslint
       }
     },
     methods: {
@@ -99,13 +104,14 @@
         });
       },
       createSlides(quotes) {
+        let quoteIds = [];
         let slides = [];
         let previousAuthor = '';
 
         while (slides.length < this.numberOfSlides){
           const randomNumber = Math.floor(Math.random() * quotes.length) + 1;
 
-          if (slides.indexOf(randomNumber) === -1 && quotes[randomNumber] !== undefined) {
+          if (quoteIds.indexOf(randomNumber) === -1 && quotes[randomNumber] !== undefined) {
             // Do not repeat quote authors
             if (quotes[randomNumber].author !== previousAuthor) {
               // Remember current quote author for next query
@@ -118,6 +124,8 @@
 
               // Add quotes object to the slides array
               slides.push(quotes[randomNumber]);
+              // Prevent repetition of quotes
+              quoteIds.push(randomNumber);
             }
           }
         }
@@ -152,73 +160,73 @@
 
 <style scoped>
   .slider-1 {
-  	padding-top: 6.875rem;
-  	padding-bottom: 6.375rem;
-  	background-color: #262431;
+    padding-top: 6.875rem;
+    padding-bottom: 6.375rem;
+    background-color: #262431;
   }
 
   .slider-1 .slider-container {
-  	position: relative;
+    position: relative;
   }
 
   .slider-1 .swiper-container {
-  	position: static;
-  	width: 90%;
-  	text-align: center;
+    position: static;
+    width: 90%;
+    text-align: center;
   }
 
   .slider-1 .swiper-button-prev:focus,
   .slider-1 .swiper-button-next:focus {
-  	/* even if you can't see it chrome you can see it on mobile device */
-  	outline: none;
+    /* even if you can't see it chrome you can see it on mobile device */
+    outline: none;
   }
 
   .slider-1 .swiper-button-prev {
-  	left: -0.5rem;
-  	background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2028%2044'%3E%3Cpath%20d%3D'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z'%20fill%3D'%23f1f1f8'%2F%3E%3C%2Fsvg%3E");
-  	background-size: 1.125rem 1.75rem;
+    left: -0.5rem;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2028%2044'%3E%3Cpath%20d%3D'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z'%20fill%3D'%23f1f1f8'%2F%3E%3C%2Fsvg%3E");
+    background-size: 1.125rem 1.75rem;
   }
 
   .slider-1 .swiper-button-next {
-  	right: -0.5rem;
-  	background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2028%2044'%3E%3Cpath%20d%3D'M27%2C22L27%2C22L5%2C44l-2.1-2.1L22.8%2C22L2.9%2C2.1L5%2C0L27%2C22L27%2C22z'%20fill%3D'%23f1f1f8'%2F%3E%3C%2Fsvg%3E");
-  	background-size: 1.125rem 1.75rem;
+    right: -0.5rem;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2028%2044'%3E%3Cpath%20d%3D'M27%2C22L27%2C22L5%2C44l-2.1-2.1L22.8%2C22L2.9%2C2.1L5%2C0L27%2C22L27%2C22z'%20fill%3D'%23f1f1f8'%2F%3E%3C%2Fsvg%3E");
+    background-size: 1.125rem 1.75rem;
   }
 
   .slider-1 .card {
-  	position: relative;
-  	border: none;
-  	background-color: transparent;
+    position: relative;
+    border: none;
+    background-color: transparent;
   }
 
   .slider-1 .card-image {
-  	width: 6rem;
-  	height: 6rem;
-  	margin-right: auto;
-  	margin-bottom: 0.25rem;
-  	margin-left: auto;
-  	border-radius: 50%;
+    width: 6rem;
+    height: 6rem;
+    margin-right: auto;
+    margin-bottom: 0.25rem;
+    margin-left: auto;
+    border-radius: 50%;
   }
 
   .slider-1 .card-body {
-  	padding-bottom: 0;
+    padding-bottom: 0;
   }
 
   .slider-1 .testimonial-author {
-  	margin-bottom: 0;
+    margin-bottom: 0;
   }
 
   @media (min-width: 768px) {
-  	.slider-1 .swiper-button-prev {
-  		left: 1rem;
-  		width: 1.375rem;
-  		background-size: 1.375rem 2.125rem;
-  	}
+    .slider-1 .swiper-button-prev {
+      left: 1rem;
+      width: 1.375rem;
+      background-size: 1.375rem 2.125rem;
+    }
 
-  	.slider-1 .swiper-button-next {
-  		right: 1rem;
-  		width: 1.375rem;
-  		background-size: 1.375rem 2.125rem;
-  	}
+    .slider-1 .swiper-button-next {
+      right: 1rem;
+      width: 1.375rem;
+      background-size: 1.375rem 2.125rem;
+    }
   }
 </style>

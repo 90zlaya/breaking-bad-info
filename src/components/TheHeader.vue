@@ -19,17 +19,17 @@
 
 <style scoped>
   .header .header-content {
-  	padding-top: 8.5rem;
-  	padding-bottom: 7rem;
-  	text-align: center;
+    padding-top: 8.5rem;
+    padding-bottom: 7rem;
+    text-align: center;
   }
 
   .header .text-container {
-  	margin-bottom: 3rem;
+    margin-bottom: 3rem;
   }
 
   .header h1 {
-  	margin-bottom: 1rem;
+    margin-bottom: 1rem;
   }
 
   .header #js-rotating {
@@ -37,12 +37,12 @@
   }
 
   .header .p-large {
-  	margin-bottom: 2rem;
+    margin-bottom: 2rem;
   }
 
   .header .btn-solid-lg {
-  	margin-right: 0.5rem;
-  	margin-bottom: 1.25rem;
+    margin-right: 0.5rem;
+    margin-bottom: 1.25rem;
   }
 
   @media (max-width: 767px) {
@@ -52,21 +52,21 @@
   }
 
   @media (min-width: 768px) {
-  	.header .header-content {
-  		padding-top: 11rem;
-  	}
+    .header .header-content {
+      padding-top: 11rem;
+    }
   }
 
   @media (min-width: 992px) {
-  	.header .header-content {
-  		padding-top: 13rem;
-  		padding-bottom: 10rem;
-  		text-align: left;
-  	}
+    .header .header-content {
+      padding-top: 13rem;
+      padding-bottom: 10rem;
+      text-align: left;
+    }
 
-  	.header .text-container {
-  		margin-top: 6.5rem;
-  	}
+    .header .text-container {
+      margin-top: 6.5rem;
+    }
   }
 
   @media (min-width: 1200px) {

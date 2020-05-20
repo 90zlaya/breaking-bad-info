@@ -4,7 +4,7 @@
       class="navbar-brand logo-image"
       href="/"
     >
-      <img src="src/assets/images/logo.png" v-bind:alt="$t('navbar.logoImage')" />
+      <img src="images/logo.png" v-bind:alt="$t('navbar.logoImage')" />
     </a>
     <button
       class="navbar-toggler"
@@ -21,7 +21,7 @@
     <div class="collapse navbar-collapse" id="navbarsMenu">
       <ul class="navbar-nav ml-auto">
         <template v-for="navigation in navigations">
-          <li class="nav-item" :key="navigation.id">
+          <li class="nav-item" :key="navigation.href">
             <a class="nav-link page-scroll" :href="navigation.href">
               {{ navigation.title }}
             </a>
@@ -38,32 +38,26 @@
       return {
         navigations: [
           {
-            id: 1,
             href: '#header',
             title: this.$t('navbar.home'),
           },
           {
-            id: 2,
             href: '#quotes',
             title: this.$t('navbar.quotes'),
           },
           {
-            id: 3,
             href: '#characters',
             title: this.$t('navbar.characters'),
           },
           {
-            id: 4,
             href: '#statistics',
             title: this.$t('navbar.statistics'),
           },
           {
-            id: 5,
             href: '#synopsis',
             title: this.$t('navbar.synopsis'),
           },
           {
-            id: 6,
             href: '#about',
             title: this.$t('navbar.about'),
           },
@@ -110,7 +104,6 @@
     color: #cfd200;
   }
 
-  /* Dropdown Menu */
   .navbar-custom .dropdown:hover > .dropdown-menu {
     display: block; /* this makes the dropdown menu stay open while hovering it */
     min-width: auto;
@@ -121,7 +114,6 @@
     0% {
       opacity: 0;
     }
-
     100% {
       opacity: 1;
     }
@@ -163,7 +155,6 @@
     background-color: #b5bcc4;
     opacity: 0.2;
   }
-  /* end of dropdown menu */
 
   .navbar-custom .social-icons {
     display: none;
