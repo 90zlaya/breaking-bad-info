@@ -14,8 +14,8 @@
                       <div class="card">
                         <img
                           class="card-image"
-                          v-bind:src="slide.image"
-                          v-bind:alt="$t('slider.imageOfQuoteAuthor')"
+                          :src="slide.image"
+                          :alt="$t('slider.imageOfQuoteAuthor')"
                         >
                         <div class="card-body">
                           <p class="testimonial-text">{{ slide.quote }}</p>

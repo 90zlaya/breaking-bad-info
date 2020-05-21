@@ -7,7 +7,7 @@
             <template v-for="count in counter">
               <div class="cell" :key="count.value">
                 <div
-                  v-bind:data-count="count.value"
+                  :data-count="count.value"
                   class="counter-value number-count"
                 >1</div>
                 <p class="counter-info">{{ count.info }}</p>

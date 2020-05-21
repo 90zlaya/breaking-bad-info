@@ -6,7 +6,7 @@
           <p class="p-small">
             {{ $t('copyright.text') }} © {{ year }} |
             <a
-              v-bind:href="copyright.link.href"
+              :href="copyright.link.href"
               target="_blank"
             >{{ copyright.link.title }}</a>
           </p>

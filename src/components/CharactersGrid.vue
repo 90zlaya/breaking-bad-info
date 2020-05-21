@@ -15,14 +15,14 @@
         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6" :key="character.char_id">
 					<div class="grid-item">
             <img
-              v-bind:src="character.img"
-              v-bind:alt="$t('characters.grid.imageOfCharacterName', {characterName: character.name})"
-              v-bind:id="'char-id_' + character.char_id"
+              :src="character.img"
+              :alt="$t('characters.grid.imageOfCharacterName', {characterName: character.name})"
+              :id="'char-id_' + character.char_id"
               class="img-thumbnail"
              />
             <div
               v-on:mouseover="savePosition(character);"
-              v-bind:id="'overlay-for-character_' + character.char_id"
+              :id="'overlay-for-character_' + character.char_id"
               class="grid-overlay"
             >
               <router-link

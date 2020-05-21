@@ -16,7 +16,7 @@
       },
     },
     mounted() {
-      console.log('Characters', this.character);
+      console.log('Character page details from prop', this.character);
     },
     methods: {
       goBack() {

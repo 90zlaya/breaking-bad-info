@@ -4,7 +4,7 @@
       <form class="col-12">
         <div class="form-group">
           <input
-            v-bind:placeholder="$t('characters.search.searchCharacter')"
+            :placeholder="$t('characters.search.searchCharacter')"
             v-model="searchTerm"
             v-on:keyup="initiateSearch();"
             type="text"

@@ -19,7 +19,7 @@
                     {{ link.title }}
                     <a
                       class="turquoise"
-                      v-bind:href="link.href"
+                      :href="link.href"
                       target="_blank"
                     >{{ link.text }}</a>
                   </div>
@@ -33,9 +33,9 @@
             <h4>{{ $t('footer.socialMedia') }}</h4>
             <template v-for="social in socialMedia">
               <span class="fa-stack" :key="social.icon">
-                <a v-bind:href="social.href" target="_blank">
+                <a :href="social.href" target="_blank">
                   <i class="fas fa-circle fa-stack-2x"></i>
-                  <i v-bind:class="'fab fa-' + social.icon + ' fa-stack-1x'"></i>
+                  <i :class="'fab fa-' + social.icon + ' fa-stack-1x'"></i>
                 </a>
               </span>
             </template>

@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-12">
         <div
-          v-bind:class="'alert alert-' + purpose"
+          :class="'alert alert-' + purpose"
           role="alert"
         >{{ message }}</div>
       </div>
