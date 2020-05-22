@@ -4,16 +4,16 @@
       <form class="col-12">
         <div class="form-group">
           <input
-            :placeholder="$t('characters.search.searchCharacter')"
             v-model="searchTerm"
-            v-on:keyup="initiateSearch();"
+            :placeholder="$t('characters.search.searchCharacter')"
+            @keyup="initiateSearch"
             type="text"
             class="form-control"
            />
           <div v-if="searchTerm !== ''" class="icon-container">
             <i
              class="fas fa-times clear-search"
-             v-on:click="clearSearch();"
+             @click="clearSearch"
             ></i>
           </div>
         </div>

@@ -3,12 +3,11 @@
     <TheAlerter v-if="errorMessage !== ''" :purpose="'danger'" :message="errorMessage" />
     <template v-else>
       <CharactersSearch
-        v-if="toShow.loader === false"
         @showSearchResults="showSearchResults"
         @showOriginalView="featuredCharacters"
        />
       <CharactersGrid
-        :showLoader="toShow.loader"
+        :show-loader="toShow.loader"
         :characters="characters.grid"
        />
       <CharactersLoadMore

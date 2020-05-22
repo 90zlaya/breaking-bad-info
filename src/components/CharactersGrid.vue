@@ -21,7 +21,7 @@
               class="img-thumbnail"
              />
             <div
-              v-on:mouseover="savePosition(character);"
+              @mouseover="savePosition(character)"
               :id="'overlay-for-character_' + character.char_id"
               class="grid-overlay"
             >
