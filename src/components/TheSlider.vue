@@ -71,7 +71,7 @@
         // Fetch quotes from API
         this.fetchQuotes();
 
-        // NOTE: fetchQuotes makes promise, any code here is ineffective
+        // Method fetchQuotes makes promise, any code here is ineffective
       } else {
         // Create slides from quotes retrieved from local storage
         this.slides = this.createSlides(JSON.parse(localQuotes));

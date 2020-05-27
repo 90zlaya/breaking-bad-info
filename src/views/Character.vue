@@ -2,8 +2,7 @@
   <div id="view-home">
     <h1>Character template</h1>
     <p>This character is {{ character.name }} and is portrayed by {{ character.portrayed }}</p>
-    <a @click="goBack">go back</a>
-    <router-link :to="{ name: 'home' }">Home</router-link>
+    <router-link :to="{ name: 'home', hash: '#characters' }">Go to characters</router-link>
   </div>
 </template>
 
@@ -17,11 +16,6 @@
     },
     mounted() {
       console.log('Character page details from prop', this.character);
-    },
-    methods: {
-      goBack() {
-        this.$router.go(-1);
-      },
     },
   };
 </script>

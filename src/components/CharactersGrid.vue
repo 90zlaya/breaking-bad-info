@@ -21,12 +21,11 @@
               class="img-thumbnail"
              />
             <div
-              @mouseover="savePosition(character)"
               :id="'overlay-for-character_' + character.char_id"
               class="grid-overlay"
             >
               <router-link
-                :to="{ name: 'character', params: { character: character, pageName: character.pageName } }"
+                :to="{ name: 'characters', params: { character: character, pageName: character.pageName } }"
                 class="grid-hover-text"
               >{{ character.name }}</router-link>
             </div>
@@ -49,20 +48,6 @@
     props: {
       showLoader: Boolean,
       characters: Array,
-    },
-    methods: {
-      savePosition(character) {
-        console.log('Saving position', character.name);
-
-        const overlayItem = document.querySelector('#overlay-for-character_' + character.char_id);
-        const rect = overlayItem.getBoundingClientRect();
-
-        console.log('Position', rect.top);
-
-        const bodyRectTop = document.body.getBoundingClientRect().top;
-
-        console.log('Body offset from top', Math.abs(bodyRectTop));
-      },
     },
   };
 </script>

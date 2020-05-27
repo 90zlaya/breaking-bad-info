@@ -58,7 +58,7 @@
         // Fetch characters from API
         this.fetchCharacters();
 
-        // NOTE: fetchCharacters makes promise, any code here is ineffective
+        // Method fetchCharacters makes promise, any code here is ineffective
       } else {
         // Save all characters retrieved from local storage
         this.characters.all = JSON.parse(localCharacters);
