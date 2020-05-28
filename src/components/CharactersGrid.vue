@@ -25,7 +25,7 @@
               class="grid-overlay"
             >
               <router-link
-                :to="{ name: 'characters', params: { character: character, pageName: character.pageName } }"
+                :to="{ name: 'character', params: { character: character, pageName: character.pageName } }"
                 class="grid-hover-text"
               >{{ character.name }}</router-link>
             </div>

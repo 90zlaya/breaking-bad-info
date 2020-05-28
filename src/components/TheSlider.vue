@@ -43,10 +43,6 @@
     localStorageMap,
     quotedAuthors,
   } from './../mixins/data.js';
-  // TODO: Enable to fix eslint error
-  /*import {
-    cardSlider,
-  } from './../mixins/functions.js';*/
 
   import TheLoader from './TheLoader.vue';
   import TheAlerter from './TheAlerter.vue';
@@ -80,9 +76,8 @@
     },
     updated() {
       if (this.showLoader === false) {
-        // Run card slider function from scripts.js
-        //cardSlider();
-        // TODO: Update this piece of code blocked by eslint
+        /* global cardSlider */
+        cardSlider();
       }
     },
     methods: {

@@ -164,8 +164,8 @@
 })(jQuery);
 
 // Card Slider - Swiper
-function cardSlider() {
-  var cardSlider = new Swiper('.card-slider', {
+var cardSlider = function() {
+  new Swiper('.card-slider', {
     autoplay: {
       delay: 3500,
       disableOnInteraction: false

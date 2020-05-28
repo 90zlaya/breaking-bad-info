@@ -16,8 +16,8 @@ export default new Router({
       props: true,
     },
     {
-      path: '/characters/:pageName',
-      name: 'characters',
+      path: '/character/:pageName',
+      name: 'character',
       component: () => import('../views/Character.vue'),
       props: true,
     },
