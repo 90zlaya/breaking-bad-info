@@ -19,15 +19,13 @@
               :alt="$t('characters.grid.imageOfCharacterName', {characterName: character.name})"
               :id="'char-id_' + character.char_id"
               class="img-thumbnail"
-             />
-            <div
-              :id="'overlay-for-character_' + character.char_id"
-              class="grid-overlay"
-            >
+            />
+            <div class="grid-overlay">
+              <p class="grid-hover-text">{{ character.name }}</p>
               <router-link
                 :to="{ name: 'character', params: { character: character, pageName: character.pageName } }"
-                class="grid-hover-text"
-              >{{ character.name }}</router-link>
+                class="btn-solid-md"
+              >{{ $t('characters.grid.details') }}</router-link>
             </div>
           </div>
         </div>
@@ -89,12 +87,35 @@
     color: #fff;
     font-size: 20px;
     position: absolute;
-    top: 50%;
+    top: 40%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     text-align: center;
+  }
+
+  .btn-solid-md {
+    font-size: 20px;
+    position: relative;
+    top: 60%;
+    text-align: center;
+    display: inline-block;
+    padding: 1.375rem 2.625rem 1.375rem 2.625rem;
+    border: 0.125rem solid #cfd200;
+    border-radius: 2rem;
+    background-color: #cfd200;
+    color: #000;
+    font: 700 0.75rem/0 "Montserrat", sans-serif;
+    text-decoration: none;
+    transition: all 0.2s;
+    cursor: pointer;
+  }
+
+  .btn-solid-md:hover {
+    background-color: transparent;
+    color: #cfd200;
+    text-decoration: none;
   }
 
   @media (max-width: 767px) {

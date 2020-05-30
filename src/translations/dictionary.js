@@ -26,6 +26,7 @@ const dictionary = {
       },
       grid: {
         imageOfCharacterName: "Image of {characterName}",
+        details: "More details",
       },
       loadMore: {
         loadMore: "Load More",
