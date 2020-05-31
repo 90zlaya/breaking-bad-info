@@ -36,6 +36,10 @@
   $(document).on('click', 'a.page-scroll', function(event) {
     var $anchor = $(this);
     var hrefOfAnchor = $anchor.attr('href');
+    // Router link adds / at the start - we need it removed
+    if (hrefOfAnchor.includes('/#', 0)) {
+      hrefOfAnchor = hrefOfAnchor.replace('/#', '#')
+    }
     var offsetFromTop = $(hrefOfAnchor).offset().top;
     // No offset for first section of the page
     if (hrefOfAnchor === 'body' || hrefOfAnchor === '#header') {

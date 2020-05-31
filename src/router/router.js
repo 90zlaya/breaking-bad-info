@@ -1,6 +1,9 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import Home from '../views/Home.vue';
+import {
+  routerRoutes,
+} from '../mixins/data.js';
 
 // Install router
 Vue.use(Router);
@@ -10,14 +13,14 @@ export default new Router({
   mode: 'history',
   routes: [
     {
-      path: '/',
-      name: 'home',
+      path: routerRoutes.home.path,
+      name: routerRoutes.home.name,
       component: Home,
       props: true,
     },
     {
-      path: '/character/:pageName',
-      name: 'character',
+      path: routerRoutes.character.path,
+      name: routerRoutes.character.name,
       component: () => import('../views/Character.vue'),
       props: true,
     },

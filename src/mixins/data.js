@@ -1,8 +1,8 @@
 export const apiMap = {
   baseUrl: "https://www.breakingbadapi.com/api",
   endpoints: {
-    quotes: "/quotes?series=Breaking+Bad",
-    characters: "/characters?category=Breaking+Bad",
+    quotes: "/quotes",
+    characters: "/characters",
   },
 };
 
@@ -40,5 +40,25 @@ export const urls = {
     linkedIn: "https://www.linkedin.com/in/90zlaya",
     youtube: "https://www.youtube.com/90zlaya",
     instagram: "https://instagram.com/90zlaya",
+  },
+};
+
+export const navbarSections = {
+  header: '#header',
+  quotes: '#quotes',
+  characters: '#characters',
+  statistics: '#statistics',
+  synopsis: '#synopsis',
+  about: '#about',
+};
+
+export const routerRoutes = {
+  home: {
+    path: '/',
+    name: 'home',
+  },
+  character: {
+    path: '/character/:pageName',
+    name: 'character',
   },
 };

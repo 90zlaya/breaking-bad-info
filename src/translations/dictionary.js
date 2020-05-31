@@ -7,6 +7,7 @@ const dictionary = {
       statistics: "STATISTICS",
       synopsis: "SYNOPSIS",
       about: "ABOUT",
+      goBack: "GO BACK",
       logoImage: "Logo image",
     },
     header: {

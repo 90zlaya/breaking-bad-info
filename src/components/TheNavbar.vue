@@ -4,7 +4,7 @@
       class="navbar-brand logo-image"
       href="/"
     >
-      <img src="images/logo.png" :alt="$t('navbar.logoImage')" />
+      <img src="/images/logo.png" :alt="$t('navbar.logoImage')" />
     </a>
     <button
       class="navbar-toggler"
@@ -20,45 +20,57 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarsMenu">
       <ul class="navbar-nav ml-auto">
-        <template v-for="navigation in navigations">
-          <li class="nav-item" :key="navigation.href">
-            <a class="nav-link page-scroll" :href="navigation.href">
-              {{ navigation.title }}
-            </a>
-          </li>
+        <template v-if="!toHideNavigations">
+          <template v-for="navigation in navigations">
+            <li class="nav-item" :key="navigation.href">
+              <a class="nav-link page-scroll" :href="navigation.href">
+                {{ navigation.title }}
+              </a>
+            </li>
+          </template>
         </template>
+        <li v-else class="nav-item">
+          <slot />
+        </li>
       </ul>
     </div>
   </nav>
 </template>
 
 <script>
+  import {
+    navbarSections,
+  } from '../mixins/data.js';
+
   export default {
+    props: {
+      toHideNavigations: Boolean,
+    },
     data() {
       return {
         navigations: [
           {
-            href: '#header',
+            href: navbarSections.header,
             title: this.$t('navbar.home'),
           },
           {
-            href: '#quotes',
+            href: navbarSections.quotes,
             title: this.$t('navbar.quotes'),
           },
           {
-            href: '#characters',
+            href: navbarSections.characters,
             title: this.$t('navbar.characters'),
           },
           {
-            href: '#statistics',
+            href: navbarSections.statistics,
             title: this.$t('navbar.statistics'),
           },
           {
-            href: '#synopsis',
+            href: navbarSections.synopsis,
             title: this.$t('navbar.synopsis'),
           },
           {
-            href: '#about',
+            href: navbarSections.about,
             title: this.$t('navbar.about'),
           },
         ],
