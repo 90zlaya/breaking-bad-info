@@ -122,14 +122,12 @@
       },
       addPageNameItem(charactersList) {
         charactersList.forEach((character, id) => {
-          const characterNameInLowerCase = character.name.toLowerCase();
-          let pageName = characterNameInLowerCase.replace(' ', '-');
-
-          // Clear what's left
-          pageName = pageName.replace(' ', '-');
-          pageName = pageName.replace('.', '');
-
-          charactersList[id].pageName = pageName;
+          charactersList[id].pageName = character.name
+            .toLowerCase()
+            .replace(/ /g, '-')
+            .replace(/[á]/g, 'a')
+            .replace(/[&]/g, 'and')
+            .replace(/[^\w-]+/g, '');
         });
 
         return charactersList;
