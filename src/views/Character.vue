@@ -40,8 +40,14 @@
         required: true,
       },
     },
+    created() {
+      console.log('Character from prop', this.character);
+    },
     mounted() {
-      console.log('Character page details from prop', this.character);
+      console.log('Character from prop', this.character);
+    },
+    updated() {
+      console.log('Character from prop', this.character);
     },
     computed: {
       charactersSearchHomepage() {

@@ -16,14 +16,22 @@
 					<div class="grid-item">
             <img
               :src="character.img"
-              :alt="$t('characters.grid.imageOfCharacterName', {characterName: character.name})"
+              :alt="$t('characters.grid.imageOfCharacterName', {
+                characterName: character.name
+              })"
               :id="'char-id_' + character.char_id"
               class="img-thumbnail"
             />
             <div class="grid-overlay">
               <p class="grid-hover-text">{{ character.name }}</p>
               <router-link
-                :to="{ name: 'character', params: { character: character, pageName: character.pageName } }"
+                :to="{
+                  name: charactersPage,
+                  params: {
+                    character: character,
+                    pageName: character.pageName,
+                  }
+                }"
                 class="btn-solid-md"
               >{{ $t('characters.grid.details') }}</router-link>
             </div>
@@ -35,6 +43,10 @@
 </template>
 
 <script>
+  import {
+    routerRoutes,
+  } from '../mixins/data.js';
+
   import TheLoader from './TheLoader.vue';
   import TheAlerter from './TheAlerter.vue';
 
@@ -46,6 +58,11 @@
     props: {
       showLoader: Boolean,
       characters: Array,
+    },
+    computed: {
+      charactersPage() {
+        return routerRoutes.character.name;
+      },
     },
   };
 </script>
