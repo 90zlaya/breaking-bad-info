@@ -6,15 +6,6 @@ export const apiMap = {
   },
 };
 
-export const localStorageMap = {
-  slider: {
-    quotes: "BreakingBadInfoApp:Quotes",
-  },
-  characters: {
-    characters: "BreakingBadInfoApp:Characters",
-  },
-};
-
 export const quotedAuthors = [
   "Walter White",
   "Skyler White",

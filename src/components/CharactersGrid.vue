@@ -29,7 +29,7 @@
                   name: charactersPage,
                   params: {
                     character: character,
-                    pageName: character.pageName,
+                    pageName: character.page_name,
                   }
                 }"
                 class="btn-solid-md"

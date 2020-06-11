@@ -38,9 +38,9 @@
 
 <script>
   import config from './../../.config.json';
+  import localStorage from './../libs/LocalStorage.js';
   import {
     apiMap,
-    localStorageMap,
     quotedAuthors,
   } from './../mixins/data.js';
 
@@ -61,15 +61,11 @@
       };
     },
     created() {
-      const localQuotes = localStorage.getItem(localStorageMap.slider.quotes);
+      const localQuotes = localStorage.getQuotes();
 
       if (localQuotes === undefined || localQuotes === null) {
-        // Fetch quotes from API
         this.fetchQuotes();
-
-        // Method fetchQuotes makes promise, any code here is ineffective
       } else {
-        // Create slides from quotes retrieved from local storage
         this.slides = this.createSlides(JSON.parse(localQuotes));
         this.showLoader = false;
       }
@@ -85,13 +81,8 @@
         fetch(apiMap.baseUrl + apiMap.endpoints.quotes).then((response) => {
           return response.json();
         }).then((remoteQuotes) => {
-          // Create slides from quotes retrieved from API
           this.slides = this.createSlides(remoteQuotes);
-
-          // Save to local storage
-          localStorage.setItem(localStorageMap.slider.quotes, JSON.stringify(remoteQuotes));
-
-          // Stop loader
+          localStorage.setQuotes(remoteQuotes);
           this.showLoader = false;
         }).catch((error) => {
           console.error('Fetching quotes failed', error);
@@ -107,19 +98,13 @@
           const randomNumber = Math.floor(Math.random() * quotes.length) + 1;
 
           if (quoteIds.indexOf(randomNumber) === -1 && quotes[randomNumber] !== undefined) {
-            // Do not repeat quote authors
             if (quotes[randomNumber].author !== previousAuthor) {
-              // Remember current quote author for next query
               previousAuthor = quotes[randomNumber].author;
-
-              // Construct image path for quote author
               quotes[randomNumber].image = this.constructCharacterImagePath(
                 quotes[randomNumber].author
               );
 
-              // Add quotes object to the slides array
               slides.push(quotes[randomNumber]);
-              // Prevent repetition of quotes
               quoteIds.push(randomNumber);
             }
           }
