@@ -21,7 +21,7 @@ export default new Router({
     {
       path: routerRoutes.character.path,
       name: routerRoutes.character.name,
-      component: () => import('../views/Character.vue'),
+      component: () => import(/* webpackChunkName: "character" */ '../views/Character.vue'),
       props: true,
     },
   ],
