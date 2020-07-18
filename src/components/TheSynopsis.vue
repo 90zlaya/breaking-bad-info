@@ -3,7 +3,7 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          <h2>{{ $t('video.synopsis') }}</h2>
+          <h3 class="text-center pb-3">{{ $t('video.synopsis') }}</h3>
           <div class="p-heading p-large">{{ $t('video.seriesSynopsis') }}</div>
         </div>
       </div>

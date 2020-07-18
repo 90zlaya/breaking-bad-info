@@ -1,5 +1,12 @@
 <template>
   <div id="characters" class="basic-1">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <h3 class="text-center pb-5">{{ $t('characters.sectionTitle') }}</h3>
+        </div>
+      </div>
+    </div>
     <TheAlerter v-if="errorMessage !== ''" :purpose="'danger'" :message="errorMessage" />
     <template v-else>
       <CharactersSearch

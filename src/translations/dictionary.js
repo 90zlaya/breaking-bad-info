@@ -15,12 +15,14 @@ const dictionary = {
       rottating: "INFO, FUN",
     },
     slider: {
+      sectionTitle: "They were saying...",
       imageOfQuoteAuthor: "Image of quote author",
       errors: {
         fetchingQuotes: "We're unable to display quotes at this moment",
       },
     },
     characters: {
+      sectionTitle: "All characters",
       search: {
         searchCharacter: "Search character by name",
         noSearchResults: "There are no results for this search. Try different name.",
@@ -37,6 +39,7 @@ const dictionary = {
       },
     },
     counter: {
+      sectionTitle: "Statistics",
       seasons: "Seasons",
       years: "Years",
       episodes: "Episodes",

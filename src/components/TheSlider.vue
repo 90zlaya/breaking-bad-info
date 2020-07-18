@@ -4,6 +4,9 @@
     <div v-else class="container">
       <div class="row">
         <div class="col-lg-12">
+          <h3 class="text-center pb-5">{{ $t('slider.sectionTitle') }}</h3>
+        </div>
+        <div class="col-lg-12">
           <div class="slider-container">
             <div class="swiper-container card-slider">
               <TheLoader v-if="showLoader" />
