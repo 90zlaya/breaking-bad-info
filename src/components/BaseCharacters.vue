@@ -3,7 +3,8 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          <h3 class="text-center pb-5">{{ $t('characters.sectionTitle') }}</h3>
+          <h3 class="text-center pb-3">{{ $t('characters.sectionTitle') }}</h3>
+          <div class="p-heading p-large">{{ $t('characters.sectionDescription') }}</div>
         </div>
       </div>
     </div>
@@ -28,9 +29,7 @@
 <script>
   import config from './../../.config.json';
   import localStorage from './../libs/LocalStorage.js';
-  import {
-    apiMap,
-  } from './../mixins/data.js';
+  import breakingBadApi from './../libs/BreakingBadAPI.js';
 
   import CharactersSearch from './CharactersSearch.vue';
   import CharactersGrid from './CharactersGrid.vue';
@@ -58,22 +57,11 @@
         numberOfCharacters: config.characters.numberOfCharacters,
       };
     },
-    created () {
+    created() {
       const localCharacters = localStorage.getCharacters();
 
       if (localCharacters === undefined || localCharacters === null) {
-        this.fetchCharacters();
-      } else {
-        this.characters.all = JSON.parse(localCharacters);
-        this.featuredCharacters();
-        this.toShow.loader = false;
-      }
-    },
-    methods: {
-      fetchCharacters() {
-        fetch(apiMap.baseUrl + apiMap.endpoints.characters).then((response) => {
-          return response.json();
-        }).then((remoteCharacters) => {
+        breakingBadApi.getAllCharacters().then((remoteCharacters) => {
           this.characters.all = this.addPageNameItem(remoteCharacters);
           this.featuredCharacters();
           this.toShow.loader = false;
@@ -82,7 +70,13 @@
           console.error('Fetching characters failed', error);
           this.errorMessage = this.$t('characters.errors.fetchingCharacters');
         });
-      },
+      } else {
+        this.characters.all = JSON.parse(localCharacters);
+        this.featuredCharacters();
+        this.toShow.loader = false;
+      }
+    },
+    methods: {
       featuredCharacters() {
         this.toShow.loadMoreButton = true;
         this.characters.grid = this.characters.all.slice(0, this.numberOfCharacters);

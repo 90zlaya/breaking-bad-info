@@ -22,7 +22,8 @@ const dictionary = {
       },
     },
     characters: {
-      sectionTitle: "All characters",
+      sectionTitle: "Characters",
+      sectionDescription: "Search character by name and view details about the chosen character",
       search: {
         searchCharacter: "Search character by name",
         noSearchResults: "There are no results for this search. Try different name.",
