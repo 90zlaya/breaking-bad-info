@@ -1,11 +1,3 @@
-export const apiMap = {
-  baseUrl: "https://www.breakingbadapi.com/api",
-  endpoints: {
-    quotes: "/quotes",
-    characters: "/characters",
-  },
-};
-
 export const quotedAuthors = [
   "Walter White",
   "Skyler White",

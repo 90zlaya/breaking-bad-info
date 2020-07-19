@@ -42,8 +42,8 @@
 <script>
   import config from './../../.config.json';
   import localStorage from './../libs/LocalStorage.js';
+  import breakingBadApi from './../libs/BreakingBadAPI.js';
   import {
-    apiMap,
     quotedAuthors,
   } from './../mixins/data.js';
 
@@ -67,7 +67,14 @@
       const localQuotes = localStorage.getQuotes();
 
       if (localQuotes === undefined || localQuotes === null) {
-        this.fetchQuotes();
+        breakingBadApi.getAllQuotes().then((remoteQuotes) => {
+          this.slides = this.createSlides(remoteQuotes);
+          localStorage.setQuotes(remoteQuotes);
+          this.showLoader = false;
+        }).catch((error) => {
+          console.error('Fetching quotes failed', error);
+          this.errorMessage = this.$t('slider.errors.fetchingQuotes');
+        });
       } else {
         this.slides = this.createSlides(JSON.parse(localQuotes));
         this.showLoader = false;
@@ -80,18 +87,6 @@
       }
     },
     methods: {
-      fetchQuotes() {
-        fetch(apiMap.baseUrl + apiMap.endpoints.quotes).then((response) => {
-          return response.json();
-        }).then((remoteQuotes) => {
-          this.slides = this.createSlides(remoteQuotes);
-          localStorage.setQuotes(remoteQuotes);
-          this.showLoader = false;
-        }).catch((error) => {
-          console.error('Fetching quotes failed', error);
-          this.errorMessage = this.$t('slider.errors.fetchingQuotes');
-        });
-      },
       createSlides(quotes) {
         let quoteIds = [];
         let slides = [];
