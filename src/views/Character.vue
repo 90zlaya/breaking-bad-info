@@ -1,67 +1,84 @@
 <template>
-  <div id="view-home">
-    <TheNavbar :to-hide-navigations="true">
+  <div id="view-character">
+    <BaseCharacterDetails :character="displayed.character">
       <router-link
+        v-if="displayed.isSetViaProp"
         :to="charactersSearchHomepage"
         class="nav-link page-scroll"
       >{{ $t('navbar.goBack') }}</router-link>
-    </TheNavbar>
-    <TheHeader />
-    <div class="container view-character">
-      <h1>{{ character.name }} </h1>
-      <p>This character is portrayed by {{ character.portrayed }}</p>
-    </div>
+    </BaseCharacterDetails>
     <TheFooter />
     <TheCopyright />
   </div>
 </template>
 
 <script>
-  import {
-    navbarSections,
-    routerRoutes,
-  } from '../mixins/data.js';
+import breakingBadApi from './../libs/BreakingBadAPI.js';
+import {
+  navbarSections,
+  routerRoutes
+} from "./../mixins/data.js";
+import {
+  isSet
+} from "./../mixins/utils.js";
 
-  import TheNavbar from '../components/TheNavbar.vue';
-  import TheHeader from '../components/TheHeader.vue';
-  import TheFooter from '../components/TheFooter.vue';
-  import TheCopyright from '../components/TheCopyright.vue';
+import BaseCharacterDetails from "./../components/BaseCharacterDetails.vue";
+import TheFooter from "./../components/TheFooter.vue";
+import TheCopyright from "./../components/TheCopyright.vue";
 
-  export default {
-    components: {
-      TheNavbar,
-      TheHeader,
-      TheFooter,
-      TheCopyright,
+export default {
+  props: {
+    character: {
+      type: Object,
+      required: false,
     },
-    props: {
-      character: {
-        type: Object,
-        required: true,
-      },
+  },
+  components: {
+    BaseCharacterDetails,
+    TheFooter,
+    TheCopyright,
+  },
+  data() {
+    return {
+      displayed: {
+        isSetViaProp: true,
+        character: {}
+      }
+    };
+  },
+  created() {
+    if (isSet(this.character)) {
+      console.log("Character from prop", this.character);
+      this.displayed.character = this.character;
+    } else {
+      console.log("Prop not set!");
+
+      const { pageName } = this.$router.currentRoute.params;
+      const characterId = breakingBadApi.characterIdFromPageName(pageName);
+      // TODO: Check if characterId is undefined and handle that possiblity
+      console.log("Converted pageName to characterId:", pageName, characterId);
+      breakingBadApi.getCharacter(characterId).then((character) => {
+        console.log("Got character", character);
+        this.displayed.character = character[0];
+        this.displayed.isSetViaProp = false;
+      }).catch((err) => {
+        console.error(err);
+      });
+    }
+  },
+  computed: {
+    charactersSearchHomepage() {
+      return {
+        name: routerRoutes.home.name,
+        hash: navbarSections.characters,
+      };
     },
-    created() {
-      console.log('Character from prop', this.character);
-    },
-    mounted() {
-      console.log('Character from prop', this.character);
-    },
-    updated() {
-      console.log('Character from prop', this.character);
-    },
-    computed: {
-      charactersSearchHomepage() {
-        return {
-          name: routerRoutes.home.name,
-          hash: navbarSections.characters,
-        };
-      },
-    },
-  };
+  },
+};
 </script>
 
 <style scoped>
-  .view-character {
-    padding-top: 0.5rem;
-  }
+.view-character {
+  padding-top: 0.5rem;
+}
 </style>

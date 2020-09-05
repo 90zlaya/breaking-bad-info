@@ -1,9 +1,9 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Home from '../views/Home.vue';
+import Home from './../views/Home.vue';
 import {
-  routerRoutes,
-} from '../mixins/data.js';
+  routerRoutes
+} from './../mixins/data.js';
 
 // Install router
 Vue.use(Router);
@@ -16,13 +16,13 @@ export default new Router({
       path: routerRoutes.home.path,
       name: routerRoutes.home.name,
       component: Home,
-      props: true,
+      props: true
     },
     {
       path: routerRoutes.character.path,
       name: routerRoutes.character.name,
-      component: () => import(/* webpackChunkName: "character" */ '../views/Character.vue'),
-      props: true,
-    },
-  ],
+      component: () => import(/* webpackChunkName: "character" */ './../views/Character.vue'),
+      props: true
+    }
+  ]
 });

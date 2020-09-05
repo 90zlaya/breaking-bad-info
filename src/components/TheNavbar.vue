@@ -20,18 +20,13 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarsMenu">
       <ul class="navbar-nav ml-auto">
-        <template v-if="!toHideNavigations">
-          <template v-for="navigation in navigations">
-            <li class="nav-item" :key="navigation.href">
-              <a class="nav-link page-scroll" :href="navigation.href">
-                {{ navigation.title }}
-              </a>
-            </li>
-          </template>
+        <template v-for="navigation in navigations">
+          <li class="nav-item" :key="navigation.href">
+            <a class="nav-link page-scroll" :href="navigation.href">
+              {{ navigation.title }}
+            </a>
+          </li>
         </template>
-        <li v-else class="nav-item">
-          <slot />
-        </li>
       </ul>
     </div>
   </nav>
@@ -39,43 +34,40 @@
 
 <script>
   import {
-    navbarSections,
-  } from '../mixins/data.js';
+    navbarSections
+  } from './../mixins/data.js';
 
   export default {
-    props: {
-      toHideNavigations: Boolean,
-    },
     data() {
       return {
         navigations: [
           {
             href: navbarSections.header,
-            title: this.$t('navbar.home'),
+            title: this.$t('navbar.home')
           },
           {
             href: navbarSections.quotes,
-            title: this.$t('navbar.quotes'),
+            title: this.$t('navbar.quotes')
           },
           {
             href: navbarSections.characters,
-            title: this.$t('navbar.characters'),
+            title: this.$t('navbar.characters')
           },
           {
             href: navbarSections.statistics,
-            title: this.$t('navbar.statistics'),
+            title: this.$t('navbar.statistics')
           },
           {
             href: navbarSections.synopsis,
-            title: this.$t('navbar.synopsis'),
+            title: this.$t('navbar.synopsis')
           },
           {
             href: navbarSections.about,
-            title: this.$t('navbar.about'),
-          },
-        ],
+            title: this.$t('navbar.about')
+          }
+        ]
       };
-    },
+    }
   };
 </script>
 
@@ -86,36 +78,30 @@
     font: 700 0.75rem/2rem "Montserrat", sans-serif;
     transition: all 0.2s;
   }
-
   .navbar-custom .navbar-brand.logo-image img {
     height: 34px;
     margin-bottom: 1px;
     -webkit-backface-visibility: hidden;
   }
-
   .navbar-custom .navbar-brand.logo-text {
     font: 700 2.375rem/1.5rem "Montserrat", sans-serif;
     color: #fff;
     letter-spacing: -0.5px;
     text-decoration: none;
   }
-
   .navbar-custom .navbar-nav {
     margin-top: 0.75rem;
   }
-
   .navbar-custom .nav-item .nav-link {
     padding: 0 0.75rem 0 0.75rem;
     color: #fff;
     text-decoration: none;
     transition: all 0.2s ease;
   }
-
   .navbar-custom .nav-item .nav-link:hover,
   .navbar-custom .nav-item .nav-link.active {
     color: #cfd200;
   }
-
   .navbar-custom .dropdown:hover > .dropdown-menu {
     display: block; /* this makes the dropdown menu stay open while hovering it */
     min-width: auto;
@@ -134,31 +120,25 @@
   .navbar-custom .dropdown-toggle:focus { /* removes dropdown outline on focus  */
     outline: 0;
   }
-
   .navbar-custom .dropdown-menu {
     margin-top: 0;
     border: none;
     border-radius: 0.25rem;
     background-color: #262431;
   }
-
   .navbar-custom .dropdown-item {
     color: #fff;
     text-decoration: none;
   }
-
   .navbar-custom .dropdown-item:hover {
     background-color: #262431;
   }
-
   .navbar-custom .dropdown-item .item-text {
     font: 700 0.75rem/1.5rem "Montserrat", sans-serif;
   }
-
   .navbar-custom .dropdown-item:hover .item-text {
     color: #cfd200;
   }
-
   .navbar-custom .dropdown-items-divide-hr {
     width: 100%;
     height: 1px;
@@ -167,29 +147,23 @@
     background-color: #b5bcc4;
     opacity: 0.2;
   }
-
   .navbar-custom .social-icons {
     display: none;
   }
-
   .navbar-custom .navbar-toggler {
     border: none;
     color: #fff;
     font-size: 2rem;
   }
-
   .navbar-custom button[aria-expanded='false'] .navbar-toggler-awesome.fas.fa-times{
     display: none;
   }
-
   .navbar-custom button[aria-expanded='false'] .navbar-toggler-awesome.fas.fa-bars{
     display: inline-block;
   }
-
   .navbar-custom button[aria-expanded='true'] .navbar-toggler-awesome.fas.fa-bars{
     display: none;
   }
-
   .navbar-custom button[aria-expanded='true'] .navbar-toggler-awesome.fas.fa-times{
     display: inline-block;
     margin-right: 0.125rem;
@@ -201,53 +175,42 @@
       box-shadow: none;
       background: transparent;
     }
-
     .navbar-custom .navbar-brand.logo-text {
       color: #fff;
     }
-
     .navbar-custom .navbar-nav {
       margin-top: 0;
     }
-
     .navbar-custom .nav-item .nav-link {
       padding: 0.25rem 0.75rem 0.25rem 0.75rem;
       color: #fff;
     }
-
     .navbar-custom .nav-item .nav-link:hover,
     .navbar-custom .nav-item .nav-link.active {
       color: #cfd200;
     }
-
     .navbar-custom.top-nav-collapse {
       padding: 0.5rem 1.5rem 0.5rem 2rem;
       box-shadow: 0 0.0625rem 0.375rem 0 rgba(0, 0, 0, 0.1);
       background-color: #262431;
     }
-
     .navbar-custom.top-nav-collapse .navbar-brand.logo-text {
       color: #fff;
     }
-
     .navbar-custom.top-nav-collapse .nav-item .nav-link {
       color: #fff;
     }
-
     .navbar-custom.top-nav-collapse .nav-item .nav-link:hover,
     .navbar-custom.top-nav-collapse .nav-item .nav-link.active {
       color: #cfd200;
     }
-
     .navbar-custom .dropdown-menu {
       box-shadow: 0 0.25rem 0.375rem 0 rgba(0, 0, 0, 0.03);
     }
-
     .navbar-custom .dropdown-item {
       padding-top: 0.25rem;
       padding-bottom: 0.25rem;
     }
-
     .navbar-custom .dropdown-items-divide-hr {
       width: 84%;
     }
@@ -258,27 +221,22 @@
       display: block;
       margin-left: 0.5rem;
     }
-
     .navbar-custom .fa-stack {
       margin-bottom: 0.1875rem;
       margin-left: 0.375rem;
       font-size: 0.75rem;
     }
-
     .navbar-custom .fa-stack-2x {
       color: #cfd200;
       transition: all 0.2s ease;
     }
-
     .navbar-custom .fa-stack-1x {
       color: #fff;
       transition: all 0.2s ease;
     }
-
     .navbar-custom .fa-stack:hover .fa-stack-2x {
       color: #fff;
     }
-
     .navbar-custom .fa-stack:hover .fa-stack-1x {
       color: #cfd200;
     }
@@ -288,9 +246,8 @@
     .navbar-custom {
       padding: 2.125rem 5rem 2.125rem 5rem;
     }
-
     .navbar-custom.top-nav-collapse {
-          padding: 0.5rem 5rem 0.5rem 5rem;
+      padding: 0.5rem 5rem 0.5rem 5rem;
     }
   }
 </style>

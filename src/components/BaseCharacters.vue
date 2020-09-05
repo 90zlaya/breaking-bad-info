@@ -30,6 +30,9 @@
   import config from './../../.config.json';
   import localStorage from './../libs/LocalStorage.js';
   import breakingBadApi from './../libs/BreakingBadAPI.js';
+  import {
+    isSet
+  } from "./../mixins/utils.js";
 
   import CharactersSearch from './CharactersSearch.vue';
   import CharactersGrid from './CharactersGrid.vue';
@@ -41,26 +44,26 @@
       CharactersSearch,
       CharactersGrid,
       CharactersLoadMore,
-      TheAlerter,
+      TheAlerter
     },
     data() {
       return {
         characters: {
           all: [],
-          grid: [],
+          grid: []
         },
         toShow: {
           loader: true,
-          loadMoreButton: false,
+          loadMoreButton: false
         },
         errorMessage: '',
-        numberOfCharacters: config.characters.numberOfCharacters,
+        numberOfCharacters: config.characters.numberOfCharacters
       };
     },
     created() {
       const localCharacters = localStorage.getCharacters();
 
-      if (localCharacters === undefined || localCharacters === null) {
+      if (isSet(localCharacters) || isSet(localCharacters)) {
         breakingBadApi.getAllCharacters().then((remoteCharacters) => {
           this.characters.all = this.addPageNameItem(remoteCharacters);
           this.featuredCharacters();
@@ -109,7 +112,7 @@
         });
 
         return charactersList;
-      },
-    },
+      }
+    }
   };
 </script>
