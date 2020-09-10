@@ -30,9 +30,6 @@
   import config from './../../.config.json';
   import localStorage from './../libs/LocalStorage.js';
   import breakingBadApi from './../libs/BreakingBadAPI.js';
-  import {
-    isSet
-  } from "./../mixins/utils.js";
 
   import CharactersSearch from './CharactersSearch.vue';
   import CharactersGrid from './CharactersGrid.vue';
@@ -63,7 +60,11 @@
     created() {
       const localCharacters = localStorage.getCharacters();
 
-      if (isSet(localCharacters) || isSet(localCharacters)) {
+      if (localCharacters) {
+        this.characters.all = JSON.parse(localCharacters);
+        this.featuredCharacters();
+        this.toShow.loader = false;
+      } else {
         breakingBadApi.getAllCharacters().then((remoteCharacters) => {
           this.characters.all = this.addPageNameItem(remoteCharacters);
           this.featuredCharacters();
@@ -73,10 +74,6 @@
           console.error('Fetching characters failed', error);
           this.errorMessage = this.$t('characters.errors.fetchingCharacters');
         });
-      } else {
-        this.characters.all = JSON.parse(localCharacters);
-        this.featuredCharacters();
-        this.toShow.loader = false;
       }
     },
     methods: {

@@ -15,6 +15,7 @@
         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6" :key="character.char_id">
 					<div class="grid-item">
             <img
+              @error="imageLoadError"
               :src="character.img"
               :alt="$t('characters.grid.imageOfCharacterName', {
                 characterName: character.name
@@ -46,6 +47,9 @@
   import {
     routerRoutes,
   } from '../mixins/data.js';
+  import {
+    characterImagePath
+  } from './../mixins/utils.js';
 
   import TheLoader from './TheLoader.vue';
   import TheAlerter from './TheAlerter.vue';
@@ -64,6 +68,12 @@
         return routerRoutes.character.name;
       },
     },
+    methods: {
+      imageLoadError(element) {
+        // Set default character image
+        document.getElementById(element.srcElement.id).src = characterImagePath();
+      }
+    }
   };
 </script>
 
@@ -78,6 +88,7 @@
     width: 17rem;
     height: 17rem;
     object-fit: cover;
+    object-position: 0 0;
     color: #495057;
     text-align: center;
   }

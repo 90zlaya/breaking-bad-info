@@ -46,6 +46,9 @@
   import {
     quotedAuthors,
   } from './../mixins/data.js';
+  import {
+    characterImagePath
+  } from './../mixins/utils.js';
 
   import TheLoader from './TheLoader.vue';
   import TheAlerter from './TheAlerter.vue';
@@ -111,26 +114,13 @@
         return slides;
       },
       constructCharacterImagePath(characterName) {
-        let imagePath = '';
         const characterNameInLowerCase = characterName.toLowerCase();
         const imageName = characterNameInLowerCase.replace(' ', '-');
         const [characterDetails] = quotedAuthors.filter((author) => {
           return author === characterName;
         });
-        const {
-          root,
-          characters,
-          defaultCharacter,
-          defaultExtension
-        } = config.images;
-
-        imagePath += root;
-        imagePath += characters;
-        imagePath += characterDetails ? imageName : defaultCharacter;
-        imagePath += '.';
-        imagePath += defaultExtension;
-
-        return imagePath;
+        
+        return characterImagePath(characterDetails, imageName);
       },
     },
   };
