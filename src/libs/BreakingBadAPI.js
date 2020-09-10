@@ -1,6 +1,3 @@
-import pages from "./../mixins/pages.js";
-import { isSet } from "../mixins/utils.js";
-
 export default {
   baseUrl: "https://www.breakingbadapi.com/api",
   endpoints: {
@@ -20,16 +17,5 @@ export default {
     const characterEndpoint = this.endpoints.character.replace(":characterId", characterId);
     const response = await fetch(this.baseUrl + characterEndpoint);
     return await response.json();
-  },
-  characterIdFromPageName(pageName) {
-    let characterId = null;
-    
-    pages.forEach((page) => {
-      if (!isSet(characterId) && page.page_name === pageName) {
-        characterId = page.char_id;
-      }
-    });
-
-    return isSet(characterId) ? characterId : undefined;
   }
 };

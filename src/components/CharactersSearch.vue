@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="row">
-      <form class="col-12">
+      <form @submit.prevent="initiateSearch" class="col-12">
         <div class="form-group">
           <input
             v-model="searchTerm"

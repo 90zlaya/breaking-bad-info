@@ -1,7 +1,7 @@
 export default {
   map: {
     quotes: "BreakingBadInfoApp:Quotes",
-    characters: "BreakingBadInfoApp:Characters",
+    characters: "BreakingBadInfoApp:Characters"
   },
   getQuotes() {
     return localStorage.getItem(this.map.quotes);
@@ -14,5 +14,5 @@ export default {
   },
   setCharacters(characters) {
     localStorage.setItem(this.map.characters, JSON.stringify(characters));
-  },
+  }
 };

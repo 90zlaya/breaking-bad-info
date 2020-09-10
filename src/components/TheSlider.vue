@@ -1,10 +1,16 @@
 <template>
   <div id="quotes" class="slider-1">
-    <TheAlerter v-if="errorMessage !== ''" :purpose="'danger'" :message="errorMessage" />
+    <TheAlerter
+      v-if="errorMessage !== ''"
+      :purpose="'danger'"
+      :message="errorMessage"
+    />
     <div v-else class="container">
       <div class="row">
         <div class="col-lg-12">
-          <h3 class="text-center pb-5">{{ $t('slider.sectionTitle') }}</h3>
+          <h3
+            class="text-center pb-5"
+          >{{ $t('slider.sectionTitle') }}</h3>
         </div>
         <div class="col-lg-12">
           <div class="slider-container">
@@ -21,8 +27,12 @@
                           :alt="$t('slider.imageOfQuoteAuthor')"
                         >
                         <div class="card-body">
-                          <p class="testimonial-text">{{ slide.quote }}</p>
-                          <p class="testimonial-author">{{ slide.author }}</p>
+                          <p
+                            class="testimonial-text"
+                          >{{ slide.quote }}</p>
+                          <p
+                            class="testimonial-author"
+                          >{{ slide.author }}</p>
                         </div>
                       </div>
                     </div>
@@ -41,14 +51,11 @@
 
 <script>
   import config from './../../.config.json';
-  import localStorage from './../libs/LocalStorage.js';
-  import breakingBadApi from './../libs/BreakingBadAPI.js';
-  import {
-    quotedAuthors,
-  } from './../mixins/data.js';
-  import {
-    characterImagePath
-  } from './../mixins/utils.js';
+  import { quotedAuthors } from './../mixins/data.js'
+
+  import LocalStorage from './../libs/LocalStorage.js';
+  import BreakingBadApi from './../libs/BreakingBadAPI.js';
+  import Helper from './../libs/Helper.js';;
 
   import TheLoader from './TheLoader.vue';
   import TheAlerter from './TheAlerter.vue';
@@ -56,23 +63,23 @@
   export default {
     components: {
       TheLoader,
-      TheAlerter,
+      TheAlerter
     },
     data() {
       return {
         slides: [],
         errorMessage: '',
         showLoader: true,
-        numberOfSlides: config.slider.numberOfSlides,
+        numberOfSlides: config.slider.numberOfSlides
       };
     },
     created() {
-      const localQuotes = localStorage.getQuotes();
+      const localQuotes = LocalStorage.getQuotes();
 
       if (localQuotes === undefined || localQuotes === null) {
-        breakingBadApi.getAllQuotes().then((remoteQuotes) => {
+        BreakingBadApi.getAllQuotes().then((remoteQuotes) => {
           this.slides = this.createSlides(remoteQuotes);
-          localStorage.setQuotes(remoteQuotes);
+          LocalStorage.setQuotes(remoteQuotes);
           this.showLoader = false;
         }).catch((error) => {
           console.error('Fetching quotes failed', error);
@@ -120,9 +127,9 @@
           return author === characterName;
         });
         
-        return characterImagePath(characterDetails, imageName);
-      },
-    },
+        return Helper.characters.imagePath(characterDetails, imageName);
+      }
+    }
   };
 </script>
 

@@ -4,7 +4,10 @@
     :purpose="'info'"
     :message="$t('characters.search.noSearchResults')"
    />
-  <div v-else class="container grid">
+  <div
+    v-else
+    class="container grid"
+  >
     <div v-if="showLoader" class="row">
       <div class="col-12">
         <TheLoader />
@@ -44,12 +47,9 @@
 </template>
 
 <script>
-  import {
-    routerRoutes,
-  } from '../mixins/data.js';
-  import {
-    characterImagePath
-  } from './../mixins/utils.js';
+  import { routerRoutes } from '../mixins/data.js';
+  
+  import Helper from './../libs/Helper.js';
 
   import TheLoader from './TheLoader.vue';
   import TheAlerter from './TheAlerter.vue';
@@ -57,7 +57,7 @@
   export default {
     components: {
       TheLoader,
-      TheAlerter,
+      TheAlerter
     },
     props: {
       showLoader: Boolean,
@@ -66,18 +66,23 @@
     computed: {
       charactersPage() {
         return routerRoutes.character.name;
-      },
+      }
     },
     methods: {
       imageLoadError(element) {
         // Set default character image
-        document.getElementById(element.srcElement.id).src = characterImagePath();
+        document.getElementById(element.srcElement.id).src = Helper.characters.imagePath();
       }
     }
   };
 </script>
 
 <style scoped>
+  .grid {
+    overflow-y: scroll;
+    max-height: 36rem;
+  }
+
   .grid .grid-item {
     text-align: center;
     position: relative;

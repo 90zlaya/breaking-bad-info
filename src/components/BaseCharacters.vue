@@ -3,12 +3,20 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          <h3 class="text-center pb-3">{{ $t('characters.sectionTitle') }}</h3>
-          <div class="p-heading p-large">{{ $t('characters.sectionDescription') }}</div>
+          <h3
+            class="text-center pb-3"
+          >{{ $t('characters.sectionTitle') }}</h3>
+          <div
+            class="p-heading p-large"
+          >{{ $t('characters.sectionDescription') }}</div>
         </div>
       </div>
     </div>
-    <TheAlerter v-if="errorMessage !== ''" :purpose="'danger'" :message="errorMessage" />
+    <TheAlerter
+      v-if="errorMessage !== ''"
+      :purpose="'danger'"
+      :message="errorMessage"
+    />
     <template v-else>
       <CharactersSearch
         @showSearchResults="showSearchResults"
@@ -28,8 +36,9 @@
 
 <script>
   import config from './../../.config.json';
-  import localStorage from './../libs/LocalStorage.js';
-  import breakingBadApi from './../libs/BreakingBadAPI.js';
+  
+  import LocalStorage from './../libs/LocalStorage.js';
+  import BreakingBadAPI from './../libs/BreakingBadAPI.js';
 
   import CharactersSearch from './CharactersSearch.vue';
   import CharactersGrid from './CharactersGrid.vue';
@@ -58,18 +67,18 @@
       };
     },
     created() {
-      const localCharacters = localStorage.getCharacters();
+      const localCharacters = LocalStorage.getCharacters();
 
       if (localCharacters) {
         this.characters.all = JSON.parse(localCharacters);
         this.featuredCharacters();
         this.toShow.loader = false;
       } else {
-        breakingBadApi.getAllCharacters().then((remoteCharacters) => {
+        BreakingBadAPI.getAllCharacters().then((remoteCharacters) => {
           this.characters.all = this.addPageNameItem(remoteCharacters);
           this.featuredCharacters();
           this.toShow.loader = false;
-          localStorage.setCharacters(remoteCharacters);
+          LocalStorage.setCharacters(remoteCharacters);
         }).catch((error) => {
           console.error('Fetching characters failed', error);
           this.errorMessage = this.$t('characters.errors.fetchingCharacters');

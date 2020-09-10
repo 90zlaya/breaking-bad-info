@@ -13,14 +13,13 @@
 </template>
 
 <script>
-  import breakingBadApi from './../libs/BreakingBadAPI.js';
   import {
     navbarSections,
     routerRoutes
   } from "./../mixins/data.js";
-  import {
-    isSet
-  } from "./../mixins/utils.js";
+  
+  import BreakingBadAPI from './../libs/BreakingBadAPI.js';
+  import Helper from './../libs/Helper.js';
 
   import BaseCharacterDetails from "./../components/BaseCharacterDetails.vue";
   import TheFooter from "./../components/TheFooter.vue";
@@ -70,17 +69,17 @@
     },
     methods: {
       handleCharacterData() {
-        if (isSet(this.character)) {
+        if (this.character) {
           console.log("Character from prop", this.character);
           this.displayed.character = this.character;
         } else {
           console.log("Prop not set!");
     
           const { pageName } = this.$router.currentRoute.params;
-          const characterId = breakingBadApi.characterIdFromPageName(pageName);
+          const characterId = Helper.characters.idFromPageName(pageName);
           // TODO: Check if characterId is undefined and handle that possiblity
           console.log("Converted pageName to characterId:", pageName, characterId);
-          breakingBadApi.getCharacter(characterId).then((character) => {
+          BreakingBadAPI.getCharacter(characterId).then((character) => {
             console.log("Got character", character);
             this.displayed.character = character[0];
             this.displayed.isSetViaProp = false;
