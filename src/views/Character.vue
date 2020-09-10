@@ -60,10 +60,12 @@
     },
     mounted() {
       console.log('Character mounted');
+      window.scrollTo(0, 0);
       this.handleCharacterData();
     },
     updated() {
       console.log('Character updated');
+      window.scrollTo(0, 0);
       this.handleCharacterData();
     },
     methods: {
