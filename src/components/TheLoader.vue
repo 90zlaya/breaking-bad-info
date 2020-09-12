@@ -3,7 +3,7 @@
 </template>
 
 <script>
-  import config from './../../.config.json';
+  import { config } from './../mixins/data.js';
 
   export default {
     data() {

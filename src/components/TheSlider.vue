@@ -50,12 +50,14 @@
 </template>
 
 <script>
-  import config from './../../.config.json';
-  import { quotedAuthors } from './../mixins/data.js'
+  import {
+    quotedAuthors,
+    config
+  } from './../mixins/data.js'
 
   import LocalStorage from './../libs/LocalStorage.js';
   import BreakingBadApi from './../libs/BreakingBadAPI.js';
-  import Helper from './../libs/Helper.js';;
+  import Helper from './../libs/Helper.js';
 
   import TheLoader from './TheLoader.vue';
   import TheAlerter from './TheAlerter.vue';

@@ -78,11 +78,6 @@
 </script>
 
 <style scoped>
-  .grid {
-    overflow-y: scroll;
-    max-height: 36rem;
-  }
-
   .grid .grid-item {
     text-align: center;
     position: relative;

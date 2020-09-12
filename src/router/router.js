@@ -1,9 +1,8 @@
+import { routerRoutes } from './../mixins/data.js';
+
 import Vue from 'vue';
 import Router from 'vue-router';
 import Home from './../views/Home.vue';
-import {
-  routerRoutes
-} from './../mixins/data.js';
 
 // Install router
 Vue.use(Router);

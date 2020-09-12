@@ -1,5 +1,5 @@
-import config from './../../.config.json';
-import pages from "./../mixins/pages.js";
+import pages from './../mixins/pages.js';
+import { config } from './../mixins/data.js';
 
 export default {
   characters: {

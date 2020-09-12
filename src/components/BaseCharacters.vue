@@ -35,7 +35,7 @@
 </template>
 
 <script>
-  import config from './../../.config.json';
+  import { config } from './../mixins/data.js';
   
   import LocalStorage from './../libs/LocalStorage.js';
   import BreakingBadAPI from './../libs/BreakingBadAPI.js';

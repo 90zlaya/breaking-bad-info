@@ -45,3 +45,19 @@ export const routerRoutes = {
     name: 'character',
   },
 };
+
+export const config = {
+  images: {
+    root: 'images/',
+    characters: 'characters/',
+    defaultCharacter: 'character',
+    defaultExtension: 'jpg',
+    loaderImage: 'loader.gif'
+  },
+  slider: {
+    numberOfSlides: 9
+  },
+  characters: {
+    numberOfCharacters: 4
+  }
+};
