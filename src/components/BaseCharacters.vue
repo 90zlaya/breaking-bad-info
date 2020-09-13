@@ -14,13 +14,13 @@
     </div>
     <TheAlerter
       v-if="errorMessage !== ''"
-      :purpose="'danger'"
+      purpose="danger"
       :message="errorMessage"
     />
     <template v-else>
       <CharactersSearch
-        @showSearchResults="showSearchResults"
-        @showOriginalView="featuredCharacters"
+        @show-search-results="showSearchResults"
+        @show-original-view="featuredCharacters"
        />
       <CharactersGrid
         :show-loader="toShow.loader"
@@ -28,14 +28,14 @@
        />
       <CharactersLoadMore
         v-if="toShow.loadMoreButton"
-        @loadMoreCharacters="loadMoreCharacters"
+        @load-more-characters="loadMoreCharacters"
        />
     </template>
   </div>
 </template>
 
 <script>
-  import { config } from './../mixins/data.js';
+  import data from './../mixins/data.js';
   
   import LocalStorage from './../libs/LocalStorage.js';
   import BreakingBadAPI from './../libs/BreakingBadAPI.js';
@@ -63,7 +63,7 @@
           loadMoreButton: false
         },
         errorMessage: '',
-        numberOfCharacters: config.characters.numberOfCharacters
+        numberOfCharacters: data.config.characters.numberOfCharacters
       };
     },
     created() {

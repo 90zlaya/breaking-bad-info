@@ -1,29 +1,26 @@
 <template>
   <TheAlerter
     v-if="characters.length === 0 && showLoader === false"
-    :purpose="'info'"
+    purpose="info"
     :message="$t('characters.search.noSearchResults')"
    />
-  <div
-    v-else
-    class="container grid"
-  >
+  <div v-else class="container grid">
     <div v-if="showLoader" class="row">
       <div class="col-12">
         <TheLoader />
       </div>
     </div>
     <div v-else class="row">
-      <template v-for="character in characters">
-        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6" :key="character.char_id">
+      <template v-for="(character, index) in characters">
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6" :key="index">
 					<div class="grid-item">
             <img
-              @error="imageLoadError"
               :src="character.img"
               :alt="$t('characters.grid.imageOfCharacterName', {
                 characterName: character.name
               })"
               :id="'char-id_' + character.char_id"
+              @error="imageLoadError"
               class="img-thumbnail"
             />
             <div class="grid-overlay">
@@ -47,7 +44,7 @@
 </template>
 
 <script>
-  import { routerRoutes } from '../mixins/data.js';
+  import data from '../mixins/data.js';
   
   import Helper from './../libs/Helper.js';
 
@@ -60,12 +57,18 @@
       TheAlerter
     },
     props: {
-      showLoader: Boolean,
-      characters: Array,
+      showLoader: {
+        type: Boolean,
+        required: true
+      },
+      characters: {
+        type: Array,
+        trequired: true
+      }
     },
     computed: {
       charactersPage() {
-        return routerRoutes.character.name;
+        return data.routerRoutes.character.name;
       }
     },
     methods: {

@@ -14,8 +14,17 @@
 <script>
   export default {
     props: {
-      purpose: String,
-      message: String,
-    },
+      purpose: {
+        type: String,
+        required: true,
+        validator(status) {
+          return ['info', 'danger'].includes(status);
+        }
+      },
+      message: {
+        type: String,
+        required: true
+      }
+    }
   };
 </script>

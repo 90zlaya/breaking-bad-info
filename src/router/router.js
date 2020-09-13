@@ -1,4 +1,4 @@
-import { routerRoutes } from './../mixins/data.js';
+import data from './../mixins/data.js';
 
 import Vue from 'vue';
 import Router from 'vue-router';
@@ -12,14 +12,14 @@ export default new Router({
   mode: 'history',
   routes: [
     {
-      path: routerRoutes.home.path,
-      name: routerRoutes.home.name,
+      path: data.routerRoutes.home.path,
+      name: data.routerRoutes.home.name,
       component: Home,
       props: true
     },
     {
-      path: routerRoutes.character.path,
-      name: routerRoutes.character.name,
+      path: data.routerRoutes.character.path,
+      name: data.routerRoutes.character.name,
       component: () => import(/* webpackChunkName: "character" */ './../views/Character.vue'),
       props: true
     }

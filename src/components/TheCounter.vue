@@ -7,8 +7,8 @@
         </div>
         <div class="col-lg-12">
           <div id="counter">
-            <template v-for="count in counter">
-              <div class="cell" :key="count.value">
+            <template v-for="(count, index) in counter">
+              <div class="cell" :key="index">
                 <div
                   :data-count="count.value"
                   class="counter-value number-count"

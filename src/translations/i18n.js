@@ -1,6 +1,6 @@
 import dictionary from './dictionary.js';
 
-const i18n = {
+export default {
   // Install language
   install(Vue, options) {
     const t = this.getTranslation(options);
@@ -22,14 +22,14 @@ const i18n = {
       return a[b];
     }, translation);
 
-    if (propertyParameters === undefined) {
-      return line;
-    } else {
+    if (propertyParameters) {
       const key = Object.keys(propertyParameters);
       const value = Object.values(propertyParameters);
       const replaced = line.replace(`{${ key }}`, value);
-
+      
       return replaced;
+    } else {
+      return line;
     }
   },
   // Get translation from dictionary
@@ -40,7 +40,5 @@ const i18n = {
         : dictionary['en'];
 
     return translation;
-  },
+  }
 };
-
-export default i18n;

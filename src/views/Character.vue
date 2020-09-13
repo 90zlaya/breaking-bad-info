@@ -13,11 +13,8 @@
 </template>
 
 <script>
-  import {
-    navbarSections,
-    routerRoutes
-  } from "./../mixins/data.js";
-  
+  import data from "./../mixins/data.js";
+
   import BreakingBadAPI from './../libs/BreakingBadAPI.js';
   import Helper from './../libs/Helper.js';
 
@@ -29,21 +26,21 @@
     props: {
       character: {
         type: Object,
-        required: false,
-      },
+        required: false
+      }
     },
     components: {
       BaseCharacterDetails,
       TheFooter,
-      TheCopyright,
+      TheCopyright
     },
     computed: {
       charactersSearchHomepage() {
         return {
-          name: routerRoutes.home.name,
-          hash: navbarSections.characters,
+          name: data.routerRoutes.home.name,
+          hash: data.navbarSections.characters,
         };
-      },
+      }
     },
     data() {
       return {

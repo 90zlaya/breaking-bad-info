@@ -8,6 +8,7 @@
             <a
               :href="copyright.link.href"
               target="_blank"
+              rel="noopener"
             >{{ copyright.link.title }}</a>
           </p>
         </div>
@@ -17,9 +18,7 @@
 </template>
 
 <script>
-  import {
-    urls,
-  } from './../mixins/data.js';
+  import data from './../mixins/data.js';
 
   export default {
     data() {
@@ -27,12 +26,12 @@
         year: '2020',
         copyright: {
           link: {
-            href: urls.developer.url,
-            title: urls.developer.title,
-          },
-        },
+            href: data.urls.developer.url,
+            title: data.urls.developer.title
+          }
+        }
       };
-    },
+    }
   };
 </script>
 

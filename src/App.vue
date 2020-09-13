@@ -9,18 +9,14 @@
 <script>
   export default {
     updated() {
-      this.scrollToElement(this.$route.hash);
-    },
-    methods: {
-      scrollToElement(routeHash) {
-        if (routeHash !== '') {
-          const element = routeHash.replace('#', '');
+      // Scroll to element
+      if (this.$route.hash) {
+        const element = this.$route.hash.replace('#', '');
 
-          if (document.getElementById(element) !== undefined) {
-            document.getElementById(element).scrollIntoView();
-          }
+      if (document.getElementById(element)) {
+          document.getElementById(element).scrollIntoView();
         }
-      },
+      }
     }
   };
 </script>

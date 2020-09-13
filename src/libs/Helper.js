@@ -1,5 +1,5 @@
 import pages from './../mixins/pages.js';
-import { config } from './../mixins/data.js';
+import data from './../mixins/data.js';
 
 export default {
   characters: {
@@ -10,7 +10,7 @@ export default {
         characters,
         defaultCharacter,
         defaultExtension
-      } = config.images;
+      } = data.config.images;
 
       imagePath += root;
       imagePath += characters;

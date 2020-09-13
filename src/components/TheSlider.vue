@@ -2,7 +2,7 @@
   <div id="quotes" class="slider-1">
     <TheAlerter
       v-if="errorMessage !== ''"
-      :purpose="'danger'"
+      purpose="danger"
       :message="errorMessage"
     />
     <div v-else class="container">
@@ -18,8 +18,8 @@
               <TheLoader v-if="showLoader" />
               <template v-else>
                 <div class="swiper-wrapper">
-                  <template v-for="slide in slides">
-                    <div class="swiper-slide" :key="slide.quote_id">
+                  <template v-for="(slide, index) in slides">
+                    <div class="swiper-slide" :key="index">
                       <div class="card">
                         <img
                           class="card-image"
@@ -50,10 +50,7 @@
 </template>
 
 <script>
-  import {
-    quotedAuthors,
-    config
-  } from './../mixins/data.js'
+  import data from './../mixins/data.js'
 
   import LocalStorage from './../libs/LocalStorage.js';
   import BreakingBadApi from './../libs/BreakingBadAPI.js';
@@ -72,13 +69,16 @@
         slides: [],
         errorMessage: '',
         showLoader: true,
-        numberOfSlides: config.slider.numberOfSlides
+        numberOfSlides: data.config.slider.numberOfSlides
       };
     },
     created() {
       const localQuotes = LocalStorage.getQuotes();
 
-      if (localQuotes === undefined || localQuotes === null) {
+      if (localQuotes) {
+        this.slides = this.createSlides(JSON.parse(localQuotes));
+        this.showLoader = false;
+      } else {
         BreakingBadApi.getAllQuotes().then((remoteQuotes) => {
           this.slides = this.createSlides(remoteQuotes);
           LocalStorage.setQuotes(remoteQuotes);
@@ -87,9 +87,6 @@
           console.error('Fetching quotes failed', error);
           this.errorMessage = this.$t('slider.errors.fetchingQuotes');
         });
-      } else {
-        this.slides = this.createSlides(JSON.parse(localQuotes));
-        this.showLoader = false;
       }
     },
     updated() {
@@ -100,14 +97,14 @@
     },
     methods: {
       createSlides(quotes) {
-        let quoteIds = [];
-        let slides = [];
+        const quoteIds = [];
+        const slides = [];
         let previousAuthor = '';
 
         while (slides.length < this.numberOfSlides){
           const randomNumber = Math.floor(Math.random() * quotes.length) + 1;
 
-          if (quoteIds.indexOf(randomNumber) === -1 && quotes[randomNumber] !== undefined) {
+          if (quoteIds.indexOf(randomNumber) === -1 && quotes[randomNumber]) {
             if (quotes[randomNumber].author !== previousAuthor) {
               previousAuthor = quotes[randomNumber].author;
               quotes[randomNumber].image = this.constructCharacterImagePath(
@@ -125,7 +122,7 @@
       constructCharacterImagePath(characterName) {
         const characterNameInLowerCase = characterName.toLowerCase();
         const imageName = characterNameInLowerCase.replace(' ', '-');
-        const [characterDetails] = quotedAuthors.filter((author) => {
+        const [characterDetails] = data.quotedAuthors.filter((author) => {
           return author === characterName;
         });
         

@@ -1,5 +1,11 @@
-# breaking-bad-info
-> Simple Vue.js app with Breaking Bad info
+# Breaking Bad Info
+> Simple Vue.js app with [Breaking Bad](https://www.imdb.com/title/tt0903747/) info
+
+## Table of Contents
+
+1. [Description](#description)
+1. [Look and feel](#look-and-feel)
+1. [Build setup](#build-setup)
 
 ## Description
 
@@ -7,11 +13,11 @@ Idea is to create simple Vue.js project to demonstrate development skills in thi
 
 ## Look and feel
 
-Currently project looks like this:
+You may visit [Breaking Bad Info](https://breakingbadinfo.netlify.app/) to see live version.
 
-![][breaking-bad-overview]
+![](extras/screenshots/home-page.png?clear_cache=1)
 
-But have in mind that this image might stay few commits behind.
+Currently home page looks like this, but have in mind that this image might stay few commits behind.
 
 ## Build setup
 
@@ -29,8 +35,4 @@ npm run build
 npm run lint
 ```
 
-After installing dependencies and running app, visit [localhost:8080] to enjoy app functionality. For detailed explanation on how things work, consult [configuration reference]
-
-[localhost:8080]: http://localhost:8080
-[configuration reference]: https://cli.vuejs.org/config/
-[breaking-bad-overview]: _extras/gifs/breaking-bad-overview.gif?clear_cache=1
+After installing dependencies and running app, visit [localhost:8080](http://localhost:8080) to enjoy app functionality. For detailed explanation on how things work, consult [configuration reference](https://cli.vuejs.org/config/)

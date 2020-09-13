@@ -26,22 +26,22 @@
   export default {
     data() {
       return {
-        searchTerm: '',
+        searchTerm: ''
       };
     },
     methods: {
       initiateSearch() {
         if (this.searchTerm.length === 0) {
-          this.$emit('showOriginalView');
+          this.$emit('show-original-view');
         } else {
-          this.$emit('showSearchResults', this.searchTerm);
+          this.$emit('show-search-results', this.searchTerm);
         }
       },
       clearSearch() {
         this.searchTerm = '';
-        this.$emit('showOriginalView');
-      },
-    },
+        this.$emit('show-original-view');
+      }
+    }
   };
 </script>
 

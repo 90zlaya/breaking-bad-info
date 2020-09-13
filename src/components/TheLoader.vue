@@ -1,21 +1,20 @@
 <template>
-  <img :src="loaderImagePath" class="loader" />
+  <img :src="loaderImage" class="loader" />
 </template>
 
 <script>
-  import { config } from './../mixins/data.js';
+  import data from './../mixins/data.js';
 
   export default {
-    data() {
-      const {
-        root,
-        loaderImage
-      } = config.images;
-
-      return {
-        loaderImagePath: root + loaderImage,
-      };
-    },
+    computed: {
+      loaderImage() {
+        const {
+          root,
+          loaderImage
+        } = data.config.images;
+        return root + loaderImage;
+      }
+    }
   };
 </script>
 

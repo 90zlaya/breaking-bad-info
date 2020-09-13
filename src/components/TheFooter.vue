@@ -12,8 +12,8 @@
           <div class="footer-col middle">
             <h4>{{ $t('footer.links.title') }}</h4>
             <ul class="list-unstyled li-space-lg">
-              <template v-for="link in links">
-                <li class="media" :key="link.href">
+              <template v-for="(link, index) in links">
+                <li class="media" :key="index">
                   <i class="fas fa-square"></i>
                   <div class="media-body">
                     {{ link.title }}
@@ -21,6 +21,7 @@
                       class="turquoise"
                       :href="link.href"
                       target="_blank"
+                      rel="noopener"
                     >{{ link.text }}</a>
                   </div>
                 </li>
@@ -31,8 +32,8 @@
         <div class="col-md-4">
           <div class="footer-col last">
             <h4>{{ $t('footer.socialMedia') }}</h4>
-            <template v-for="social in socialMedia">
-              <span class="fa-stack" :key="social.icon">
+            <template v-for="(social, index) in socialMedia">
+              <span class="fa-stack" :key="index">
                 <a :href="social.href" target="_blank">
                   <i class="fas fa-circle fa-stack-2x"></i>
                   <i :class="'fab fa-' + social.icon + ' fa-stack-1x'"></i>
@@ -47,9 +48,7 @@
 </template>
 
 <script>
-  import {
-    urls,
-  } from './../mixins/data.js';
+  import data from './../mixins/data.js';
 
   export default {
     data() {
@@ -58,34 +57,34 @@
           {
             title: this.$t('footer.links.developer.youMayVisit'),
             text: this.$t('footer.links.developer.developersWebsite'),
-            href: urls.developer.url,
+            href: data.urls.developer.url
           },
           {
             title: this.$t('footer.links.library.ifYouAreDeveloper'),
             text: this.$t('footer.links.library.phpLibraryProject'),
-            href: urls.phpLibrary.url,
-          },
+            href: data.urls.phpLibrary.url
+          }
         ],
         socialMedia: [
           {
-            href: urls.social.github,
-            icon: 'github',
+            href: data.urls.social.github,
+            icon: 'github'
           },
           {
-            href: urls.social.linkedIn,
-            icon: 'linkedin-in',
+            href: data.urls.social.linkedIn,
+            icon: 'linkedin-in'
           },
           {
-            href: urls.social.youtube,
-            icon: 'youtube',
+            href: data.urls.social.youtube,
+            icon: 'youtube'
           },
           {
-            href: urls.social.instagram,
-            icon: 'instagram',
-          },
-        ],
+            href: data.urls.social.instagram,
+            icon: 'instagram'
+          }
+        ]
       };
-    },
+    }
   };
 </script>
 
