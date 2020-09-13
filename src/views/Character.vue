@@ -3,7 +3,7 @@
     <BaseCharacterDetails :character="character">
       <router-link
         v-if="displayed.isSetViaProp"
-        :to="charactersSearchHomepage"
+        :to="charactersSearch"
         class="nav-link page-scroll btn-solid-lg"
       >{{ $t('navbar.goBack') }}</router-link>
     </BaseCharacterDetails>
@@ -35,10 +35,10 @@
       TheCopyright
     },
     computed: {
-      charactersSearchHomepage() {
+      charactersSearch() {
         return {
           name: data.routerRoutes.home.name,
-          hash: data.navbarSections.characters,
+          hash: data.homeSections.charactersSearch,
         };
       }
     },

@@ -48,6 +48,9 @@ export default {
     synopsis: '#synopsis',
     about: '#about'
   },
+  homeSections: {
+    charactersSearch: '#characters-search'
+  },
   quotedAuthors: [
     "Walter White",
     "Skyler White",
