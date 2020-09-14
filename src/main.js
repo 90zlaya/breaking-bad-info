@@ -1,14 +1,18 @@
 import Vue from 'vue';
+import VueI18n from 'vue-i18n';
+import router from './router/router.js';
+import messages from './locales/messages.js';
 import App from './App.vue';
 
-import i18n from './translations/i18n.js';
-import router from './router/router.js';
+Vue.use(VueI18n);
 
-Vue.use(i18n, {
-  locale: 'en'
+const i18n = new VueI18n({
+  locale: 'en',
+  messages
 });
 
 new Vue({
+  i18n,
   router,
   el: '#app',
   render: h => h(App)
