@@ -30,5 +30,19 @@ export default {
   
       return characterId;
     }
+  },
+  conversions: {
+    listOfTypes(items, moduleName) {
+      const listOfTypes = [];
+      const itemsArray = items;
+    
+      if (itemsArray && itemsArray[0]) {
+        itemsArray.forEach((item) => {
+          listOfTypes.push(new moduleName(item));
+        });
+      }
+    
+      return listOfTypes;
+    }
   }
 };

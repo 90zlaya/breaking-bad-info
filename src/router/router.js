@@ -22,6 +22,12 @@ export default new Router({
       name: data.routerRoutes.character.name,
       component: () => import(/* webpackChunkName: "character" */ './../views/Character.vue'),
       props: true
+    },
+    {
+      path: '*',
+      name: '404',
+      component: () => import(/* webpackChunkName: "character" */ './../views/404.vue'),
+      props: false
     }
   ]
 });

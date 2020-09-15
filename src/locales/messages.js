@@ -1,18 +1,18 @@
 export default {
   en: {
     navbar: {
-      home: "HOME",
-      quotes: "QUOTES",
-      characters: "CHARACTERS",
-      statistics: "STATISTICS",
-      synopsis: "SYNOPSIS",
-      about: "ABOUT",
-      goBack: "GO BACK",
+      home: "Home",
+      quotes: "Quotes",
+      characters: "Characters",
+      statistics: "Statistics",
+      synopsis: "Synopsis",
+      about: "About",
+      goBack: "Go Back",
       logoImage: "Logo image"
     },
     header: {
-      title: "APP FOR",
-      rottating: "INFO, FUN"
+      title: "App for",
+      rottating: "info, fun"
     },
     slider: {
       sectionTitle: "They were saying...",
@@ -30,7 +30,7 @@ export default {
       },
       grid: {
         imageOfCharacterName: "Image of {characterName}",
-        details: "More details"
+        details: "More Details"
       },
       loadMore: {
         loadMore: "Load More"
@@ -70,6 +70,9 @@ export default {
     },
     copyright: {
       text: "Copyright"
+    },
+    fourZeroFour: {
+      pageNotFound: "Page Not Found"
     }
   }
 };

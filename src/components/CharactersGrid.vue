@@ -46,7 +46,7 @@
 <script>
   import data from '../mixins/data.js';
   
-  import Helper from './../libs/Helper.js';
+  import Helper from './../libraries/Helper.js';
 
   import TheLoader from './TheLoader.vue';
   import TheAlerter from './TheAlerter.vue';

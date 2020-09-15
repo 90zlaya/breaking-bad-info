@@ -15,8 +15,8 @@
 <script>
   import data from "./../mixins/data.js";
 
-  import BreakingBadAPI from './../libs/BreakingBadAPI.js';
-  import Helper from './../libs/Helper.js';
+  import BreakingBadAPI from './../libraries/BreakingBadAPI.js';
+  import Helper from './../libraries/Helper.js';
 
   import BaseCharacterDetails from "./../components/BaseCharacterDetails.vue";
   import TheFooter from "./../components/TheFooter.vue";
@@ -73,6 +73,7 @@
           console.log("Prop not set!");
     
           const { pageName } = this.$router.currentRoute.params;
+          console.log('Page name', pageName);
           const characterId = Helper.characters.idFromPageName(pageName);
           // TODO: Check if characterId is undefined and handle that possiblity
           console.log("Converted pageName to characterId:", pageName, characterId);

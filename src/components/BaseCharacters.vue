@@ -37,8 +37,8 @@
 <script>
   import data from './../mixins/data.js';
   
-  import LocalStorage from './../libs/LocalStorage.js';
-  import BreakingBadAPI from './../libs/BreakingBadAPI.js';
+  import LocalStorage from './../libraries/LocalStorage.js';
+  import BreakingBadAPI from './../libraries/BreakingBadAPI.js';
 
   import CharactersSearch from './CharactersSearch.vue';
   import CharactersGrid from './CharactersGrid.vue';

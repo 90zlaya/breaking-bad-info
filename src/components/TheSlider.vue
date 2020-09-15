@@ -52,9 +52,9 @@
 <script>
   import data from './../mixins/data.js'
 
-  import LocalStorage from './../libs/LocalStorage.js';
-  import BreakingBadApi from './../libs/BreakingBadAPI.js';
-  import Helper from './../libs/Helper.js';
+  import LocalStorage from './../libraries/LocalStorage.js';
+  import BreakingBadApi from './../libraries/BreakingBadAPI.js';
+  import Helper from './../libraries/Helper.js';
 
   import TheLoader from './TheLoader.vue';
   import TheAlerter from './TheAlerter.vue';

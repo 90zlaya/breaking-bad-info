@@ -5,7 +5,7 @@
         <div class="row">
           <div class="col-lg-12">
             <div class="text-container">
-              <h1 class="text-center">
+              <h1 class="text-center text-uppercase">
                 {{ $t('header.title') }}
                 <span id="js-rotating">{{ $t('header.rottating') }}</span>
               </h1>

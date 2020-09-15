@@ -22,7 +22,7 @@
       <ul class="navbar-nav ml-auto">
         <template v-for="(navigation, index) in navigations">
           <li class="nav-item" :key="index">
-            <a class="nav-link page-scroll" :href="navigation.href">
+            <a class="nav-link page-scroll text-uppercase" :href="navigation.href">
               {{ navigation.title }}
             </a>
           </li>
