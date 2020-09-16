@@ -24,10 +24,14 @@ export default new Router({
       props: true
     },
     {
-      path: '*',
-      name: '404',
+      path: data.routerRoutes.fourZeroFour.path,
+      name: data.routerRoutes.fourZeroFour.path,
       component: () => import(/* webpackChunkName: "character" */ './../views/404.vue'),
       props: false
+    },
+    {
+      path: '*',
+      redirect: '/404'
     }
   ]
 });

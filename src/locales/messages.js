@@ -72,7 +72,9 @@ export default {
       text: "Copyright"
     },
     fourZeroFour: {
-      pageNotFound: "Page Not Found"
+      pageNotFound: "Page Not Found",
+      backToHome: "Back to Home",
+      jesseReactionGif: "Jesse reacting surprised"
     }
   }
 };

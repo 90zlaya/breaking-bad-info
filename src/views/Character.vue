@@ -4,7 +4,8 @@
       <router-link
         v-if="displayed.isSetViaProp"
         :to="charactersSearch"
-        class="nav-link page-scroll btn-solid-lg"
+        class="btn-solid-lg text-black text-uppercase"
+        type="button"
       >{{ $t('navbar.goBack') }}</router-link>
     </BaseCharacterDetails>
     <TheFooter />
@@ -38,7 +39,7 @@
       charactersSearch() {
         return {
           name: data.routerRoutes.home.name,
-          hash: data.homeSections.charactersSearch,
+          hash: data.homeSections.charactersSearch
         };
       }
     },

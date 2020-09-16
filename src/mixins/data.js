@@ -23,6 +23,10 @@ export default {
       path: '/character/:pageName',
       name: 'character'
     },
+    fourZeroFour: {
+      path: '/404',
+      name: '404'
+    }
   },
   urls: {
     developer: {
