@@ -12,11 +12,11 @@
         <p class="text-uppercase">{{ $t('fourZeroFour.pageNotFound') }}</p>
       </div>
       <div class="col-12 back-to-home">
-        <router-link
-          :to="charactersSearch"
+        <a
+          @click="backToHome"
           class="btn-solid-lg text-black text-uppercase"
           type="button"
-        >{{ $t('fourZeroFour.backToHome') }}</router-link>
+        >{{ $t('fourZeroFour.backToHome') }}</a>
       </div>
       <div class="col-12 reaction">
         <img
@@ -33,20 +33,10 @@
   import data from './../mixins/data.js';
 
   export default {
-    computed: {
-      charactersSearch() {
-        return {
-          name: data.routerRoutes.home.name,
-          path: data.routerRoutes.home.path
-        };
-      }
-    },
     methods: {
       backToHome() {
         console.log('Would redirect to home page');
-        this.$router.push({
-          name: data.routerRoutes.home.name
-        });
+        window.location.href = data.routerRoutes.home.path;
       }
     }
   };
@@ -80,5 +70,14 @@
   .not-found .text p {
     font-size: 2.5rem;
     line-height: 2rem;
+  }
+
+  .back-to-home a {
+    color: #000;
+    cursor: pointer;
+  }
+
+  .back-to-home a:hover {
+    color: #cfd200;
   }
 </style>

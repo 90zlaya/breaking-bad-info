@@ -1,5 +1,5 @@
 <template>
-  <div id="characters-search" class="container mb-2">
+  <div class="container">
     <div class="row">
       <form @submit.prevent="initiateSearch" class="col-12">
         <div class="form-group">

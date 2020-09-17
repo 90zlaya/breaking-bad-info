@@ -6,8 +6,6 @@
   Description: Custom JS file
 */
 
-console.log('Entered scripts.js');
-
 (function($) {
 
   "use strict";

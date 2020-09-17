@@ -20,7 +20,7 @@ export default {
       name: 'home'
     },
     character: {
-      path: '/character/:pageName',
+      path: ':pageName',
       name: 'character'
     },
     fourZeroFour: {
@@ -53,7 +53,7 @@ export default {
     about: '#about'
   },
   homeSections: {
-    charactersSearch: '#characters-search'
+    charactersSearch: '#characters'
   },
   quotedAuthors: [
     "Walter White",
