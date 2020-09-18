@@ -13,8 +13,11 @@
       if (this.$route.hash) {
         const element = this.$route.hash.replace('#', '');
 
-      if (document.getElementById(element)) {
-          document.getElementById(element).scrollIntoView();
+        if (document.getElementById(element)) {
+          document.getElementById(element).scrollIntoView({
+            block: 'center',
+            inline: 'nearest'
+          });
         }
       }
     }

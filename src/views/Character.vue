@@ -3,7 +3,7 @@
     <BaseCharacterDetails :character="character">
       <router-link
         v-if="displayed.isSetViaProp"
-        :to="charactersSearch"
+        :to="characterOnHomepage"
         class="btn-solid-lg text-black text-uppercase"
         type="button"
       >{{ $t('navbar.goBack') }}</router-link>
@@ -28,6 +28,10 @@
       character: {
         type: Object,
         required: false
+      },
+      characterHash: {
+        type: String,
+        required: false
       }
     },
     components: {
@@ -36,10 +40,10 @@
       TheCopyright
     },
     computed: {
-      charactersSearch() {
+      characterOnHomepage() {
         return {
           name: data.routerRoutes.home.name,
-          hash: data.homeSections.charactersSearch
+          hash: this.characterHash
         };
       }
     },
@@ -52,7 +56,7 @@
       };
     },
     created() {
-      console.log('Character created');
+      console.log('Character created', this.returnPoint);
       this.handleCharacterData();
     },
     mounted() {

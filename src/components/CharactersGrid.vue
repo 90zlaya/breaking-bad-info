@@ -12,14 +12,14 @@
     </div>
     <div v-else class="row">
       <template v-for="(character, index) in characters">
-        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6" :key="index">
+        <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12" :key="index">
 					<div class="grid-item">
             <img
               :src="character.img"
               :alt="$t('characters.grid.imageOfCharacterName', {
                 characterName: character.name
               })"
-              :id="'char-id_' + character.char_id"
+              :id="characterOnHomepage(character.page_name)"
               @error="imageLoadError"
               class="img-thumbnail"
             />
@@ -31,6 +31,7 @@
                   params: {
                     character: character,
                     pageName: character.page_name,
+                    characterHash: characterOnHomepage(character.page_name, true)
                   }
                 }"
                 class="btn-solid-md"
@@ -75,6 +76,9 @@
       imageLoadError(element) {
         // Set default character image
         document.getElementById(element.srcElement.id).src = Helper.characters.imagePath();
+      },
+      characterOnHomepage(characterName, withHash=false) {
+        return withHash ? `#${ characterName }` : characterName;
       }
     }
   };

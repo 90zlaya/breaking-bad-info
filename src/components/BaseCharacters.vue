@@ -100,6 +100,13 @@
         if (this.characters.grid.length === this.characters.all.length) {
           this.toShow.loadMoreButton = false;
         }
+
+        // Scroll to newly loaded characters
+        document.getElementById(data.ids.loadMoreCharacters).scrollIntoView({
+          behavior: 'smooth',
+          block: 'center',
+          inline: 'nearest'
+        });
       },
       showSearchResults(searchTerm) {
         this.toShow.loadMoreButton = false;
