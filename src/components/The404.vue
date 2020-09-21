@@ -35,7 +35,6 @@
   export default {
     methods: {
       backToHome() {
-        console.log('Would redirect to home page');
         window.location.href = data.routerRoutes.home.path;
       }
     }

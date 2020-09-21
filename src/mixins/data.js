@@ -12,6 +12,9 @@ export default {
     },
     characters: {
       numberOfCharacters: 4
+    },
+    locales: {
+      default: 'en'
     }
   },
   routerRoutes: {
@@ -20,7 +23,7 @@ export default {
       name: 'home'
     },
     character: {
-      path: ':pageName',
+      path: '/:pageName',
       name: 'character'
     },
     fourZeroFour: {

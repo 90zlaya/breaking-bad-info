@@ -13,6 +13,10 @@
     components: {
       ThePreloader,
       The404
+    },
+    created() {
+      // Scroll to top
+      window.scrollTo(0, 0);
     }
   };
 </script>

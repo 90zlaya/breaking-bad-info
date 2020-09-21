@@ -19,21 +19,14 @@
               :alt="$t('characters.grid.imageOfCharacterName', {
                 characterName: character.name
               })"
-              :id="characterOnHomepage(character.page_name)"
+              :id="character.page_name"
               @error="imageLoadError"
               class="img-thumbnail"
             />
             <div class="grid-overlay">
               <p class="grid-hover-text">{{ character.name }}</p>
               <router-link
-                :to="{
-                  name: charactersPage,
-                  params: {
-                    character: character,
-                    pageName: character.page_name,
-                    characterHash: characterOnHomepage(character.page_name, true)
-                  }
-                }"
+                :to="characterDetails(character.page_name)"
                 class="btn-solid-md"
               >{{ $t('characters.grid.details') }}</router-link>
             </div>
@@ -67,18 +60,19 @@
         trequired: true
       }
     },
-    computed: {
-      charactersPage() {
-        return data.routerRoutes.character.name;
-      }
-    },
     methods: {
       imageLoadError(element) {
         // Set default character image
         document.getElementById(element.srcElement.id).src = Helper.characters.imagePath();
       },
-      characterOnHomepage(characterName, withHash=false) {
-        return withHash ? `#${ characterName }` : characterName;
+      characterDetails(pageName) {
+        return {
+          name: data.routerRoutes.character.name,
+          params: {
+            canGoBack: true,
+            pageName
+          }
+        };
       }
     }
   };
