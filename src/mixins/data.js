@@ -5,7 +5,10 @@ export default {
       characters: 'characters/',
       defaultCharacter: 'character',
       defaultExtension: 'jpg',
-      loaderImage: 'loader.gif'
+      loader: {
+        dot: 'dot.gif',
+        circle: 'circle.gif'
+      }
     },
     slider: {
       numberOfSlides: 9

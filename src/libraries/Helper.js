@@ -44,5 +44,21 @@ export default {
     
       return listOfTypes;
     }
+  },
+  images: {
+    dotLoader() {
+      const {
+        root,
+        loader
+      } = data.config.images;
+      return root + loader.dot;
+    },
+    circleLoader() {
+      const {
+        root,
+        loader
+      } = data.config.images;
+      return root + loader.circle;
+    }
   }
 };

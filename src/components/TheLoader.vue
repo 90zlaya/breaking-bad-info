@@ -1,18 +1,14 @@
 <template>
-  <img :src="loaderImage" class="loader" />
+  <img :src="loader" class="loader" />
 </template>
 
 <script>
-  import data from './../mixins/data.js';
+  import Helper from './../libraries/Helper.js';
 
   export default {
     computed: {
-      loaderImage() {
-        const {
-          root,
-          loaderImage
-        } = data.config.images;
-        return root + loaderImage;
+      loader() {
+        return Helper.images.dotLoader();
       }
     }
   };

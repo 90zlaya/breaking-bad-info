@@ -13,15 +13,15 @@
     <div v-else class="row">
       <template v-for="(character, index) in characters">
         <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12" :key="index">
-					<div class="grid-item">
+					<div v-lazy-container="lazyLoadContainer" class="grid-item">
             <img
-              :src="character.img"
+              :data-src="character.img"
               :alt="$t('characters.grid.imageOfCharacterName', {
                 characterName: character.name
               })"
               :id="character.page_name"
-              @error="imageLoadError"
               class="img-thumbnail"
+              loading="lazy"
             />
             <div class="grid-overlay">
               <p class="grid-hover-text">{{ character.name }}</p>
@@ -40,8 +40,6 @@
 <script>
   import data from '../mixins/data.js';
   
-  import Helper from './../libraries/Helper.js';
-
   import TheLoader from './TheLoader.vue';
   import TheAlerter from './TheAlerter.vue';
 
@@ -60,11 +58,14 @@
         trequired: true
       }
     },
+    computed: {
+      lazyLoadContainer() {
+        return {
+          selector: 'img'
+        };
+      }
+    },
     methods: {
-      imageLoadError(element) {
-        // Set default character image
-        document.getElementById(element.srcElement.id).src = Helper.characters.imagePath();
-      },
       characterDetails(pageName) {
         return {
           name: data.routerRoutes.character.name,
