@@ -1,3 +1,5 @@
+[![Generic badge](https://img.shields.io/badge/version-2.0.0-<COLOR>.svg)](https://shields.io/) [![Netlify Status](https://api.netlify.com/api/v1/badges/c52aaa3e-b67c-4588-abc4-1966e1b26e76/deploy-status)](https://app.netlify.com/sites/breakingbadinfo/deploys)
+
 # Breaking Bad Info
 > Simple Vue.js app with [Breaking Bad](https://www.imdb.com/title/tt0903747/) info
 
