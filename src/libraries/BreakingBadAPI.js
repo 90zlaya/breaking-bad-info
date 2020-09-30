@@ -19,11 +19,5 @@ export default {
     const allCharacters = await response.json();
     const { characters } = new Characters(allCharacters);
     return characters;
-  },
-  async getCharacter(characterId) {
-    const characterEndpoint = this.endpoints.character.replace(":characterId", characterId);
-    const response = await fetch(this.baseUrl + characterEndpoint);
-    // TODO: Wrap response in related module
-    return await response.json();
   }
 };

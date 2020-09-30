@@ -7,12 +7,12 @@
       :class="classes.button"
       type="button"
     >{{ $t('navbar.goBack') }}</router-link>
-    <a
+    <button
       v-else
       :class="classes.button"
       @click="backToHome"
       type="button"
-    >{{ $t('navbar.home') }}</a>
+    >{{ $t('navbar.home') }}</button>
   </div>
 </template>
 

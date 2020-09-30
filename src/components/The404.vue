@@ -15,7 +15,6 @@
         <a
           @click="backToHome"
           class="btn-solid-lg text-black text-uppercase"
-          type="button"
         >{{ $t('fourZeroFour.backToHome') }}</a>
       </div>
       <div class="col-12 reaction">
