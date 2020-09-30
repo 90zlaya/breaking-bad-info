@@ -46,35 +46,30 @@
     vertical-align: middle;
     line-height: 10rem;
   }
-  
   .not-found .code {
-    height: 18rem;
+    height: 15rem;
   }
-  
   .not-found .back-to-home {
     line-height: 5rem;
+  }
+  .not-found .code p {
+    font-size: 7rem;
+    line-height: 20rem;
+  }
+  .not-found .text p {
+    font-size: 2.5rem;
+    line-height: 2rem;
   }
 
   .code img {
     height: 6rem;
     width: 7rem;
   }
-  
-  .not-found .code p {
-    font-size: 7rem;
-    line-height: 25rem;
-  }
-  
-  .not-found .text p {
-    font-size: 2.5rem;
-    line-height: 2rem;
-  }
 
   .back-to-home a {
     color: #000;
     cursor: pointer;
   }
-
   .back-to-home a:hover {
     color: #cfd200;
   }

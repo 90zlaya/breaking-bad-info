@@ -12,7 +12,7 @@
     </div>
     <div v-else class="row">
       <template v-for="(character, index) in characters">
-        <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12" :key="index">
+        <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12" :key="index">
 					<div v-lazy-container="lazyLoadContainer" class="grid-item">
             <img
               :data-src="character.img"
@@ -87,8 +87,8 @@
   }
 
   .grid .grid-item img {
-    width: 17rem;
-    height: 17rem;
+    width: 100%;
+    height: 390px;
     object-fit: cover;
     object-position: 0 0;
     color: #495057;
@@ -150,8 +150,8 @@
 
   @media (max-width: 767px) {
     .grid .grid-item img {
-      width: 24rem;
-      height: 24rem;
+      width: 100%;
+      height: 490px;
       object-fit: cover;
       color: #495057;
       text-align: center;

@@ -5,7 +5,7 @@
         <a
           @click="$emit(loadMoreCharacters)"
           :id="loadMoreCharacters"
-          class="btn-solid-lg"
+          class="btn-solid-lg text-black"
         >
           <i class="fas fa-spinner"></i>&nbsp;
           {{ $t('characters.loadMore.loadMore') }}

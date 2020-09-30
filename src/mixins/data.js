@@ -7,14 +7,14 @@ export default {
       defaultExtension: 'jpg',
       loader: {
         dot: 'dot.gif',
-        circle: 'circle.gif'
+        blur: 'blur.gif'
       }
     },
     slider: {
-      numberOfSlides: 9
+      numberOfSlides: 6
     },
     characters: {
-      numberOfCharacters: 4
+      numberOfCharacters: 3
     },
     locales: {
       default: 'en'

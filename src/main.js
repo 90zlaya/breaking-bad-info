@@ -13,7 +13,7 @@ Vue.use(VueI18n);
 Vue.use(VueLazyload, {
   preLoad: 1.3,
   error: Helper.characters.imagePath(),
-  loading: Helper.images.circleLoader(),
+  loading: Helper.images.blurLoader(),
   attempt: 1
 });
 
