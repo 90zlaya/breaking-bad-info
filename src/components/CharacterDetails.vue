@@ -4,12 +4,11 @@
     <router-link
       v-if="canGoBack"
       :to="characterOnHomepage"
-      :class="classes.button"
-      type="button"
+      class="btn-solid-md"
     >{{ $t('navbar.goBack') }}</router-link>
     <a
       v-else
-      :class="classes.button"
+      class="btn-solid-lg text-black text-uppercase"
       @click="backToHome"
     >{{ $t('navbar.home') }}</a>
   </div>
@@ -31,11 +30,6 @@
           name: data.routerRoutes.home.name,
           hash: '#' + this.$route.params.pageName
         };
-      },
-      classes() {
-        return {
-          button: 'btn-solid-lg text-black text-uppercase'
-        }
       }
     },
     created() {

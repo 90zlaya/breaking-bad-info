@@ -162,6 +162,27 @@ a.white {
 .btn-solid-lg .fab.fa-google-play {
   font-size: 1rem;
 }
+.btn-solid-md {
+  font-size: 20px;
+  position: relative;
+  top: 60%;
+  text-align: center;
+  display: inline-block;
+  padding: 1.375rem 2.625rem 1.375rem 2.625rem;
+  border: 0.125rem solid #cfd200;
+  border-radius: 2rem;
+  background-color: #cfd200;
+  color: #000;
+  font: 700 0.75rem/0 "Montserrat", sans-serif;
+  text-decoration: none;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+.btn-solid-md:hover {
+  background-color: transparent;
+  color: #cfd200;
+  text-decoration: none;
+}
 .btn-outline-reg {
   display: inline-block;
   padding: 1.1875rem 2.125rem 1.1875rem 2.125rem;

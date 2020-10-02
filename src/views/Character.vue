@@ -28,8 +28,10 @@
         default: false
       }
     },
-    created() {
-      // Scroll to top
+    mounted() {
+      window.scrollTo(0, 0);
+    },
+    updated() {
       window.scrollTo(0, 0);
     }
   };

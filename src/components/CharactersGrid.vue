@@ -125,29 +125,6 @@
     text-align: center;
   }
 
-  .btn-solid-md {
-    font-size: 20px;
-    position: relative;
-    top: 60%;
-    text-align: center;
-    display: inline-block;
-    padding: 1.375rem 2.625rem 1.375rem 2.625rem;
-    border: 0.125rem solid #cfd200;
-    border-radius: 2rem;
-    background-color: #cfd200;
-    color: #000;
-    font: 700 0.75rem/0 "Montserrat", sans-serif;
-    text-decoration: none;
-    transition: all 0.2s;
-    cursor: pointer;
-  }
-
-  .btn-solid-md:hover {
-    background-color: transparent;
-    color: #cfd200;
-    text-decoration: none;
-  }
-
   @media (max-width: 767px) {
     .grid .grid-item img {
       width: 100%;
