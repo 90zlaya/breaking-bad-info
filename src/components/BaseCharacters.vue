@@ -13,7 +13,7 @@
       </div>
     </div>
     <TheAlerter
-      v-if="errorMessage !== ''"
+      v-if="toShowAlerter"
       purpose="danger"
       :message="errorMessage"
     />
@@ -51,6 +51,11 @@
       CharactersGrid,
       CharactersLoadMore,
       TheAlerter
+    },
+    computed: {
+      toShowAlerter() {
+        return this.errorMessage.length > 0;
+      }
     },
     data() {
       return {
@@ -97,7 +102,7 @@
 
         this.characters.grid = this.characters.grid.concat(loadedCharacters);
 
-        if (this.characters.grid.length === this.characters.all.length) {
+        if (Object.is(this.characters.grid.length, this.characters.all.length)) {
           this.toShow.loadMoreButton = false;
         }
 

@@ -1,6 +1,6 @@
 <template>
   <div id="view-character">
-    <template v-if="!canGoBack">
+    <template v-if="isVisitedDirectly">
       <ThePreloader />
     </template>
     <CharacterDetails :can-go-back="canGoBack" />
@@ -27,6 +27,14 @@
         type: Boolean,
         default: false
       }
+    },
+    computed: {
+      isVisitedDirectly() {
+        return !this.canGoBack;
+      }
+    },
+    created() {
+      window.scrollTo(0, 0);
     },
     mounted() {
       window.scrollTo(0, 0);

@@ -1,7 +1,7 @@
 <template>
   <div id="quotes" class="slider-1">
     <TheAlerter
-      v-if="errorMessage !== ''"
+      v-if="toShowAlerter"
       purpose="danger"
       :message="errorMessage"
     />
@@ -64,6 +64,11 @@
       TheLoader,
       TheAlerter
     },
+    computed: {
+      toShowAlerter() {
+        return this.errorMessage.length > 0;
+      }
+    },
     data() {
       return {
         slides: [],
@@ -90,7 +95,7 @@
       }
     },
     updated() {
-      if (this.showLoader === false) {
+      if (Object.is(this.showLoader, false)) {
         /* global cardSlider */
         cardSlider();
       }
@@ -104,7 +109,7 @@
         while (slides.length < this.numberOfSlides){
           const randomNumber = Math.floor(Math.random() * quotes.length) + 1;
 
-          if (quoteIds.indexOf(randomNumber) === -1 && quotes[randomNumber]) {
+          if (Object.is(quoteIds.indexOf(randomNumber), -1) && quotes[randomNumber]) {
             if (quotes[randomNumber].author !== previousAuthor) {
               previousAuthor = quotes[randomNumber].author;
               quotes[randomNumber].image = this.constructCharacterImagePath(
@@ -122,8 +127,8 @@
       constructCharacterImagePath(characterName) {
         const characterNameInLowerCase = characterName.toLowerCase();
         const imageName = characterNameInLowerCase.replace(' ', '-');
-        const [characterDetails] = data.quotedAuthors.filter((author) => {
-          return author === characterName;
+        const characterDetails = data.quotedAuthors.find((author) => {
+          return Object.is(author, characterName);
         });
         
         return Helper.characters.imagePath(characterDetails, imageName);

@@ -1,6 +1,6 @@
 <template>
   <TheAlerter
-    v-if="characters.length === 0 && showLoader === false"
+    v-if="toShowAlerter"
     purpose="info"
     :message="$t('characters.search.noSearchResults')"
    />
@@ -63,6 +63,9 @@
         return {
           selector: 'img'
         };
+      },
+      toShowAlerter() {
+        return Object.is(this.characters.length, 0) && Object.is(this.showLoader, false);
       }
     },
     methods: {

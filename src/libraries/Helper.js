@@ -23,7 +23,7 @@ export default {
     idFromPageName(pageName) {
       let characterId = null;
       pages.forEach((page) => {
-        if (!characterId && page.page_name === pageName) {
+        if (!characterId && Object.is(page.page_name, pageName)) {
           characterId = page.char_id;
         }
       });

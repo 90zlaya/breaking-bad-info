@@ -10,11 +10,8 @@
             type="text"
             class="form-control"
            />
-          <div v-if="searchTerm !== ''" class="icon-container">
-            <i
-             class="fas fa-times clear-search"
-             @click="clearSearch"
-            ></i>
+          <div v-if="hasSearchTerm" class="icon-container">
+            <i class="fas fa-times clear-search" @click="clearSearch"></i>
           </div>
         </div>
       </form>
@@ -24,6 +21,11 @@
 
 <script>
   export default {
+    computed: {
+      hasSearchTerm() {
+        return this.searchTerm.length > 0;
+      }
+    },
     data() {
       return {
         searchTerm: ''
@@ -31,7 +33,7 @@
     },
     methods: {
       initiateSearch() {
-        if (this.searchTerm.length === 0) {
+        if (Object.is(this.searchTerm.length, 0)) {
           this.$emit('show-original-view');
         } else {
           this.$emit('show-search-results', this.searchTerm);
