@@ -25,6 +25,7 @@
       <CharactersGrid
         :show-loader="toShow.loader"
         :characters="characters.grid"
+        :is-able-to-load-more="toShow.loadMoreButton"
        />
       <CharactersLoadMore
         v-if="toShow.loadMoreButton"
@@ -67,8 +68,7 @@
           loader: true,
           loadMoreButton: false
         },
-        errorMessage: '',
-        numberOfCharacters: data.config.characters.numberOfCharacters
+        errorMessage: ''
       };
     },
     created() {
@@ -93,11 +93,13 @@
     methods: {
       featuredCharacters() {
         this.toShow.loadMoreButton = true;
-        this.characters.grid = this.characters.all.slice(0, this.numberOfCharacters);
+        const { numberOfCharacters } = data.config.characters;
+        this.characters.grid = this.characters.all.slice(0, numberOfCharacters);
       },
       loadMoreCharacters() {
+        const { numberOfCharacters } = data.config.characters;
         const gridCharactersLength = this.characters.grid.length;
-        const ending = gridCharactersLength + this.numberOfCharacters;
+        const ending = gridCharactersLength + numberOfCharacters;
         const loadedCharacters = this.characters.all.slice(gridCharactersLength, ending);
 
         this.characters.grid = this.characters.grid.concat(loadedCharacters);
@@ -116,7 +118,16 @@
       showSearchResults(searchTerm) {
         this.toShow.loadMoreButton = false;
         this.characters.grid = this.characters.all.filter((character) => {
-          return character.name.toLowerCase().includes(searchTerm.toLowerCase());
+          let characterForGrid = '';
+          character.name
+            .toLowerCase()
+            .split(' ')
+            .forEach((name) => {
+              if (name.startsWith(searchTerm.toLowerCase())) {
+                characterForGrid = character.name;
+              }
+            });
+          return characterForGrid;
         });
       },
       addPageNameItem(charactersList) {

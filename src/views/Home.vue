@@ -34,6 +34,10 @@
       BaseCharacters,
       TheFooter,
       TheCopyright
+    },
+    updated() {
+      /* global preloaderHandler */
+      preloaderHandler();
     }
   };
 </script>

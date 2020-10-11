@@ -12,12 +12,8 @@
 
 	// Preloader
 	$(window).on('load', function() {
-		var preloaderFadeOutTime = 500;
-    var preloader = $('.spinner-wrapper');
-    setTimeout(function() {
-      preloader.fadeOut(preloaderFadeOutTime);
-    }, preloaderFadeOutTime);
-	});
+    preloaderHandler();
+  });
 
 	// Collapse navbar on scroll
   $(window).on('scroll load', function() {
@@ -189,4 +185,13 @@ var cardSlider = function() {
       }
     }
   });
+}
+
+// Handle preloader
+var preloaderHandler = function() {
+  var preloaderFadeOutTime = 500;
+  var preloader = $('.spinner-wrapper');
+  setTimeout(function() {
+    preloader.fadeOut(preloaderFadeOutTime);
+  }, preloaderFadeOutTime);
 }

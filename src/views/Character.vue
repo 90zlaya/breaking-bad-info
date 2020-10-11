@@ -33,14 +33,10 @@
         return !this.canGoBack;
       }
     },
-    created() {
-      window.scrollTo(0, 0);
-    },
-    mounted() {
-      window.scrollTo(0, 0);
-    },
     updated() {
       window.scrollTo(0, 0);
+      /* global preloaderHandler */
+      preloaderHandler();
     }
   };
 </script>

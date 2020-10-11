@@ -1,8 +1,8 @@
 <template>
   <TheAlerter
-    v-if="toShowAlerter"
-    purpose="info"
-    :message="$t('characters.search.noSearchResults')"
+    v-if="alerter.toShow"
+    :purpose="alerter.purpose"
+    :message="alerter.message"
    />
   <div v-else class="container grid">
     <div v-if="showLoader" class="row">
@@ -55,7 +55,11 @@
       },
       characters: {
         type: Array,
-        trequired: true
+        required: true
+      },
+      isAbleToLoadMore: {
+        type: Boolean,
+        required: true
       }
     },
     computed: {
@@ -64,8 +68,26 @@
           selector: 'img'
         };
       },
-      toShowAlerter() {
-        return Object.is(this.characters.length, 0) && Object.is(this.showLoader, false);
+      alerter() {
+        let toShow = Object.is(this.characters.length, 0) && Object.is(this.showLoader, false);
+        let purpose = 'danger';
+        let message = this.$t('characters.search.noSearchResults');
+        
+        // Recommending character names to help with search terms
+        const { numberOfCharacters } = data.config.characters;
+        if (!this.isAbleToLoadMore && this.characters.length > numberOfCharacters) {
+          const characterNames = this.characters.map((character) => {
+            return ` ${ character.name }`;
+          });
+
+          toShow = true;
+          purpose = 'info';
+          message = this.$t('characters.grid.didYouMean', {
+            listOfNames: characterNames.toString()
+          });
+        }
+
+        return { toShow, purpose, message };
       }
     },
     methods: {

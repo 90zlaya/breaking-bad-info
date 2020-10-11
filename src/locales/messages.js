@@ -30,7 +30,8 @@ export default {
       },
       grid: {
         imageOfCharacterName: "Image of {characterName}",
-        details: "More Details"
+        details: "More Details",
+        didYouMean: "Did you mean:{listOfNames}..."
       },
       loadMore: {
         loadMore: "Load More"

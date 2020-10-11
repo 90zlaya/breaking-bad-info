@@ -28,7 +28,7 @@
       characterOnHomepage() {
         return {
           name: data.routerRoutes.home.name,
-          hash: '#' + this.$route.params.pageName
+          hash: `#${ this.$route.params.pageName }`
         };
       }
     },
