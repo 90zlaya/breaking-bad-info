@@ -20,15 +20,11 @@ export default {
 
       return imagePath;
     },
+    // TODO: Check if needed later in project
     idFromPageName(pageName) {
-      let characterId = null;
-      pages.forEach((page) => {
-        if (!characterId && Object.is(page.page_name, pageName)) {
-          characterId = page.char_id;
-        }
-      });
-  
-      return characterId;
+      return pages
+        .filter(page => Object.is(page.page_name, pageName))
+        .map(pageItem => pageItem.char_id);
     }
   },
   conversions: {
