@@ -1,16 +1,16 @@
 class Character {
-  constructor(characterItem={}) {
+  constructor(characterItem) {
     const {
-      char_id,
-      name,
-      portrayed,
-      img
+      char_id = 0,
+      name = '/',
+      portrayed = '/',
+      img = ''
     } = characterItem;
 
-    this.char_id = char_id || 0;
-    this.name = name || '/';
-    this.portrayed = portrayed || '/';
-    this.img = img || '';
+    this.char_id = char_id;
+    this.name = name;
+    this.portrayed = portrayed;
+    this.img = img;
   }
 }
 

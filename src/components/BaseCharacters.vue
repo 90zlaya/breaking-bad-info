@@ -118,16 +118,7 @@
       showSearchResults(searchTerm) {
         this.toShow.loadMoreButton = false;
         this.characters.grid = this.characters.all.filter((character) => {
-          let characterForGrid = '';
-          character.name
-            .toLowerCase()
-            .split(' ')
-            .forEach((name) => {
-              if (name.startsWith(searchTerm.toLowerCase())) {
-                characterForGrid = character.name;
-              }
-            });
-          return characterForGrid;
+          return character.name.toLowerCase().includes(searchTerm.toLowerCase());
         });
       },
       addPageNameItem(charactersList) {

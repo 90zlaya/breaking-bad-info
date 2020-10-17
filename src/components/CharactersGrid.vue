@@ -77,13 +77,13 @@
         const { numberOfCharacters } = data.config.characters;
         if (!this.isAbleToLoadMore && this.characters.length > numberOfCharacters) {
           const characterNames = this.characters.map((character) => {
-            return ` ${ character.name }`;
+            return character.name;
           });
 
           toShow = true;
           purpose = 'info';
           message = this.$t('characters.grid.didYouMean', {
-            listOfNames: characterNames.toString()
+            listOfNames: characterNames.join(', ').toString()
           });
         }
 

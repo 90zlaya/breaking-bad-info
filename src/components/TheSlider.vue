@@ -110,7 +110,7 @@
           const randomNumber = Math.floor(Math.random() * quotes.length) + 1;
 
           if (Object.is(quoteIds.indexOf(randomNumber), -1) && quotes[randomNumber]) {
-            if (quotes[randomNumber].author !== previousAuthor) {
+            if (!Object.is(quotes[randomNumber].author, previousAuthor)) {
               previousAuthor = quotes[randomNumber].author;
               quotes[randomNumber].image = this.constructCharacterImagePath(
                 quotes[randomNumber].author
