@@ -16,6 +16,8 @@
 
 <script>
   import data from './../mixins/data.js';
+  
+  import LocalStorage from './../libraries/LocalStorage.js';
 
   export default {
     props: {
@@ -32,18 +34,43 @@
         };
       }
     },
+    data() {
+      return {
+        characterDetails: {}
+      };
+    },
     created() {
       console.log('BaseCharacterDetails created', this.$route.params.pageName);
     },
     mounted() {
       console.log('BaseCharacterDetails mounted', this.$route.params.pageName);
+      this.characterDetails = this.getCharacterDetails();
+      console.log('Character details', this.$route.params.pageName, this.characterDetails);
     },
     updated() {
       console.log('BaseCharacterDetails updated', this.$route.params.pageName);
+      if (this.$route.params.pageName) {
+        this.characterDetails = this.getCharacterDetails();
+        console.log('Character details', this.$route.params.pageName, this.characterDetails);
+      }
     },
     methods: {
       backToHome() {
         window.location.href = data.routerRoutes.home.path;
+      },
+      getCharacterDetails() {
+        const localCharacters = LocalStorage.getCharacters();
+
+        if (localCharacters) {
+          const characters = JSON.parse(localCharacters);
+          const characterDetails = characters.find((character) => {
+            return Object.is(character.page_name, this.$route.params.pageName);
+          });
+
+          return characterDetails;
+        }
+
+        return {};
       }
     }
   };

@@ -9,11 +9,15 @@
 1. [Look and feel](#look-and-feel)
 1. [Build setup](#build-setup)
 
-## Description
+---
+
+1. ### Description
 
 Idea is to create simple Vue.js project to demonstrate development skills in this awesome JS framework.
 
-## Look and feel
+[⬆ back to top](#table-of-contents)
+
+2. ### Look and feel
 
 You may visit [Breaking Bad Info](https://breakingbadinfo.netlify.app/) to see live version.
 
@@ -21,7 +25,9 @@ You may visit [Breaking Bad Info](https://breakingbadinfo.netlify.app/) to see l
 
 Currently home page looks like this, but have in mind that this image might stay few commits behind.
 
-## Build setup
+[⬆ back to top](#table-of-contents)
+
+3. ### Build setup
 
 ```bash
 # Install dependencies
@@ -38,3 +44,5 @@ npm run lint
 ```
 
 After installing dependencies and running app, visit [localhost:8080](http://localhost:8080) to enjoy app functionality. For detailed explanation on how things work, consult [configuration reference](https://cli.vuejs.org/config/)
+
+[⬆ back to top](#table-of-contents)
