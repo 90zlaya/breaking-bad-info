@@ -6,10 +6,10 @@
 ## Table of Contents
 
 1. [Description](#description)
-1. [Look and feel](#look-and-feel)
-1. [Build setup](#build-setup)
+1. [Look and Feel](#look-and-feel)
+1. [Build Setup](#build-setup)
 
----
+***
 
 1. ### Description
 
@@ -17,17 +17,17 @@ Idea is to create simple Vue.js project to demonstrate development skills in thi
 
 [⬆ back to top](#table-of-contents)
 
-2. ### Look and feel
+2. ### Look and Feel
 
 You may visit [Breaking Bad Info](https://breakingbadinfo.netlify.app/) to see live version.
 
-![](extras/screenshots/home-page.png?clear_cache=1)
+![](.extras/screenshots/home-page.png?clear_cache=1)
 
 Currently home page looks like this, but have in mind that this image might stay few commits behind.
 
 [⬆ back to top](#table-of-contents)
 
-3. ### Build setup
+3. ### Build Setup
 
 ```bash
 # Install dependencies

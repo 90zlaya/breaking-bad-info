@@ -11,9 +11,9 @@
 
 <script>
   import ThePreloader from './../components/ThePreloader.vue';
-  import CharacterDetails from "./../components/CharacterDetails.vue";
-  import TheFooter from "./../components/TheFooter.vue";
-  import TheCopyright from "./../components/TheCopyright.vue";
+  import CharacterDetails from './../components/CharacterDetails/CharacterDetails.vue';
+  import TheFooter from './../components/TheFooter.vue';
+  import TheCopyright from './../components/TheCopyright.vue';
 
   export default {
     components: {

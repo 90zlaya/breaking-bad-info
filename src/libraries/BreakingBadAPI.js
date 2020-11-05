@@ -2,11 +2,10 @@ import Quotes from './../modules/Quotes.js';
 import Characters from './../modules/Characters.js';
 
 export default {
-  baseUrl: "https://www.breakingbadapi.com/api",
+  baseUrl: 'https://www.breakingbadapi.com/api',
   endpoints: {
-    quotes: "/quotes",
-    characters: "/characters",
-    character: "/characters/:characterId"
+    quotes: '/quotes',
+    characters: '/characters'
   },
   async getAllQuotes() {
     const response = await fetch(this.baseUrl + this.endpoints.quotes);

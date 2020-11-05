@@ -19,7 +19,7 @@
   import TheSlider from './../components/TheSlider.vue';
   import TheSynopsis from './../components/TheSynopsis.vue';
   import TheCounter from './../components/TheCounter.vue';
-  import BaseCharacters from './../components/BaseCharacters.vue';
+  import BaseCharacters from './../components/Characters/BaseCharacters.vue';
   import TheFooter from './../components/TheFooter.vue';
   import TheCopyright from './../components/TheCopyright.vue';
 

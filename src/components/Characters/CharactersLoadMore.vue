@@ -16,7 +16,7 @@
 </template>
 
 <script>
-  import data from './../mixins/data.js';
+  import data from './../../mixins/data.js';
 
   export default {
     data() {

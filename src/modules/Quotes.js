@@ -1,9 +1,8 @@
-import Helper from './../libraries/Helper.js';
 import Quote from './Quote.js';
 
 class Quotes {
   constructor(quotes) {
-    this.quotes = Helper.conversions.listOfTypes(quotes, Quote);
+    this.quotes =  quotes.map(quote => new Quote(quote));
   }
 }
 

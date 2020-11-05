@@ -38,10 +38,10 @@
 </template>
 
 <script>
-  import data from '../mixins/data.js';
+  import data from './../../mixins/data.js';
   
-  import TheLoader from './TheLoader.vue';
-  import TheAlerter from './TheAlerter.vue';
+  import TheLoader from './../TheLoader.vue';
+  import TheAlerter from './../TheAlerter.vue';
 
   export default {
     components: {

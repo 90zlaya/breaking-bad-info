@@ -20,25 +20,22 @@ export default {
 
       return imagePath;
     },
-    // TODO: Check if needed later in project
+    addPageNameItem(charactersList) {
+      charactersList.forEach((character, id) => {
+        charactersList[id].page_name = character.name
+          .toLowerCase()
+          .replace(/ /g, '-')
+          .replace(/[á]/g, 'a')
+          .replace(/[&]/g, 'and')
+          .replace(/[^\w-]+/g, '');
+      });
+
+      return charactersList;
+    },
     idFromPageName(pageName) {
       return pages
         .filter(page => Object.is(page.page_name, pageName))
-        .map(pageItem => pageItem.char_id);
-    }
-  },
-  conversions: {
-    listOfTypes(items, moduleName) {
-      const listOfTypes = [];
-      const itemsArray = items;
-    
-      if (itemsArray && itemsArray[0]) {
-        itemsArray.forEach((item) => {
-          listOfTypes.push(new moduleName(item));
-        });
-      }
-    
-      return listOfTypes;
+        .map(pageItem => pageItem.char_id)[0];
     }
   },
   images: {

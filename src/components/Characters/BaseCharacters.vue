@@ -36,15 +36,16 @@
 </template>
 
 <script>
-  import data from './../mixins/data.js';
+  import data from './../../mixins/data.js';
   
-  import LocalStorage from './../libraries/LocalStorage.js';
-  import BreakingBadAPI from './../libraries/BreakingBadAPI.js';
+  import Helper from './../../libraries/Helper.js';
+  import LocalStorage from './../../libraries/LocalStorage.js';
+  import BreakingBadAPI from './../../libraries/BreakingBadAPI.js';
 
-  import CharactersSearch from './CharactersSearch.vue';
-  import CharactersGrid from './CharactersGrid.vue';
-  import CharactersLoadMore from './CharactersLoadMore.vue';
-  import TheAlerter from './TheAlerter.vue';
+  import CharactersSearch from './../Characters/CharactersSearch.vue';
+  import CharactersGrid from './../Characters/CharactersGrid.vue';
+  import CharactersLoadMore from './../Characters/CharactersLoadMore.vue';
+  import TheAlerter from './../TheAlerter.vue';
 
   export default {
     components: {
@@ -80,7 +81,7 @@
         this.toShow.loader = false;
       } else {
         BreakingBadAPI.getAllCharacters().then((remoteCharacters) => {
-          this.characters.all = this.addPageNameItem(remoteCharacters);
+          this.characters.all = Helper.characters.addPageNameItem(remoteCharacters);
           this.featuredCharacters();
           this.toShow.loader = false;
           LocalStorage.setCharacters(remoteCharacters);
@@ -120,18 +121,6 @@
         this.characters.grid = this.characters.all.filter((character) => {
           return character.name.toLowerCase().includes(searchTerm.toLowerCase());
         });
-      },
-      addPageNameItem(charactersList) {
-        charactersList.forEach((character, id) => {
-          charactersList[id].page_name = character.name
-            .toLowerCase()
-            .replace(/ /g, '-')
-            .replace(/[á]/g, 'a')
-            .replace(/[&]/g, 'and')
-            .replace(/[^\w-]+/g, '');
-        });
-
-        return charactersList;
       }
     }
   };
