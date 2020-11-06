@@ -17,7 +17,7 @@ export default {
       numberOfCharacters: 3
     },
     locales: {
-      default: 'en'
+      default: 'gb'
     }
   },
   routerRoutes: {

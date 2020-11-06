@@ -1,5 +1,7 @@
 class Quote {
   constructor(quoteItem) {
+    this.quoteItemRaw = quoteItem;
+    
     const {
       quote_id = 0,
       quote = '/',

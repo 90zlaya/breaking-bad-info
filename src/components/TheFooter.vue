@@ -36,7 +36,7 @@
               <span class="fa-stack" :key="index">
                 <a :href="social.href" target="_blank">
                   <i class="fas fa-circle fa-stack-2x"></i>
-                  <i :class="'fab fa-' + social.icon + ' fa-stack-1x'"></i>
+                  <i :class="`fab fa-${ social.icon } fa-stack-1x`"></i>
                 </a>
               </span>
             </template>

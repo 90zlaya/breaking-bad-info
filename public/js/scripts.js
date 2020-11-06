@@ -29,19 +29,21 @@
   $(document).on('click', 'a.page-scroll', function(event) {
     var $anchor = $(this);
     var hrefOfAnchor = $anchor.attr('href');
-    // Router link adds / at the start - we need it removed
-    if (hrefOfAnchor.includes('/#', 0)) {
-      hrefOfAnchor = hrefOfAnchor.replace('/#', '#')
+    if (hrefOfAnchor) {
+      // Router link adds / at the start - we need it removed
+      if (hrefOfAnchor.includes('/#', 0)) {
+        hrefOfAnchor = hrefOfAnchor.replace('/#', '#')
+      }
+      var offsetFromTop = $(hrefOfAnchor).offset().top;
+      // No offset for first section of the page
+      if (Object.is(hrefOfAnchor, 'body') || Object.is(hrefOfAnchor, '#header')) {
+        offsetFromTop = 0;
+      }
+      $('html, body').stop().animate({
+        scrollTop: offsetFromTop
+      }, 600, 'easeInOutExpo');
+      event.preventDefault();
     }
-    var offsetFromTop = $(hrefOfAnchor).offset().top;
-    // No offset for first section of the page
-    if (Object.is(hrefOfAnchor, 'body') || Object.is(hrefOfAnchor, '#header')) {
-      offsetFromTop = 0;
-    }
-    $('html, body').stop().animate({
-      scrollTop: offsetFromTop
-    }, 600, 'easeInOutExpo');
-    event.preventDefault();
   });
 
   // When document is ready

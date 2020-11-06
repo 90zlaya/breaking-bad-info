@@ -8,6 +8,7 @@ import VueLazyload from 'vue-lazyload'
 import App from './App.vue';
 
 import Helper from './libraries/Helper.js';
+import LocalStorage from './libraries/LocalStorage.js';
 
 Vue.use(VueI18n);
 Vue.use(VueLazyload, {
@@ -17,10 +18,8 @@ Vue.use(VueLazyload, {
   attempt: 1
 });
 
-const i18n = new VueI18n({
-  locale: data.config.locales.default,
-  messages
-});
+const locale = eval(LocalStorage.getActiveLanguage()) || data.config.locales.default;
+const i18n = new VueI18n({ locale, messages });
 
 new Vue({
   i18n,

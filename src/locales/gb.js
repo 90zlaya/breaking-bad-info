@@ -1,4 +1,4 @@
-const en = {
+const gb = {
   navbar: {
     home: "Home",
     quotes: "Quotes",
@@ -6,8 +6,13 @@ const en = {
     statistics: "Statistics",
     synopsis: "Synopsis",
     about: "About",
+    languages: "Languages",
     goBack: "Go Back",
-    logoImage: "Logo image"
+    logoImage: "Logo image",
+    languageNames: {
+      english: "English",
+      serbian: "Serbian"
+    }
   },
   header: {
     title: "App for",
@@ -53,7 +58,7 @@ const en = {
   footer: {
     about: {
       title: "About App",
-      description: "We're passionate about creating the best mobile apps for personal development"
+      description: "We're passionate about creating the best web apps"
     },
     links: {
       title: "Important Links",
@@ -78,4 +83,4 @@ const en = {
   }
 };
 
-export default en;
+export default gb;

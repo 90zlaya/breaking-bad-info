@@ -1,5 +1,7 @@
 class Character {
   constructor(characterItem) {
+    this.characterItemRaw = characterItem;
+
     const {
       char_id = 0,
       name = '/',

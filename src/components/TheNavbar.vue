@@ -21,10 +21,35 @@
     <div class="collapse navbar-collapse" id="navbarsMenu">
       <ul class="navbar-nav ml-auto">
         <template v-for="(navigation, index) in navigations">
-          <li class="nav-item" :key="index">
-            <a class="nav-link page-scroll text-uppercase" :href="navigation.href">
-              {{ navigation.title }}
-            </a>
+          <li
+            :class="`nav-item ${ navigation.isDropdown ? 'dropdown' : '' }`"
+            :key="index"
+          >
+            <template v-if="navigation.isDropdown">
+              <a
+                class="nav-link page-scroll text-uppercase dropdown-toggle"
+              >{{ navigation.title }}</a>
+              <div
+                class="dropdown-menu"
+                aria-labelledby="navbarDropdown"
+              >
+                <template v-for="(language, index) in languages">
+                  <a
+                    :key="index"
+                    v-if="isActiveLanguage(language.code)"
+                    @click="switchLanguage(language.code)"
+                    class="dropdown-item"
+                  >
+                    <span :class="`flag-icon flag-icon-${ language.code }`"></span>
+                    &nbsp;<span class="item-text">{{ language.name }}</span>
+                  </a>
+                </template>
+              </div>
+            </template>
+            <a v-else
+              :href="navigation.href"
+              class="nav-link page-scroll text-uppercase"
+            >{{ navigation.title }}</a>
           </li>
         </template>
       </ul>
@@ -35,36 +60,68 @@
 <script>
   import data from './../mixins/data.js';
 
+  import LocalStorage from './../libraries/LocalStorage.js';
+
   export default {
     data() {
       return {
         navigations: [
           {
             href: data.navbarSections.header,
-            title: this.$t('navbar.home')
+            title: this.$t('navbar.home'),
+            isDropdown: false
           },
           {
             href: data.navbarSections.quotes,
-            title: this.$t('navbar.quotes')
+            title: this.$t('navbar.quotes'),
+            isDropdown: false
           },
           {
             href: data.navbarSections.synopsis,
-            title: this.$t('navbar.synopsis')
+            title: this.$t('navbar.synopsis'),
+            isDropdown: false
           },
           {
             href: data.navbarSections.statistics,
-            title: this.$t('navbar.statistics')
+            title: this.$t('navbar.statistics'),
+            isDropdown: false
           },
           {
             href: data.navbarSections.characters,
-            title: this.$t('navbar.characters')
+            title: this.$t('navbar.characters'),
+            isDropdown: false
           },
           {
             href: data.navbarSections.about,
-            title: this.$t('navbar.about')
+            title: this.$t('navbar.about'),
+            isDropdown: false
+          },
+          {
+            href: '#',
+            title: this.$t('navbar.languages'),
+            isDropdown: true
+          }
+        ],
+        languages: [
+          {
+            name: this.$t('navbar.languageNames.english'),
+            code: 'gb'
+          },
+          {
+            name: this.$t('navbar.languageNames.serbian'),
+            code: 'rs'
           }
         ]
       };
+    },
+    methods: {
+      switchLanguage(languageCode) {
+        LocalStorage.setActiveLanguage(languageCode);
+        location.reload();
+      },
+      isActiveLanguage(languageCode) {
+        return !Object.is(languageCode, this.$i18n.locale);
+      }
     }
   };
 </script>
@@ -130,6 +187,15 @@
     border: none;
     border-radius: 0.25rem;
     background-color: #262431;
+  }
+
+  .dropdown-item {
+    padding: 0.25rem 0.75rem;
+  }
+
+  .dropdown-toggle,
+  .dropdown-item {
+    cursor: pointer;
   }
 
   .navbar-custom .dropdown-item {
