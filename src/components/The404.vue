@@ -32,6 +32,7 @@
   import data from './../mixins/data.js';
 
   export default {
+    name: 'The404',
     methods: {
       backToHome() {
         window.location.href = data.routerRoutes.home.path;

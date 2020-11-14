@@ -25,6 +25,7 @@
 
 <script>
   export default {
+    name: 'TheCounter',
     data() {
       return {
         counter: [

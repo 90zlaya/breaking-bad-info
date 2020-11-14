@@ -44,6 +44,7 @@
   import TheAlerter from './../TheAlerter.vue';
 
   export default {
+    name: 'CharactersGrid',
     components: {
       TheLoader,
       TheAlerter
@@ -69,7 +70,7 @@
         };
       },
       alerter() {
-        let toShow = Object.is(this.characters.length, 0) && Object.is(this.showLoader, false);
+        let toShow = this.characters.length === 0 && this.showLoader === false;
         let purpose = 'danger';
         let message = this.$t('characters.search.noSearchResults');
         

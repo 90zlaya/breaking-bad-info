@@ -19,6 +19,7 @@
   import data from './../../mixins/data.js';
 
   export default {
+    name: 'CharactersLoadMore',
     data() {
       return {
         loadMoreCharacters: data.ids.loadMoreCharacters

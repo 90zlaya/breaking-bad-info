@@ -17,6 +17,10 @@
   </header>
 </template>
 
+<script>
+  export default { name: 'TheHeader' };
+</script>
+
 <style scoped>
   .header .header-content {
     padding-top: 8.5rem;

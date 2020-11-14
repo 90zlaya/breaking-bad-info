@@ -16,6 +16,7 @@
   import TheCopyright from './../components/TheCopyright.vue';
 
   export default {
+    name: 'Character',
     components: {
       ThePreloader,
       CharacterDetails,

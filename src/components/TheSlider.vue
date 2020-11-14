@@ -60,6 +60,7 @@
   import TheAlerter from './TheAlerter.vue';
 
   export default {
+    name: 'TheSlider',
     components: {
       TheLoader,
       TheAlerter
@@ -95,7 +96,7 @@
       }
     },
     updated() {
-      if (Object.is(this.showLoader, false)) {
+      if (this.showLoader === false) {
         /* global cardSlider */
         cardSlider();
       }
@@ -109,8 +110,8 @@
         while (slides.length < this.numberOfSlides){
           const randomNumber = Math.floor(Math.random() * quotes.length) + 1;
 
-          if (Object.is(quoteIds.indexOf(randomNumber), -1) && quotes[randomNumber]) {
-            if (!Object.is(quotes[randomNumber].author, previousAuthor)) {
+          if (quoteIds.indexOf(randomNumber) === -1 && quotes[randomNumber]) {
+            if (quotes[randomNumber].author !== previousAuthor) {
               previousAuthor = quotes[randomNumber].author;
               quotes[randomNumber].image = this.constructCharacterImagePath(
                 quotes[randomNumber].author
@@ -128,7 +129,7 @@
         const characterNameInLowerCase = characterName.toLowerCase();
         const imageName = characterNameInLowerCase.replace(' ', '-');
         const characterDetails = data.quotedAuthors.find((author) => {
-          return Object.is(author, characterName);
+          return author === characterName;
         });
         
         return Helper.characters.imagePath(characterDetails, imageName);

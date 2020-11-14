@@ -21,6 +21,7 @@
 
 <script>
   export default {
+    name: 'CharactersSearch',
     computed: {
       hasSearchTerm() {
         return this.searchTerm.length > 0;
@@ -33,7 +34,7 @@
     },
     methods: {
       initiateSearch() {
-        if (Object.is(this.searchTerm.length, 0)) {
+        if (this.searchTerm.length === 0) {
           this.$emit('show-original-view');
         } else {
           this.$emit('show-search-results', this.searchTerm);

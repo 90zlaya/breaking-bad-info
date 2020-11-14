@@ -36,7 +36,7 @@
       }
       var offsetFromTop = $(hrefOfAnchor).offset().top;
       // No offset for first section of the page
-      if (Object.is(hrefOfAnchor, 'body') || Object.is(hrefOfAnchor, '#header')) {
+      if (hrefOfAnchor === 'body' || hrefOfAnchor === '#header') {
         offsetFromTop = 0;
       }
       $('html, body').stop().animate({

@@ -21,6 +21,7 @@
   import data from './../mixins/data.js';
 
   export default {
+    name: 'TheCopyright',
     data() {
       return {
         year: '2020',

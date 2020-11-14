@@ -6,6 +6,7 @@
   import Helper from './../libraries/Helper.js';
 
   export default {
+    name: 'TheLoader',
     computed: {
       loader() {
         return Helper.images.dotLoader();

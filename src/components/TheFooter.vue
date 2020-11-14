@@ -34,7 +34,7 @@
             <h4>{{ $t('footer.socialMedia') }}</h4>
             <template v-for="(social, index) in socialMedia">
               <span class="fa-stack" :key="index">
-                <a :href="social.href" target="_blank">
+                <a :href="social.href" target="_blank" rel="noopener">
                   <i class="fas fa-circle fa-stack-2x"></i>
                   <i :class="`fab fa-${ social.icon } fa-stack-1x`"></i>
                 </a>
@@ -51,6 +51,7 @@
   import data from './../mixins/data.js';
 
   export default {
+    name: 'TheFooter',
     data() {
       return {
         links: [

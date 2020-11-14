@@ -24,6 +24,7 @@
   import TheCopyright from './../components/TheCopyright.vue';
 
   export default {
+    name: 'Home',
     components: {
       ThePreloader,
       TheNavbar,

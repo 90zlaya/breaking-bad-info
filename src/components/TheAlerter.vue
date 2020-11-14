@@ -13,6 +13,7 @@
 
 <script>
   export default {
+    name: 'TheAlerter',
     props: {
       purpose: {
         type: String,

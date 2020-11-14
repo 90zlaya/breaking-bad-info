@@ -48,6 +48,7 @@
   import TheAlerter from './../TheAlerter.vue';
 
   export default {
+    name: 'BaseCharacters',
     components: {
       CharactersSearch,
       CharactersGrid,
@@ -105,7 +106,7 @@
 
         this.characters.grid = this.characters.grid.concat(loadedCharacters);
 
-        if (Object.is(this.characters.grid.length, this.characters.all.length)) {
+        if (this.characters.grid.length === this.characters.all.length) {
           this.toShow.loadMoreButton = false;
         }
 

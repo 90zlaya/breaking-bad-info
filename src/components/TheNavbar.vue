@@ -63,6 +63,7 @@
   import LocalStorage from './../libraries/LocalStorage.js';
 
   export default {
+    name: 'TheNavbar',
     data() {
       return {
         navigations: [
@@ -120,7 +121,7 @@
         location.reload();
       },
       isActiveLanguage(languageCode) {
-        return !Object.is(languageCode, this.$i18n.locale);
+        return languageCode !== this.$i18n.locale;
       }
     }
   };

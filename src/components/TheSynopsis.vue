@@ -33,6 +33,10 @@
   </div>
 </template>
 
+<script>
+  export default { name: 'TheSynopsis' };
+</script>
+
 <style scoped>
   .basic-1 h2 {
     margin-bottom: 1.125rem;

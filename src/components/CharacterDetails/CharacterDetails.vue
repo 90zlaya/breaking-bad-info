@@ -30,6 +30,7 @@
   import TheAlerter from './../TheAlerter.vue';
 
   export default {
+    name: 'CharacterDetails',
     props: {
       canGoBack: {
         type: Boolean,
@@ -74,7 +75,7 @@
         if (localCharacters) {
           const characters = JSON.parse(localCharacters);
           const characterDetails = characters.find((character) => {
-            return Object.is(character.page_name, this.$route.params.pageName);
+            return character.page_name === this.$route.params.pageName;
           });
           console.log('Character details', characterDetails);
           this.characterDetails = characterDetails;
@@ -82,10 +83,8 @@
           BreakingBadAPI.getAllCharacters().then((remoteCharacters) => {
             LocalStorage.setCharacters(Helper.characters.addPageNameItem(remoteCharacters));
             const featuredCharacter = remoteCharacters.find((character) => {
-              return Object.is(
-                character.char_id,
-                Helper.characters.idFromPageName(this.$route.params.pageName)
-              );
+              return character.char_id === Helper.characters.idFromPageName(this.$route.params.pageName)
+              ;
             });
             console.log('Character details', featuredCharacter);
             this.characterDetails = featuredCharacter;

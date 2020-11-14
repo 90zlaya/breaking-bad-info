@@ -8,6 +8,10 @@
   </div>
 </template>
 
+<script>
+  export default { name: 'ThePreloader' };
+</script>
+
 <style scoped>
   .spinner-wrapper {
     position: fixed;

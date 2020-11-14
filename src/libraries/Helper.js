@@ -34,7 +34,7 @@ export default {
     },
     idFromPageName(pageName) {
       return pages
-        .filter(page => Object.is(page.page_name, pageName))
+        .filter(page => page.page_name === pageName)
         .map(pageItem => pageItem.char_id)[0];
     }
   },
