@@ -34,15 +34,18 @@
       if (hrefOfAnchor.includes('/#', 0)) {
         hrefOfAnchor = hrefOfAnchor.replace('/#', '#')
       }
-      var offsetFromTop = $(hrefOfAnchor).offset().top;
-      // No offset for first section of the page
-      if (hrefOfAnchor === 'body' || hrefOfAnchor === '#header') {
-        offsetFromTop = 0;
+      // Check if anchor is on home page and add slash if not
+      if ($(hrefOfAnchor).offset()) {
+        var offsetFromTop = ['body', '#header'].includes(hrefOfAnchor)
+          ? 0 // No offset for first section of the page
+          : $(hrefOfAnchor).offset().top;
+        $('html, body').stop().animate({
+          scrollTop: offsetFromTop
+        }, 600, 'easeInOutExpo');
+        event.preventDefault();
+      } else {
+        window.location.href = '/' + hrefOfAnchor;
       }
-      $('html, body').stop().animate({
-        scrollTop: offsetFromTop
-      }, 600, 'easeInOutExpo');
-      event.preventDefault();
     }
   });
 
@@ -50,24 +53,10 @@
 	$(function() {
 
     // Closes the responsive menu on menu item click
-    $(".navbar-nav li a").on("click", function(event) {
-      if (!$(this).parent().hasClass('dropdown')) {
-        $(".navbar-collapse").collapse('hide');
-      }
-    });
+    closeResponsiveMenu();
 
     // Rotating Text - Morphtext
-    $("#js-rotating").Morphext({
-      // The [in] animation type. Refer to Animate.css for a list of available animations.
-      animation: "fadeIn",
-      // An array of phrases to rotate are created based on this separator. Change it if you wish to separate the phrases differently (e.g. So Simple | Very Doge | Much Wow | Such Cool).
-      separator: ",",
-      // The delay between the changing of each phrase in milliseconds.
-      speed: 2000,
-      complete: function () {
-        // Called after the entrance animation is executed.
-      }
-    });
+    rotatingText();
 
     // Video - Magnific Popup
     $('.popup-youtube, .popup-vimeo').magnificPopup({
@@ -196,4 +185,28 @@ var preloaderHandler = function() {
   setTimeout(function() {
     preloader.fadeOut(preloaderFadeOutTime);
   }, preloaderFadeOutTime);
+}
+
+// Rotating Text - Morphtext
+var rotatingText = function() {
+  $("#js-rotating").Morphext({
+    // The [in] animation type. Refer to Animate.css for a list of available animations.
+    animation: "fadeIn",
+    // An array of phrases to rotate are created based on this separator. Change it if you wish to separate the phrases differently (e.g. So Simple | Very Doge | Much Wow | Such Cool).
+    separator: ",",
+    // The delay between the changing of each phrase in milliseconds.
+    speed: 2000,
+    complete: function () {
+      // Called after the entrance animation is executed.
+    }
+  });
+}
+
+// Closes the responsive menu on menu item click
+var closeResponsiveMenu = function () {
+  $(".navbar-nav li a").on("click", function() {
+    if (!$(this).parent().hasClass('dropdown')) {
+      $(".navbar-collapse").collapse('hide');
+    }
+  });
 }
