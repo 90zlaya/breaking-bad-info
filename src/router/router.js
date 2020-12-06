@@ -16,13 +16,13 @@ export default new Router({
       component: Home
     },
     {
-      path: data.routerRoutes.fourZeroFour.path,
-      name: data.routerRoutes.fourZeroFour.path,
-      component: () => import(/* webpackChunkName: "character" */ './../views/404.vue'),
+      path: data.routerRoutes.notFound.path,
+      name: data.routerRoutes.notFound.path,
+      component: () => import(/* webpackChunkName: "character" */ './../views/NotFound.vue'),
       beforeEnter: (to, from, next) => {
         // Overwrite path if redirected
         if (to.redirectedFrom) {
-          window.location.href = data.routerRoutes.fourZeroFour.path;
+          window.location.href = data.routerRoutes.notFound.path;
         } else {
           next();
         }
@@ -38,13 +38,9 @@ export default new Router({
         if (pages.map(page => page.page_name).includes(to.params.pageName)) {
           next();
         } else {
-          window.location.href = data.routerRoutes.fourZeroFour.path;
+          window.location.href = data.routerRoutes.notFound.path;
         }
       }
-    },
-    {
-      path: '/*',
-      redirect: data.routerRoutes.fourZeroFour.path
     }
   ]
 });

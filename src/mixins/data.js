@@ -29,9 +29,9 @@ export default {
       path: '/:pageName',
       name: 'character'
     },
-    fourZeroFour: {
+    notFound: {
       path: '/404',
-      name: '404'
+      name: 'not-found'
     }
   },
   urls: {

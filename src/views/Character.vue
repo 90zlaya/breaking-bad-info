@@ -3,9 +3,12 @@
     <template v-if="isVisitedDirectly">
       <ThePreloader />
     </template>
-    <TheNavbar />
+    <TheNavbar :is-on-homepage="false" />
     <TheHeader />
-    <CharacterDetails :can-go-back="canGoBack" />
+    <CharacterDetails
+      :can-go-back="canGoBack"
+      :page-name="pageName"
+    />
     <TheFooter />
     <TheCopyright />
   </div>
@@ -33,6 +36,10 @@
       canGoBack: {
         type: Boolean,
         default: false
+      },
+      pageName: {
+        type: String,
+        required: true
       }
     },
     computed: {
@@ -46,6 +53,8 @@
       rotatingText();
       /* global closeResponsiveMenu */
       closeResponsiveMenu();
+      /* global backToTopButton */
+      backToTopButton();
     },
     updated() {
       window.scrollTo(0, 0);

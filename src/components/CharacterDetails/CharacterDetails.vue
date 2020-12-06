@@ -1,6 +1,6 @@
 <template>
   <div class="container view-character">
-    <p>Character details {{ $route.params.pageName }}</p>
+    <p>Character details {{ pageName }}</p>
     <router-link
       v-if="canGoBack"
       :to="characterOnHomepage"
@@ -35,6 +35,10 @@
       canGoBack: {
         type: Boolean,
         required: true
+      },
+      pageName: {
+        type: String,
+        required: true
       }
     },
     components: {
@@ -44,7 +48,7 @@
       characterOnHomepage() {
         return {
           name: data.routerRoutes.home.name,
-          hash: `#${ this.$route.params.pageName }`
+          hash: `#${ this.pageName }`
         };
       },
       toShowAlerter() {
@@ -61,7 +65,7 @@
       this.getCharacterDetails();
     },
     updated() {
-      if (this.$route.params.pageName) {
+      if (this.pageName) {
         this.getCharacterDetails();
       }
     },
@@ -75,7 +79,7 @@
         if (localCharacters) {
           const characters = JSON.parse(localCharacters);
           const characterDetails = characters.find((character) => {
-            return character.page_name === this.$route.params.pageName;
+            return character.page_name === this.pageName;
           });
           console.log('Character details', characterDetails);
           this.characterDetails = characterDetails;
@@ -83,7 +87,7 @@
           BreakingBadAPI.getAllCharacters().then((remoteCharacters) => {
             LocalStorage.setCharacters(Helper.characters.addPageNameItem(remoteCharacters));
             const featuredCharacter = remoteCharacters.find((character) => {
-              return character.char_id === Helper.characters.idFromPageName(this.$route.params.pageName)
+              return character.char_id === Helper.characters.idFromPageName(this.pageName)
               ;
             });
             console.log('Character details', featuredCharacter);

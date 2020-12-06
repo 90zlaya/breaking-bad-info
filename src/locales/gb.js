@@ -76,7 +76,7 @@ const gb = {
   copyright: {
     text: "Copyright"
   },
-  fourZeroFour: {
+  notFound: {
     pageNotFound: "Page Not Found",
     backToHome: "Back to Home",
     jesseReactionGif: "Jesse reacting surprised"

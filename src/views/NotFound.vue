@@ -10,7 +10,7 @@
   import The404 from './../components/The404.vue';
 
   export default {
-    name: '404',
+    name: 'NotFound',
     components: {
       ThePreloader,
       The404

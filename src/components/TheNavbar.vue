@@ -47,7 +47,7 @@
               </div>
             </template>
             <a v-else
-              :href="navigation.href"
+              :href="navigationLink(navigation.href)"
               class="nav-link page-scroll text-uppercase"
             >{{ navigation.title }}</a>
           </li>
@@ -64,6 +64,12 @@
 
   export default {
     name: 'TheNavbar',
+    props: {
+      isOnHomepage: {
+        type: Boolean,
+        default: true
+      }
+    },
     data() {
       return {
         navigations: [
@@ -122,6 +128,9 @@
       },
       isActiveLanguage(languageCode) {
         return languageCode !== this.$i18n.locale;
+      },
+      navigationLink(href) {
+        return this.isOnHomepage ? href : `/${ href }`;
       }
     }
   };

@@ -77,7 +77,7 @@ const rs = {
   copyright: {
     text: "Copyright"
   },
-  fourZeroFour: {
+  notFound: {
     pageNotFound: "Stranica nije pronađena",
     backToHome: "Vrati me na početnu",
     jesseReactionGif: "Džesijeva reakcija iznenađenja"

@@ -132,15 +132,7 @@
     });
 
     // Create the back to top button
-    $('body').prepend('<a href="body" class="back-to-top page-scroll">Back to Top</a>');
-    var amountScrolled = 700;
-    $(window).scroll(function() {
-      if ($(window).scrollTop() > amountScrolled) {
-        $('a.back-to-top').fadeIn('500');
-      } else {
-        $('a.back-to-top').fadeOut('500');
-      }
-    });
+    backToTopButton();
 
   	// Removes Long Focus On Buttons
   	$(".button, a, button").mouseup(function() {
@@ -196,17 +188,30 @@ var rotatingText = function() {
     separator: ",",
     // The delay between the changing of each phrase in milliseconds.
     speed: 2000,
-    complete: function () {
+    complete: function() {
       // Called after the entrance animation is executed.
     }
   });
 }
 
 // Closes the responsive menu on menu item click
-var closeResponsiveMenu = function () {
+var closeResponsiveMenu = function() {
   $(".navbar-nav li a").on("click", function() {
     if (!$(this).parent().hasClass('dropdown')) {
       $(".navbar-collapse").collapse('hide');
+    }
+  });
+}
+
+// Create the back to top button
+var backToTopButton = function() {
+  $('body').prepend('<a href="body" class="back-to-top page-scroll">Back to Top</a>');
+  var amountScrolled = 700;
+  $(window).scroll(function() {
+    if ($(window).scrollTop() > amountScrolled) {
+      $('a.back-to-top').fadeIn('500');
+    } else {
+      $('a.back-to-top').fadeOut('500');
     }
   });
 }
