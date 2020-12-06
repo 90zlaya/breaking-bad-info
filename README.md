@@ -21,7 +21,7 @@ Idea is to create simple Vue.js project to demonstrate development skills in thi
 
 You may visit [Breaking Bad Info](https://breakingbadinfo.netlify.app/) to see live version.
 
-![](.extras/screenshots/home-page.png?clear_cache=1)
+<img src=".extras/screenshots/home-page.png?clear_cache=2" alt="Space Prospection" width="350"/>
 
 Currently home page looks like this, but have in mind that this image might stay few commits behind.
 
