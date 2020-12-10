@@ -40,6 +40,14 @@ const gb = {
     loadMore: {
       loadMore: "Load More"
     },
+    details: {
+      portrayedBy: "Portrayed By",
+      nickname: "Nickname",
+      birthday: "Birthday",
+      lifeStatus: "Status",
+      occupation: "Occupation",
+      appearance: "Appearance"
+    },
     errors: {
       fetchingCharacters: "We're unable to display characters at this moment"
     }

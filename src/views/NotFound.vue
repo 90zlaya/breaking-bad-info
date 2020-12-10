@@ -1,5 +1,5 @@
 <template>
-  <div id="view-404">
+  <div id="view-not-found">
     <ThePreloader />
     <The404 />
   </div>
