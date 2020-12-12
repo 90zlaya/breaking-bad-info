@@ -48,6 +48,7 @@
       }
     },
     mounted() {
+      console.log('Character View Mounted');
       window.scrollTo(0, 0);
       /* global rotatingText */
       rotatingText();
@@ -57,7 +58,19 @@
       backToTopButton();
     },
     updated() {
-      window.scrollTo(0, 0);
+      console.log('Character View Updated');
+      // Scrolling page
+      if (this.canGoBack === true) {
+        console.log('Character scroll');
+        // Scroll to character details
+        document.getElementById('character-details').scrollIntoView({
+          behavior: 'smooth',
+          block: 'center',
+          inline: 'start'
+        });
+      } else {
+        window.scrollTo(0, 0);
+      }
       /* global preloaderHandler */
       preloaderHandler();
     }

@@ -1,5 +1,5 @@
 <template>
-  <div class="container character-details">
+  <div id="character-details" class="container character-details">
     <TheAlerter v-if="toShowAlerter"
       purpose="danger"
       :message="errorMessage"
@@ -53,12 +53,12 @@
             </tbody>
           </table>
         </div>
-        <div class="col-12 pt-4">
-          <router-link v-if="canGoBack"
-            :to="characterOnHomepage"
-            class="btn-solid-md text-uppercase w-100"
-          >{{ $t('navbar.goBack') }}</router-link>
-        </div>
+      </div>
+      <div class="col-12 pt-4 text-center">
+        <router-link v-if="canGoBack"
+          :to="characterOnHomepage"
+          class="btn-solid-md text-uppercase"
+        >{{ $t('navbar.goBack') }}</router-link>
       </div>
     </div>
   </div>
@@ -116,6 +116,16 @@
     },
     updated() {
       console.log('CharacterDetails Updated');
+      // Scrolling page
+      if (this.canGoBack === true) {
+        console.log('CharacterDetails scroll');
+        // Scroll to character details
+        document.getElementById('character-details').scrollIntoView({
+          behavior: 'smooth',
+          block: 'center',
+          inline: 'start'
+        });
+      }
     },
     methods: {
       getCharacterDetails() {

@@ -12,8 +12,7 @@
         </div>
       </div>
     </div>
-    <TheAlerter
-      v-if="toShowAlerter"
+    <TheAlerter v-if="toShowAlerter"
       purpose="danger"
       :message="errorMessage"
     />
@@ -27,8 +26,7 @@
         :characters="characters.grid"
         :is-able-to-load-more="toShow.loadMoreButton"
        />
-      <CharactersLoadMore
-        v-if="toShow.loadMoreButton"
+      <CharactersLoadMore v-if="toShow.loadMoreButton"
         @load-more-characters="loadMoreCharacters"
        />
     </template>

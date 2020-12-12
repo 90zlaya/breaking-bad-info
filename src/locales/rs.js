@@ -7,7 +7,7 @@ const rs = {
     synopsis: "Sinopsis",
     about: "O nama",
     languages: "Prevodi",
-    goBack: "Vrati me nazad",
+    goBack: "Vrati me nazad na pretragu karaktera",
     logoImage: "Logo slika",
     languageNames: {
       english: "Engleski",
@@ -40,6 +40,15 @@ const rs = {
     loadMore: {
       loadMore: "Učitaj još"
     },
+    details: {
+      characterName: "Ime karaktera",
+      portrayedBy: "Ime glumca",
+      nickname: "Nadimak",
+      birthday: "Rođendan",
+      lifeStatus: "Status",
+      occupation: "Zanimanje",
+      appearance: "Sezone"
+    },
     errors: {
       fetchingCharacters: "Nismo u mogućnosti da prikažemo karaktere u ovom trenutku"
     }
@@ -54,7 +63,6 @@ const rs = {
   video: {
     synopsis: "Sinopsis",
     seriesSynopsis: "Breaking Bad je priča o Volteru Vajtu, skromnom profesoru hemije kome je dijagnostifikovan maligni rak pluća. On se odaje kriminalu, proizvodeći i prodavajući metamfetamin sa bivišim učenikom Džesijem Pinkmenom u cilju obezbeđenja finansijske budućnosti njegove porodice nakon smrti."
-
   },
   footer: {
     about: {

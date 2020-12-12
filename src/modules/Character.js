@@ -16,13 +16,13 @@ class Character {
       appearance
     } = characterItem;
 
-    this.char_id = char_id;
-    this.name = name;
-    this.portrayed = portrayed;
-    this.img = img;
+    this.char_id = char_id || 0;
+    this.name = name || '/';
+    this.portrayed = portrayed || '/';
+    this.img = img || '';
     this.birthday = birthday === 'Unknown' ? birthday : Helper.formatters.formatDate(birthday);
-    this.nickname = nickname;
-    this.life_status = status;
+    this.nickname = nickname || '/';
+    this.life_status = status || '/';
     this.occupation = Helper.converters.convertArrayToString(occupation);
     this.appearance = Helper.converters.convertArrayToString(appearance);
   }
