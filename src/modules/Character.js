@@ -10,8 +10,7 @@ class Character {
       birthday = '/',
       nickname = '/',
       status = '/',
-      occupation = [],
-      appearance = []
+      occupation = []
     } = characterItem;
 
     this.char_id = char_id;
@@ -22,7 +21,6 @@ class Character {
     this.nickname = nickname;
     this.life_status = status;
     this.occupation = occupation.length > 0 ? occupation.join(', ').toString() : '/';
-    this.appearance = appearance;
   }
 }
 

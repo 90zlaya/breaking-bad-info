@@ -14,14 +14,12 @@
       <template v-for="(character, index) in characters">
         <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12" :key="index">
 					<div v-lazy-container="lazyLoadContainer" class="grid-item">
-            <img
+            <img class="img-thumbnail" loading="lazy"
               :data-src="character.img"
               :alt="$t('characters.grid.imageOfCharacterName', {
                 characterName: character.name
               })"
               :id="character.page_name"
-              class="img-thumbnail"
-              loading="lazy"
             />
             <div class="grid-overlay">
               <p class="grid-hover-text">{{ character.name }}</p>

@@ -7,7 +7,7 @@ const gb = {
     synopsis: "Synopsis",
     about: "About",
     languages: "Languages",
-    goBack: "Go Back",
+    goBack: "Back to the characters search",
     logoImage: "Logo image",
     languageNames: {
       english: "English",

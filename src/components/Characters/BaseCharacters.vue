@@ -111,6 +111,7 @@
         }
 
         // Scroll to newly loaded characters
+        console.log('BaseCharacters.vue scrollIntoView for element', data.ids.loadMoreCharacters);
         document.getElementById(data.ids.loadMoreCharacters).scrollIntoView({
           behavior: 'smooth',
           block: 'center',
