@@ -1,26 +1,30 @@
+import Helper from './../libraries/Helper.js';
+
 class Character {
   constructor(characterItem) {
     this.characterItemRaw = characterItem;
 
     const {
-      char_id = 0,
-      name = '/',
-      portrayed = '/',
-      img = '',
-      birthday = '/',
-      nickname = '/',
-      status = '/',
-      occupation = []
+      char_id,
+      name,
+      portrayed,
+      img,
+      birthday,
+      nickname,
+      status,
+      occupation,
+      appearance
     } = characterItem;
 
     this.char_id = char_id;
     this.name = name;
     this.portrayed = portrayed;
     this.img = img;
-    this.birthday = birthday;
+    this.birthday = birthday === 'Unknown' ? birthday : Helper.formatters.formatDate(birthday);
     this.nickname = nickname;
     this.life_status = status;
-    this.occupation = occupation.length > 0 ? occupation.join(', ').toString() : '/';
+    this.occupation = Helper.converters.convertArrayToString(occupation);
+    this.appearance = Helper.converters.convertArrayToString(appearance);
   }
 }
 

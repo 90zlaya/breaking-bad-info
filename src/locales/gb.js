@@ -41,12 +41,13 @@ const gb = {
       loadMore: "Load More"
     },
     details: {
+      characterName: "Character Name",
       portrayedBy: "Portrayed By",
       nickname: "Nickname",
       birthday: "Birthday",
       lifeStatus: "Status",
       occupation: "Occupation",
-      appearance: "Appearance"
+      appearance: "Seasons"
     },
     errors: {
       fetchingCharacters: "We're unable to display characters at this moment"

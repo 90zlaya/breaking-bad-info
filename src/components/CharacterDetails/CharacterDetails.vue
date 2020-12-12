@@ -23,6 +23,10 @@
           <table class="table">
             <tbody>
               <tr>
+                <th scope="row">{{ $t('characters.details.characterName') }}</th>
+                <td>{{ characterDetails.name }}</td>
+              </tr>
+              <tr>
                 <th scope="row">{{ $t('characters.details.portrayedBy') }}</th>
                 <td>{{ characterDetails.portrayed }}</td>
               </tr>
@@ -41,6 +45,10 @@
               <tr>
                 <th scope="row">{{ $t('characters.details.lifeStatus') }}</th>
                 <td>{{ characterDetails.life_status }}</td>
+              </tr>
+              <tr>
+                <th scope="row">{{ $t('characters.details.appearance') }}</th>
+                <td>{{ characterDetails.appearance }}</td>
               </tr>
             </tbody>
           </table>

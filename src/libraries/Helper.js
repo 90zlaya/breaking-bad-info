@@ -53,5 +53,24 @@ export default {
       } = data.config.images;
       return root + loader.blur;
     }
+  },
+  formatters: {
+    formatDate(date) {
+      if (date) {
+        const cdate = new Date(date);
+        return cdate.toLocaleDateString(['en-gb'], {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric'
+        });
+      }
+      return false;
+    }
+  },
+  converters: {
+    convertArrayToString(array) {
+      return (array && array.length > 0)
+        ? array.join(', ').toString() : '/';
+    }
   }
 };
