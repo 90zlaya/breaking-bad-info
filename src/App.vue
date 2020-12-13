@@ -1,20 +1,27 @@
 <template>
   <div id="app">
     <keep-alive>
-      <router-view />
+      <router-view v-if="isHomeRoute" />
     </keep-alive>
+    <router-view v-if="!isHomeRoute" />
   </div>
 </template>
 
 <script>
+  import data from './mixins/data.js';
+
   export default {
     name: 'App',
+    computed: {
+      isHomeRoute() {
+        return this.$route.name === data.routerRoutes.home.name;
+      }
+    },
     updated() {
-      // Scroll to element
+      // Scroll to the character on homepage
       if (this.$route.hash) {
         const element = document.getElementById(this.$route.hash.replace('#', ''));
         if (element) {
-          console.log('App.vue scrollIntoView for element', this.$route.hash);
           element.scrollIntoView({
             block: 'center',
             inline: 'nearest'

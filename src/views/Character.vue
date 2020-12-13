@@ -1,8 +1,6 @@
 <template>
   <div id="view-character">
-    <template v-if="isVisitedDirectly">
-      <ThePreloader />
-    </template>
+    <ThePreloader v-if="!canGoBack" />
     <TheNavbar :is-on-homepage="false" />
     <TheHeader />
     <CharacterDetails
@@ -42,37 +40,10 @@
         required: true
       }
     },
-    computed: {
-      isVisitedDirectly() {
-        return !this.canGoBack;
-      }
-    },
     mounted() {
-      console.log('Character View Mounted');
       window.scrollTo(0, 0);
-      /* global rotatingText */
-      rotatingText();
       /* global closeResponsiveMenu */
       closeResponsiveMenu();
-      /* global backToTopButton */
-      backToTopButton();
-    },
-    updated() {
-      console.log('Character View Updated');
-      // Scrolling page
-      if (this.canGoBack === true) {
-        console.log('Character scroll');
-        // Scroll to character details
-        document.getElementById('character-details').scrollIntoView({
-          behavior: 'smooth',
-          block: 'center',
-          inline: 'start'
-        });
-      } else {
-        window.scrollTo(0, 0);
-      }
-      /* global preloaderHandler */
-      preloaderHandler();
     }
   };
 </script>

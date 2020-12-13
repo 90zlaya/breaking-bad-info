@@ -111,14 +111,14 @@
       };
     },
     mounted() {
-      console.log('CharacterDetails Mounted');
       this.getCharacterDetails();
     },
     updated() {
-      console.log('CharacterDetails Updated');
-      // Scrolling page
+      /* global rotatingText */
+      rotatingText();
+      
+      // Scrolling page to the character details
       if (this.canGoBack === true) {
-        console.log('CharacterDetails scroll');
         // Scroll to character details
         document.getElementById('character-details').scrollIntoView({
           behavior: 'smooth',
@@ -167,7 +167,8 @@
 
 <style scoped>
   th {
-    min-width: 9rem;
+    min-width: 8rem;
+    padding-left: 0;
   }
 
   .table {
