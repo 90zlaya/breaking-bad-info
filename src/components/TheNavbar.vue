@@ -47,7 +47,7 @@
               </div>
             </template>
             <a v-else
-              :href="navigationLink(navigation.href)"
+              :href="navigation.href"
               class="nav-link page-scroll text-uppercase"
             >{{ navigation.title }}</a>
           </li>
@@ -128,9 +128,6 @@
       },
       isActiveLanguage(languageCode) {
         return languageCode !== this.$i18n.locale;
-      },
-      navigationLink(href) {
-        return this.isOnHomepage ? href : `/${ href }`;
       }
     }
   };

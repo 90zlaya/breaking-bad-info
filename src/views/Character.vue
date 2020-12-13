@@ -7,6 +7,7 @@
       :can-go-back="canGoBack"
       :page-name="pageName"
     />
+    <TheSynopsis />
     <TheFooter />
     <TheCopyright />
   </div>
@@ -17,6 +18,7 @@
   import TheNavbar from './../components/TheNavbar.vue';
   import TheHeader from './../components/TheHeader.vue';
   import CharacterDetails from './../components/CharacterDetails/CharacterDetails.vue';
+  import TheSynopsis from './../components/TheSynopsis.vue';
   import TheFooter from './../components/TheFooter.vue';
   import TheCopyright from './../components/TheCopyright.vue';
 
@@ -27,6 +29,7 @@
       TheNavbar,
       TheHeader,
       CharacterDetails,
+      TheSynopsis,
       TheFooter,
       TheCopyright
     },
@@ -44,6 +47,8 @@
       window.scrollTo(0, 0);
       /* global closeResponsiveMenu */
       closeResponsiveMenu();
+      /* global magnificPopup */
+      magnificPopup();
     }
   };
 </script>

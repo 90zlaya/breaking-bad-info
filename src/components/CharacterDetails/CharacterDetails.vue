@@ -9,7 +9,7 @@
       <div class="col-12 pt-3 pb-5">
         <h1 class="text-center">{{ characterDetails.name }}</h1>
       </div>
-      <div class="col-lg-3 col-md-6 col-sm-12 pt-3 pb-3">
+      <div class="col-lg-4 col-md-6 col-sm-12 pt-3 pb-3">
         <img class="img-thumbnail"
           :src="characterDetails.img"
           :alt="$t('characters.grid.imageOfCharacterName', {
@@ -18,7 +18,7 @@
           :id="characterDetails.page_name"
         />
       </div>
-      <div class="col-lg-9 col-md-6 col-sm-12 pt-3 pb-3">
+      <div class="col-lg-8 col-md-6 col-sm-12 pt-3 pb-3">
         <div class="col-12">
           <table class="table">
             <tbody>
@@ -53,12 +53,12 @@
             </tbody>
           </table>
         </div>
-      </div>
-      <div class="col-12 pt-4 text-center">
-        <router-link v-if="canGoBack"
-          :to="characterOnHomepage"
-          class="btn-solid-md text-uppercase"
-        >{{ $t('navbar.goBack') }}</router-link>
+        <div class="col-12 pt-4 pb-5 text-center">
+          <router-link v-if="canGoBack"
+            :to="characterOnHomepage"
+            class="btn-solid-md text-uppercase"
+          >{{ $t('navbar.goBack') }}</router-link>
+        </div>
       </div>
     </div>
   </div>
@@ -181,12 +181,11 @@
 
   .character-details {
     padding-top: 5rem;
-    padding-bottom: 2.5rem;
+    padding-bottom: 5rem;
     background-color: #262431;
   }
 
   .img-thumbnail {
-    max-height: 20rem;
     margin: 0 auto;
     display: inherit;
   }

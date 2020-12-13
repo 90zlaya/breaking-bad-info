@@ -59,36 +59,7 @@
     rotatingText();
 
     // Video - Magnific Popup
-    $('.popup-youtube, .popup-vimeo').magnificPopup({
-        disableOn: 700,
-        type: 'iframe',
-        mainClass: 'mfp-fade',
-        removalDelay: 160,
-        preloader: false,
-        fixedContentPos: false,
-        iframe: {
-            patterns: {
-                youtube: {
-                    index: 'youtube.com/',
-                    id: function(url) {
-                        var m = url.match(/[\\?\\&]v=([^\\?\\&]+)/);
-                        if ( !m || !m[1] ) return null;
-                        return m[1];
-                    },
-                    src: 'https://www.youtube.com/embed/%id%?autoplay=1&hd=1'
-                },
-                vimeo: {
-                    index: 'vimeo.com/',
-                    id: function(url) {
-                        var m = url.match(/(https?:\/\/)?(www.)?(player.)?vimeo.com\/([a-z]*\/)*([0-9]{6,11})[?]?.*/);
-                        if ( !m || !m[5] ) return null;
-                        return m[5];
-                    },
-                    src: 'https://player.vimeo.com/video/%id%?autoplay=1'
-                }
-            }
-        }
-    });
+    magnificPopup();
 
     // Card slider
     if ($(".card-slider > .swiper-wrapper > div").length > 0) {
@@ -132,7 +103,15 @@
     });
 
     // Create the back to top button
-    backToTopButton();
+    $('body').prepend('<a href="body" class="back-to-top page-scroll">Back to Top</a>');
+    var amountScrolled = 700;
+    $(window).scroll(function() {
+      if ($(window).scrollTop() > amountScrolled) {
+        $('a.back-to-top').fadeIn('500');
+      } else {
+        $('a.back-to-top').fadeOut('500');
+      }
+    });
 
   	// Removes Long Focus On Buttons
   	$(".button, a, button").mouseup(function() {
@@ -203,15 +182,35 @@ var closeResponsiveMenu = function() {
   });
 }
 
-// Create the back to top button
-var backToTopButton = function() {
-  $('body').prepend('<a href="body" class="back-to-top page-scroll">Back to Top</a>');
-  var amountScrolled = 700;
-  $(window).scroll(function() {
-    if ($(window).scrollTop() > amountScrolled) {
-      $('a.back-to-top').fadeIn('500');
-    } else {
-      $('a.back-to-top').fadeOut('500');
+var magnificPopup = function() {
+  $('.popup-youtube, .popup-vimeo').magnificPopup({
+    disableOn: 700,
+    type: 'iframe',
+    mainClass: 'mfp-fade',
+    removalDelay: 160,
+    preloader: false,
+    fixedContentPos: false,
+    iframe: {
+      patterns: {
+        youtube: {
+          index: 'youtube.com/',
+          id: function(url) {
+            var m = url.match(/[\\?\\&]v=([^\\?\\&]+)/);
+            if ( !m || !m[1] ) return null;
+            return m[1];
+          },
+          src: 'https://www.youtube.com/embed/%id%?autoplay=1&hd=1'
+        },
+        vimeo: {
+          index: 'vimeo.com/',
+          id: function(url) {
+            var m = url.match(/(https?:\/\/)?(www.)?(player.)?vimeo.com\/([a-z]*\/)*([0-9]{6,11})[?]?.*/);
+            if ( !m || !m[5] ) return null;
+            return m[5];
+          },
+          src: 'https://player.vimeo.com/video/%id%?autoplay=1'
+        }
+      }
     }
   });
 }
