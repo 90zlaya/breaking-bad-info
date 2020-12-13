@@ -7,7 +7,7 @@ const rs = {
     synopsis: "Sinopsis",
     about: "O nama",
     languages: "Prevodi",
-    goBack: "Vrati me nazad na pretragu karaktera",
+    goBack: "Vrati me na pretragu",
     logoImage: "Logo slika",
     languageNames: {
       english: "Engleski",
