@@ -72,10 +72,18 @@
       };
     },
     created() {
+      let toUseLocalStorage = false;
+      let localCharacterItems = {};
       const localCharacters = LocalStorage.getCharacters();
-
       if (localCharacters) {
-        this.characters.all = JSON.parse(localCharacters);
+        const { timestamp, items } = JSON.parse(localCharacters);
+        toUseLocalStorage = (Helper.formatters.currentTimestamp() - timestamp)
+          < data.config.api.cacheResponseSeconds;
+        localCharacterItems = items;
+      }
+
+      if (toUseLocalStorage) {
+        this.characters.all = localCharacterItems;
         this.featuredCharacters();
         this.toShow.loader = false;
       } else {
@@ -83,7 +91,10 @@
           this.characters.all = Helper.characters.addPageNameItem(remoteCharacters);
           this.featuredCharacters();
           this.toShow.loader = false;
-          LocalStorage.setCharacters(remoteCharacters);
+          LocalStorage.setCharacters({
+            timestamp: Helper.formatters.currentTimestamp(),
+            items: remoteCharacters
+          });
         }).catch((error) => {
           console.error('Fetching characters failed', error);
           this.errorMessage = this.$t('characters.errors.fetchingCharacters');

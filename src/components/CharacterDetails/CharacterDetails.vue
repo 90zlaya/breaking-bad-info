@@ -129,17 +129,28 @@
     },
     methods: {
       getCharacterDetails() {
+        let toUseLocalStorage = false;
+        let localCharacterItems = {};
         const localCharacters = LocalStorage.getCharacters();
-
         if (localCharacters) {
-          const characters = JSON.parse(localCharacters);
+          const { timestamp, items } = JSON.parse(localCharacters);
+          toUseLocalStorage = (Helper.formatters.currentTimestamp() - timestamp)
+            < data.config.api.cacheResponseSeconds;
+          localCharacterItems = items;
+        }
+
+        if (toUseLocalStorage) {
+          const characters = localCharacterItems;
           const characterDetails = characters.find((character) => {
             return character.page_name === this.pageName;
           });
           this.characterDetails = characterDetails;
         } else {
           BreakingBadAPI.getAllCharacters().then((remoteCharacters) => {
-            LocalStorage.setCharacters(Helper.characters.addPageNameItem(remoteCharacters));
+            LocalStorage.setCharacters({
+              timestamp: Helper.formatters.currentTimestamp(),
+              items: Helper.characters.addPageNameItem(remoteCharacters)
+            });
             const featuredCharacter = remoteCharacters.find((character) => {
               return character.char_id === Helper.characters.idFromPageName(this.pageName);
             });

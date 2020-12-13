@@ -53,7 +53,7 @@
   import data from './../mixins/data.js'
 
   import LocalStorage from './../libraries/LocalStorage.js';
-  import BreakingBadApi from './../libraries/BreakingBadAPI.js';
+  import BreakingBadAPI from './../libraries/BreakingBadAPI.js';
   import Helper from './../libraries/Helper.js';
 
   import TheLoader from './TheLoader.vue';
@@ -79,15 +79,26 @@
       };
     },
     created() {
+      let toUseLocalStorage = false;
+      let localQuoteItems = {};
       const localQuotes = LocalStorage.getQuotes();
-
       if (localQuotes) {
-        this.slides = this.createSlides(JSON.parse(localQuotes));
+        const { timestamp, items } = JSON.parse(localQuotes);
+        toUseLocalStorage = (Helper.formatters.currentTimestamp() - timestamp)
+          < data.config.api.cacheResponseSeconds;
+        localQuoteItems = items;
+      }
+
+      if (toUseLocalStorage) {
+        this.slides = this.createSlides(localQuoteItems);
         this.showLoader = false;
       } else {
-        BreakingBadApi.getAllQuotes().then((remoteQuotes) => {
+        BreakingBadAPI.getAllQuotes().then((remoteQuotes) => {
           this.slides = this.createSlides(remoteQuotes);
-          LocalStorage.setQuotes(remoteQuotes);
+          LocalStorage.setQuotes({
+            timestamp: Helper.formatters.currentTimestamp(),
+            items: remoteQuotes
+          });
           this.showLoader = false;
         }).catch((error) => {
           console.error('Fetching quotes failed', error);

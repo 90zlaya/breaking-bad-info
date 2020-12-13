@@ -65,6 +65,9 @@ export default {
         });
       }
       return false;
+    },
+    currentTimestamp() {
+      return Math.round(new Date().getTime() / 1000);
     }
   },
   converters: {

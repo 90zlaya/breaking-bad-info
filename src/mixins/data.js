@@ -18,6 +18,9 @@ export default {
     },
     locales: {
       default: 'gb'
+    },
+    api: {
+      cacheResponseSeconds: 900
     }
   },
   routerRoutes: {

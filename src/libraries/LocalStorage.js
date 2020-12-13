@@ -1,8 +1,8 @@
 export default {
   map: {
-    quotes: "BreakingBadInfoApp:Quotes",
-    characters: "BreakingBadInfoApp:Characters",
-    activeLanguage: "BreakingBadInfoApp:ActiveLanguage"
+    quotes: 'BreakingBadInfoApp:Quotes',
+    characters: 'BreakingBadInfoApp:Characters',
+    activeLanguage: 'BreakingBadInfoApp:ActiveLanguage'
   },
   getQuotes() {
     return localStorage.getItem(this.map.quotes);
