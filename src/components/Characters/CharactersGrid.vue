@@ -114,7 +114,6 @@
     width: 100%;
     height: 390px;
     object-fit: cover;
-    object-position: 0 0;
     color: #495057;
     text-align: center;
   }

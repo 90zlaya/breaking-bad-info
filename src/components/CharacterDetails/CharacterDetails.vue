@@ -9,52 +9,47 @@
       <div class="col-12 pt-3 pb-5">
         <h1 class="text-center">{{ characterDetails.name }}</h1>
       </div>
-      <div class="col-lg-4 col-md-6 col-sm-12 pt-3 pb-3">
-        <div class="col-12 character-image">
-          <img class="img-thumbnail"
-            :src="characterDetails.img"
-            :alt="$t('characters.grid.imageOfCharacterName', {
-              characterName: characterDetails.name
-            })"
-            :id="characterDetails.page_name"
-          />
-        </div>
+      <div class="col-lg-4 col-md-6 col-sm-12 pt-3 pb-3 character-image">
+        <img v-if="toShowCharacterDetails" class="img-thumbnail"
+          :alt="$t('characters.grid.imageOfCharacterName', {
+            characterName: characterDetails.name
+          })"
+          v-lazy="characterDetails.img"
+        />
       </div>
       <div class="col-lg-8 col-md-6 col-sm-12 pt-3 pb-3">
-        <div class="col-12">
-          <table class="table">
-            <tbody>
-              <tr>
-                <th scope="row">{{ $t('characters.details.characterName') }}</th>
-                <td>{{ characterDetails.name }}</td>
-              </tr>
-              <tr>
-                <th scope="row">{{ $t('characters.details.portrayedBy') }}</th>
-                <td>{{ characterDetails.portrayed }}</td>
-              </tr>
-              <tr>
-                <th scope="row">{{ $t('characters.details.nickname') }}</th>
-                <td>{{ characterDetails.nickname }}</td>
-              </tr>
-              <tr>
-                <th scope="row">{{ $t('characters.details.birthday') }}</th>
-                <td>{{ characterDetails.birthday }}</td>
-              </tr>
-              <tr>
-                <th scope="row">{{ $t('characters.details.occupation') }}</th>
-                <td>{{ characterDetails.occupation }}</td>
-              </tr>
-              <tr>
-                <th scope="row">{{ $t('characters.details.lifeStatus') }}</th>
-                <td>{{ characterDetails.life_status }}</td>
-              </tr>
-              <tr>
-                <th scope="row">{{ $t('characters.details.appearance') }}</th>
-                <td>{{ characterDetails.appearance }}</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+        <table class="col-12 table">
+          <tbody>
+            <tr>
+              <th scope="row">{{ $t('characters.details.characterName') }}</th>
+              <td>{{ characterDetails.name }}</td>
+            </tr>
+            <tr>
+              <th scope="row">{{ $t('characters.details.portrayedBy') }}</th>
+              <td>{{ characterDetails.portrayed }}</td>
+            </tr>
+            <tr>
+              <th scope="row">{{ $t('characters.details.nickname') }}</th>
+              <td>{{ characterDetails.nickname }}</td>
+            </tr>
+            <tr>
+              <th scope="row">{{ $t('characters.details.birthday') }}</th>
+              <td>{{ characterDetails.birthday }}</td>
+            </tr>
+            <tr>
+              <th scope="row">{{ $t('characters.details.occupation') }}</th>
+              <td>{{ characterDetails.occupation }}</td>
+            </tr>
+            <tr>
+              <th scope="row">{{ $t('characters.details.lifeStatus') }}</th>
+              <td>{{ characterDetails.life_status }}</td>
+            </tr>
+            <tr>
+              <th scope="row">{{ $t('characters.details.appearance') }}</th>
+              <td>{{ characterDetails.appearance }}</td>
+            </tr>
+          </tbody>
+        </table>
         <div class="col-12 text-center">
           <router-link v-if="canGoBack"
             :to="characterOnHomepage"
@@ -99,6 +94,9 @@
       },
       toShowAlerter() {
         return this.errorMessage.length > 0;
+      },
+      toShowCharacterDetails() {
+        return Object.keys(this.characterDetails).length > 0;
       }
     },
     watch: {
@@ -191,7 +189,6 @@
     width: 100%;
     height: 390px;
     object-fit: cover;
-    object-position: 0 0;
     color: #495057;
     text-align: center;
   }
