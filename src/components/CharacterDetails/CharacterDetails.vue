@@ -10,13 +10,15 @@
         <h1 class="text-center">{{ characterDetails.name }}</h1>
       </div>
       <div class="col-lg-4 col-md-6 col-sm-12 pt-3 pb-3">
-        <img class="img-thumbnail"
-          :src="characterDetails.img"
-          :alt="$t('characters.grid.imageOfCharacterName', {
-            characterName: characterDetails.name
-          })"
-          :id="characterDetails.page_name"
-        />
+        <div class="col-12 character-image">
+          <img class="img-thumbnail"
+            :src="characterDetails.img"
+            :alt="$t('characters.grid.imageOfCharacterName', {
+              characterName: characterDetails.name
+            })"
+            :id="characterDetails.page_name"
+          />
+        </div>
       </div>
       <div class="col-lg-8 col-md-6 col-sm-12 pt-3 pb-3">
         <div class="col-12">
@@ -53,7 +55,7 @@
             </tbody>
           </table>
         </div>
-        <div class="col-12 pt-4 pb-5 text-center">
+        <div class="col-12 text-center">
           <router-link v-if="canGoBack"
             :to="characterOnHomepage"
             class="btn-solid-md text-uppercase"
@@ -122,7 +124,7 @@
         // Scroll to character details
         document.getElementById('character-details').scrollIntoView({
           behavior: 'smooth',
-          block: 'center',
+          block: 'start',
           inline: 'start'
         });
       }
@@ -185,18 +187,28 @@
     background-color: #262431;
   }
 
-  .img-thumbnail {
-    margin: 0 auto;
-    display: inherit;
+  .character-image img {
+    width: 100%;
+    height: 390px;
+    object-fit: cover;
+    object-position: 0 0;
+    color: #495057;
+    text-align: center;
+  }
+
+  .character-image {
+    text-align: center;
+    position: relative;
+    margin-bottom: 1rem;
   }
 
   @media (max-width: 767px) {
-    .character-details {
-      padding-bottom: unset;
-    }
-
-    .img-thumbnail {
-      max-height: unset;
+    .character-image img {
+      width: 100%;
+      height: 490px;
+      object-fit: cover;
+      color: #495057;
+      text-align: center;
     }
   }
 </style>
