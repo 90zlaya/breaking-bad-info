@@ -6,10 +6,10 @@
       class="p-1"
     />
     <div v-else class="row">
-      <div class="col-12 pt-3 pb-5">
+      <div class="col-12 pb-3">
         <h1 class="text-center">{{ characterDetails.name }}</h1>
       </div>
-      <div class="col-lg-4 col-md-6 col-sm-12 pt-3 pb-3 character-image">
+      <div class="col-lg-4 col-md-6 col-sm-12 character-image">
         <img v-if="toShowCharacterDetails" class="img-thumbnail"
           :alt="$t('characters.grid.imageOfCharacterName', {
             characterName: characterDetails.name
@@ -17,7 +17,7 @@
           v-lazy="characterDetails.img"
         />
       </div>
-      <div class="col-lg-8 col-md-6 col-sm-12 pt-3 pb-3">
+      <div class="col-lg-8 col-md-6 col-sm-12">
         <table class="col-12 table">
           <tbody>
             <tr>
