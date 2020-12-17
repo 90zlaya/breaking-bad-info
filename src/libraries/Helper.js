@@ -58,7 +58,7 @@ export default {
     formatDate(date) {
       if (date) {
         const myDate = date.split('-');
-        var cdate = new Date(myDate[2], myDate[0] - 1, myDate[1]);
+        const cdate = new Date(Date.UTC(myDate[2], myDate[0]-1, myDate[1], 0, 0, 0));
         return cdate.toLocaleDateString(['en-gb'], {
           year: 'numeric',
           month: 'long',
