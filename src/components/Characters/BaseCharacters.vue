@@ -24,6 +24,7 @@
       <CharactersGrid
         :show-loader="toShow.loader"
         :characters="characters.grid"
+        :search-term="characters.searchTerm"
         :is-able-to-load-more="toShow.loadMoreButton"
        />
       <CharactersLoadMore v-if="toShow.loadMoreButton"
@@ -62,7 +63,8 @@
       return {
         characters: {
           all: [],
-          grid: []
+          grid: [],
+          searchTerm: ''
         },
         toShow: {
           loader: true,
@@ -127,6 +129,7 @@
         });
       },
       showSearchResults(searchTerm) {
+        this.characters.searchTerm = searchTerm;
         this.toShow.loadMoreButton = false;
         this.characters.grid = this.characters.all.filter((character) => {
           return character.name.toLowerCase().includes(searchTerm.toLowerCase());

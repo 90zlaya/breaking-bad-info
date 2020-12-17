@@ -175,6 +175,11 @@
     color: #fff;
   }
 
+  .table > tbody > tr:first-child > th,
+  .table > tbody > tr:first-child > td {
+    border: none;
+  }
+
   .btn-solid-md {
     position: initial;
   }
@@ -187,7 +192,7 @@
 
   .character-image img {
     width: 100%;
-    height: 390px;
+    height: 32rem;
     object-fit: cover;
     color: #495057;
     text-align: center;
@@ -202,7 +207,7 @@
   @media (max-width: 767px) {
     .character-image img {
       width: 100%;
-      height: 490px;
+      height: 32rem;
       object-fit: cover;
       color: #495057;
       text-align: center;

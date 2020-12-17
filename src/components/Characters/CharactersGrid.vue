@@ -56,6 +56,10 @@
         type: Array,
         required: true
       },
+      searchTerm: {
+        type: String,
+        required: true
+      },
       isAbleToLoadMore: {
         type: Boolean,
         required: true
@@ -74,7 +78,9 @@
         
         // Recommending character names to help with search terms
         const { numberOfCharacters } = data.config.characters;
-        if (!this.isAbleToLoadMore && this.characters.length > numberOfCharacters) {
+        const maxDisplayableCharacters = (numberOfCharacters * 2);
+        if (this.searchTerm !== '' && !this.isAbleToLoadMore &&
+          this.characters.length > maxDisplayableCharacters) {
           const characterNames = this.characters.map((character) => {
             return character.name;
           });
@@ -112,7 +118,7 @@
 
   .grid .grid-item img {
     width: 100%;
-    height: 390px;
+    height: 32rem;
     object-fit: cover;
     color: #495057;
     text-align: center;
@@ -151,7 +157,7 @@
   @media (max-width: 767px) {
     .grid .grid-item img {
       width: 100%;
-      height: 490px;
+      height: 32rem;
       object-fit: cover;
       color: #495057;
       text-align: center;

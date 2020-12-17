@@ -1,7 +1,7 @@
 [![Generic badge](https://img.shields.io/badge/version-2.0.0-<COLOR>.svg)](https://shields.io/) [![Netlify Status](https://api.netlify.com/api/v1/badges/c52aaa3e-b67c-4588-abc4-1966e1b26e76/deploy-status)](https://app.netlify.com/sites/breakingbadinfo/deploys)
 
 # Breaking Bad Info
-> Simple Vue.js app with [Breaking Bad](https://www.imdb.com/title/tt0903747/) info
+> Simple Vue.js app with [Breaking Bad] info
 
 ## Table of Contents
 
@@ -13,7 +13,7 @@
 
 1. ### Description
 
-Idea is to create simple Vue.js project to demonstrate development skills in this awesome JS framework.
+Idea is to create simple Vue.js project to demonstrate development skills in this awesome JS framework. Subject for this project is one of the greatest TV Shows ever, [Breaking Bad]. Fueling app with [The Breaking Bad API](https://breakingbadapi.com/) content. 
 
 [⬆ back to top](#table-of-contents)
 
@@ -46,3 +46,5 @@ npm run lint
 After installing dependencies and running app, visit [localhost:8080](http://localhost:8080) to enjoy app functionality. For detailed explanation on how things work, consult [configuration reference](https://cli.vuejs.org/config/)
 
 [⬆ back to top](#table-of-contents)
+
+[Breaking Bad]: https://www.imdb.com/title/tt0903747/
