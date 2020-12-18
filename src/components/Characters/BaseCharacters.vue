@@ -132,7 +132,9 @@
         this.characters.searchTerm = searchTerm;
         this.toShow.loadMoreButton = false;
         this.characters.grid = this.characters.all.filter((character) => {
-          return character.name.toLowerCase().includes(searchTerm.toLowerCase());
+          return character.name.toLowerCase().split(' ').find((name) => {
+            return name.startsWith(searchTerm.toLowerCase());
+          });
         });
       }
     }
