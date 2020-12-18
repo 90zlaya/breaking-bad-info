@@ -32,9 +32,9 @@ export default {
       path: '/:pageName',
       name: 'character'
     },
-    notFound: {
+    pageNotFound: {
       path: '/404',
-      name: 'not-found'
+      name: 'page-not-found'
     }
   },
   urls: {

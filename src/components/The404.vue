@@ -9,19 +9,19 @@
         </p>
       </div>
       <div class="col-12 text">
-        <p class="text-uppercase">{{ $t('notFound.pageNotFound') }}</p>
+        <p class="text-uppercase">{{ $t('pageNotFound.pageNotFound') }}</p>
       </div>
       <div class="col-12 back-to-home">
         <a
           @click="backToHome"
           class="btn-solid-lg text-black text-uppercase"
-        >{{ $t('notFound.backToHome') }}</a>
+        >{{ $t('pageNotFound.backToHome') }}</a>
       </div>
       <div class="col-12 reaction">
         <img
           src="/images/jesse-reaction.gif"
           class="rounded-circle"
-          :alt="$t('notFound.jesseReactionGif')"
+          :alt="$t('pageNotFound.jesseReactionGif')"
         />
       </div>
     </div>

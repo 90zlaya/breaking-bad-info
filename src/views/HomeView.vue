@@ -1,5 +1,5 @@
 <template>
-  <div id="view-home">
+  <div id="home-view">
     <ThePreloader />
     <TheNavbar />
     <TheHeader />
@@ -24,7 +24,7 @@
   import TheCopyright from './../components/TheCopyright.vue';
 
   export default {
-    name: 'Home',
+    name: 'HomeView',
     components: {
       ThePreloader,
       TheNavbar,

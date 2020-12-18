@@ -1,5 +1,5 @@
 <template>
-  <div id="view-character">
+  <div id="character-view">
     <ThePreloader v-if="!canGoBack" />
     <TheNavbar :is-on-homepage="false" />
     <TheHeader />
@@ -23,7 +23,7 @@
   import TheCopyright from './../components/TheCopyright.vue';
 
   export default {
-    name: 'Character',
+    name: 'CharacterView',
     components: {
       ThePreloader,
       TheNavbar,

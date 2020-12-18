@@ -1,5 +1,5 @@
 <template>
-  <div id="view-not-found">
+  <div id="page-not-found-view">
     <ThePreloader />
     <The404 />
   </div>
@@ -10,7 +10,7 @@
   import The404 from './../components/The404.vue';
 
   export default {
-    name: 'NotFound',
+    name: 'PageNotFoundView',
     components: {
       ThePreloader,
       The404

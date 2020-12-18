@@ -118,7 +118,7 @@
 
   .grid .grid-item img {
     width: 100%;
-    height: 32rem;
+    height: 24rem;
     object-fit: cover;
     color: #495057;
     text-align: center;
@@ -157,7 +157,7 @@
   @media (max-width: 767px) {
     .grid .grid-item img {
       width: 100%;
-      height: 32rem;
+      height: 28rem;
       object-fit: cover;
       color: #495057;
       text-align: center;

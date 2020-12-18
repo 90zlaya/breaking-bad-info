@@ -5,7 +5,7 @@ const API_URL = 'https://www.breakingbadapi.com/api';
 
 export default {
   async getAllQuotes() {
-    const response = await fetch(`${ API_URL }/quotes`);
+    const response = await fetch(`${ API_URL }/quotes?series=Breaking+Bad`);
     const allQuotes = await response.json();
     const { quotes } = new Quotes(allQuotes);
     return quotes;
