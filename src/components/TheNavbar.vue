@@ -1,9 +1,6 @@
 <template>
   <nav class="navbar navbar-expand-md navbar-dark navbar-custom fixed-top">
-    <a
-      class="navbar-brand logo-image"
-      href="/"
-    >
+    <a class="navbar-brand logo-image" href="/">
       <img src="/images/logo.png" :alt="$t('navbar.logoImage')" />
     </a>
     <button
@@ -117,6 +114,10 @@
           {
             name: this.$t('navbar.languageNames.serbian'),
             code: 'rs'
+          },
+          {
+            name: this.$t('navbar.languageNames.italian'),
+            code: 'it'
           }
         ]
       };

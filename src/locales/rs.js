@@ -11,7 +11,8 @@ const rs = {
     logoImage: "Logo slika",
     languageNames: {
       english: "Engleski",
-      serbian: "Srpski"
+      serbian: "Srpski",
+      italian: "Italijanski"
     }
   },
   header: {

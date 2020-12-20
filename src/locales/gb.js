@@ -11,7 +11,8 @@ const gb = {
     logoImage: "Logo image",
     languageNames: {
       english: "English",
-      serbian: "Serbian"
+      serbian: "Serbian",
+      italian: "Italian"
     }
   },
   header: {
