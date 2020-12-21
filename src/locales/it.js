@@ -34,9 +34,9 @@ const it = {
       noSearchResults: "Nessuna informazione. Vi preghiamo di scegliere altro nome."
     },
     grid: {
-      imageOfCharacterName: "Immagine per {nomeprotagonista}",
+      imageOfCharacterName: "Immagine per {characterName}",
       details: "Dettagli",
-      didYouMean: "Hai cercato: {elenco dei nomi}..."
+      didYouMean: "Hai cercato: {listOfNames}..."
     },
     loadMore: {
       loadMore: "Ricarica"
@@ -59,7 +59,7 @@ const it = {
     seasons: "Stagioni",
     years: "Anni",
     episodes: "Episodi",
-    deaths: "Morte"
+    deaths: "Morti"
   },
   video: {
     synopsis: "Synopsis",
@@ -67,7 +67,7 @@ const it = {
   },
   footer: {
     about: {
-      title: "Sull'app",
+      title: "Web applicazione",
       description: "Siamo interessati per creare le migliori applicazioni web"
     },
     links: {
