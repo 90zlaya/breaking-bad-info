@@ -1,23 +1,21 @@
-[![Generic badge](https://img.shields.io/badge/version-2.0.0-<COLOR>.svg)](https://shields.io/) [![Netlify Status](https://api.netlify.com/api/v1/badges/c52aaa3e-b67c-4588-abc4-1966e1b26e76/deploy-status)](https://app.netlify.com/sites/breakingbadinfo/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/c52aaa3e-b67c-4588-abc4-1966e1b26e76/deploy-status)](https://app.netlify.com/sites/breakingbadinfo/deploys)
 
 # Breaking Bad Info
 > Simple Vue.js app with [Breaking Bad] info
 
 ## Table of Contents
 
-1. [Description](#description)
-1. [Look and Feel](#look-and-feel)
-1. [Build Setup](#build-setup)
+* [Description](#description)
+* [Look and Feel](#look-and-feel)
+* [Build Setup](#build-setup)
 
-***
-
-1. ### Description
+## Description
 
 Idea is to create simple Vue.js project to demonstrate development skills in this awesome JS framework. Subject for this project is one of the greatest TV Shows ever, [Breaking Bad]. Fueling app with [The Breaking Bad API](https://breakingbadapi.com/) content. 
 
 [⬆ back to top](#table-of-contents)
 
-2. ### Look and Feel
+## Look and Feel
 
 You may visit [Breaking Bad Info](https://breakingbadinfo.netlify.app/) to see live version.
 
@@ -27,7 +25,7 @@ Currently home page looks like this, but have in mind that this image might stay
 
 [⬆ back to top](#table-of-contents)
 
-3. ### Build Setup
+## Build Setup
 
 ```bash
 # Install dependencies
